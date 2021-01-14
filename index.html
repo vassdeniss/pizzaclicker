@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html> 
+
+    <head>
+
+        <meta charset="UTF-8">
+        <title> Pizza Clicker </title> 
+        <script src="main.js"></script>
+        <link rel="stylesheet" href="main.css">
+        <link rel="shortcut icon" type="image/png" href="imgaes/transparentPizza.png">
+
+    </head>
+
+    <body> 
+
+        <hr>
+        <h1 style="text-align: center;"> Pizza Clicker </h1>
+
+        <div style="display: block; overflow: hidden;">
+            <div class="main"> 
+
+                <p id="pizzaCounter"> Count: 0 </p>
+                <button onclick="pizzaAdder()" id="pizzaButton" style="outline:none; border:none; background-color:transparent;"> 
+                    <img src="imgaes/transparentPizza.png" width="600px" height="500px"> 
+                </button>
+
+            </div>
+
+            <div class="upgrades">
+                
+                <p> Upgrades: </p>
+                <button onclick="clickersAdder()" id="clickersButton"> Clickers </button>
+                <p id="clickersPrice"> Price: 15 </p>
+                <p id="clickerCount"> Count: 0 </p> 
+
+            </div>
+        </div>
+        <hr>
+
+    </body>
+
+</html>
