@@ -21,7 +21,7 @@
 
                 <p id="pizzaCounter"> Count: 0 </p>
                 <button onclick="pizzaAdder()" id="pizzaButton" style="outline:none; border:none; background-color:transparent;"> 
-                    <img src="imgaes/transparentPizza.png" width="600px" height="500px"> 
+                    <img src="imgaes/transparentPizza.png" width="450px" height="400px"> 
                 </button>
 
             </div>
@@ -37,10 +37,22 @@
                 <div id="upgradeMenu" class="menuOptions">
                     
                     <p> Upgrades: </p>
-                    <button onclick="clickersAdder()" id="clickersButton"> Clickers </button>
+                    <button onclick="clickersAdder()" id="clickersButton"> Pointer Cookers </button>
                     <p class="line" id="clickersPrice"> Price: 15; </p>
                     <p class="line" id="clickerCount"> Count: 0; </p> 
-                    <p class="line"> Increases clicks by 0.5 </p>
+                    <p class="line"> Increases clicks by 0.5 </p><br>
+                    <div id="ovens" style="display: none;">
+                    <button onclick="ovensAdder()" id="ovensButton"> Ovens </button>
+                    <p class="line" id="ovensPrice"> Price: 100; </p>
+                    <p class="line" id="ovensCount"> Count: 0; </p> 
+                    <p class="line"> Increases clicks by 1 </p><br>
+                    </div>
+                    <div id="chefs" style="display: none;">
+                    <button onclick="chefsAdder()" id="chefsButton"> Chefs </button> 
+                    <p class="line" id="chefsPrice"> Price: 1100; </p>
+                    <p class="line" id="chefsCount"> Count: 0; </p> 
+                    <p class="line"> Increases clicks by 8 </p>
+                    </div>
 
                 </div>
 
@@ -53,7 +65,6 @@
             </div>
         </div>
         <hr>
-
     </body>
 
 </html>
