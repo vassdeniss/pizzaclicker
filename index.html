@@ -26,13 +26,30 @@
 
             </div>
 
-            <div class="upgrades">
-                
-                <p> Upgrades: </p>
-                <button onclick="clickersAdder()" id="clickersButton"> Clickers </button>
-                <p id="clickersPrice"> Price: 15 </p>
-                <p id="clickerCount"> Count: 0 </p> 
+            <div style="width: 100%;">
+                <div id="menus"> 
 
+                    <p> Menus: </p>
+                    <button onclick="showStats()"> Stats </button>
+
+                </div>
+
+                <div id="upgradeMenu" class="menuOptions">
+                    
+                    <p> Upgrades: </p>
+                    <button onclick="clickersAdder()" id="clickersButton"> Clickers </button>
+                    <p class="line" id="clickersPrice"> Price: 15; </p>
+                    <p class="line" id="clickerCount"> Count: 0; </p> 
+                    <p class="line"> Increases clicks by 0.5 </p>
+
+                </div>
+
+                <div id="stats" style="display: none;" class="menuOptions"> 
+
+                    <p> Stats: </p>
+                    <p id="pizzaTotal"> Total Pizzas Clicked: 0 </p>
+
+                </div>
             </div>
         </div>
         <hr>
