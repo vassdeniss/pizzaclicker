@@ -23,7 +23,7 @@ body {
 }
 
 hr {
-  border: 10px solid yellow;
+  border: 10px solid orange;
   border-radius: 5px;
 }
 
@@ -33,7 +33,7 @@ hr {
 }
 
 button {
-  font-size: 25px;
+  font-size: 20px;
 }
 
 p {

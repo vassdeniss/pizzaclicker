@@ -19,7 +19,9 @@
         <div style="display: block; overflow: hidden;">
             <div class="main"> 
 
-                <p id="pizzaCounter"> Count: 0 </p>
+                <p id="name"> null's Restaurant </p>
+                <p id="pizzaCounter"> Pizzas: 0 </p>
+                <p id="cps"> Clicks Per Second: 0 </p>
                 <button onclick="pizzaAdder()" id="pizzaButton" style="outline:none; border:none; background-color:transparent;"> 
                     <img src="imgaes/transparentPizza.png" width="450px" height="400px"> 
                 </button>
@@ -30,7 +32,9 @@
                 <div id="menus"> 
 
                     <p> Menus: </p>
-                    <button onclick="showStats()"> Stats </button>
+                    <button style="margin-bottom: 25px;" onclick="showStats()"> Stats </button><br>
+                    <button style="margin-bottom: 25px;" onclick="showPowers()"> Power-Ups </button> 
+                    <button onclick="changeName()" id="pickName"> Change Name </button>
 
                 </div>
 
@@ -60,6 +64,17 @@
 
                     <p> Stats: </p>
                     <p id="pizzaTotal"> Total Pizzas Clicked: 0 </p>
+
+                </div>
+
+                <div id="powers" style="display: none;" class="menuOptions"> 
+                
+                    <p> Power-Ups: </p>
+                    <div id="tomato" style="display: none;">
+                        <button id="tomatoButton" onclick="tomatoAdder()"> Tomato Sauce </button> 
+                        <p class="line" id="tomatoPrice"> Price: 1000000; </p>
+                        <p class="line"> Increases production +1% </p>
+                    </div>
 
                 </div>
             </div>
