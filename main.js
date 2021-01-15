@@ -1,4 +1,4 @@
-var count = 2000000;
+var count = 0;
 var totalCount = 0;
 var clickersCount = 0;
 var ovensCount = 0;
