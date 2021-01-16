@@ -88,8 +88,8 @@ function tomatoAdder() {
 }
 
 function clickersTimer() {
-    count += 0.5 * clickersCount;
-    totalCount += 0.5 * clickersCount;
+    count += 0.1 * clickersCount;
+    totalCount += 0.1 * clickersCount;
     totalPizzas();
     var countFixed = count.toFixed(0);
     document.getElementById("pizzaCounter").innerHTML = "Pizzas: " + countFixed;
@@ -163,7 +163,7 @@ function totalPizzas() {
 }
 
 function CPS() {
-    totalCPS = 0.5 * clickersCount + 1 * ovensCount + 8 * chefsCount + tomatoPercent; 
+    totalCPS = 0.1 * clickersCount + 1 * ovensCount + 8 * chefsCount + tomatoPercent; 
     document.getElementById("cps").innerHTML = "Clciks Per Second: " + totalCPS;
 }
 
