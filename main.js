@@ -9,6 +9,7 @@ var clickersPrice = 15;
 var ovensPrice = 100;
 var chefsPrice = 1100;
 var totalCPS = 0;
+var name = null;
 window.setInterval(clickersTimer, 1000); 
 window.setInterval(ovensTimer, 1000);
 window.setInterval(chefsTimer, 1000);
@@ -168,6 +169,72 @@ function CPS() {
 }
 
 function changeName() {
-    var name = prompt("Enter restaurant name:");
+    name = prompt("Enter restaurant name:");
     document.getElementById("name").innerHTML = name + "'s Restaurant";
 }
+
+// Tova raboti perfektno
+
+function save() {
+
+    var saveObject = { "count":count, "totalCount":totalCount, "clickersCount":clickersCount, 
+    "ovensCount":ovensCount, "chefsCount":chefsCount, "tomatoSauce":tomatoSauce, 
+    "toamtoPercent":tomatoPercent, "clickersPrice":clickersPrice, "ovensPrice":ovensPrice, "chefsPrice":chefsPrice, 
+    "totalCPS":totalCPS, "name":name }
+
+    var saveJSON = JSON.stringify(saveObject);
+
+    saveJSON = [saveJSON];
+    var blob1 = new Blob(saveJSON, { type: "text/plain;charset=utf-8" });
+
+    var isIE = false || !!document.documentMode;
+    if (isIE) {
+        window.navigator.msSaveBlob(blob1, name + "'s save.json");
+    } else {
+        var url = window.URL || window.webkitURL;
+        link = url.createObjectURL(blob1);
+        var a = document.createElement("a");
+        a.download = name + "'s save.json";
+        a.href = link;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    }
+}
+
+// Predpolagam taka se zarejda?
+
+function load() {
+    var data = JSON.parse(saveObject);
+    alert(data[0].count);
+    alert(data[1].totalCount);
+    alert(data[2].clickersCount);
+    alert(data[3].ovensCount);
+    alert(data[4].chefsCount);
+    alert(data[5].tomatoSauce);
+    alert(data[6].tomatoPercent);
+    alert(data[7].clickersPrice);
+    alert(data[8].ovensPrice);
+    alert(data[9].chefsPrice);
+    alert(data[10].totalCPS);
+    alert(data[11].name);
+}
+
+// Tuk sum opital da zareda faila ama ne se poluchava
+
+function handleFileSelect(evt) {
+    var files = evt.target.files; // FileList object
+
+    var output = [];
+    for (var i = 0, f; f = files[i]; i++) {
+      output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
+                  f.size, ' bytes, last modified: ',
+                  f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
+                  '</li>');
+    }
+    document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
+  }
+
+  document.getElementById('files').addEventListener('change', handleFileSelect, false);
+
+  // Kakvo da pravq gospodine?

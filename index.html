@@ -29,12 +29,16 @@
             </div>
 
             <div style="width: 100%;">
+
                 <div id="menus"> 
 
                     <p> Menus: </p>
                     <button style="margin-bottom: 25px;" onclick="showStats()"> Stats </button><br>
                     <button style="margin-bottom: 25px;" onclick="showPowers()"> Power-Ups </button> 
-                    <button onclick="changeName()" id="pickName"> Change Name </button>
+                    <button style="margin-bottom: 25px;" onclick="changeName()" id="pickName"> Change Name </button>
+                    <button style="margin-bottom: 25px;" onclick="save()"> Save Game </button>
+                    <input type="file" id="files" name="files[]" multiple />
+                    <output id="list"></output>
 
                 </div>
 
@@ -81,5 +85,4 @@
         </div>
         <hr>
     </body>
-
 </html>
