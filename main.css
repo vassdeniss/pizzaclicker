@@ -39,3 +39,8 @@ button {
 p {
   margin-top: 0px;
 }
+
+.dark {
+  background-color: black;
+  color: white;
+}

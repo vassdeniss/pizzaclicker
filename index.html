@@ -22,9 +22,25 @@
                 <p id="name"> null's Restaurant </p>
                 <p id="pizzaCounter"> Pizzas: 0 </p>
                 <p id="cps"> Clicks Per Second: 0 </p>
+                <!--
                 <button onclick="pizzaAdder()" id="pizzaButton" style="outline:none; border:none; background-color:transparent;"> 
                     <img src="imgaes/transparentPizza.png" width="450px" height="400px"> 
                 </button>
+                <img src="imgaes/tomatoSauce.png" width="100px" height="100px"> 
+                -->
+
+                <div class="row">
+                    <div class="col-6">
+                        <button onclick="pizzaAdder()" id="pizzaButton" style="outline:none; border:none; background-color:transparent;"> 
+                            <img src="imgaes/transparentPizza.png" width="450px" height="400px"> 
+                        </button>
+                    </div>
+                  </div>
+                  <div style="display: none;" id="TSImage" class="row">
+                    <div class="col-6">
+                        <img style="float: left;" src="imgaes/tomatoSauce.png" width="50px" height="100px"> 
+                    </div>
+                  </div>
 
             </div>
 
@@ -34,11 +50,11 @@
 
                     <p> Menus: </p>
                     <button style="margin-bottom: 25px;" onclick="showStats()"> Stats </button><br>
-                    <button style="margin-bottom: 25px;" onclick="showPowers()"> Power-Ups </button> 
-                    <button style="margin-bottom: 25px;" onclick="changeName()" id="pickName"> Change Name </button>
-                    <button style="margin-bottom: 25px;" onclick="save()"> Save Game </button>
-                    <input type="file" id="files" name="files[]" multiple />
-                    <output id="list"></output>
+                    <button style="margin-bottom: 25px;" onclick="showPowers()"> Power-Ups </button><br>
+                    <button style="margin-bottom: 25px;" onclick="changeName()" id="pickName"> Change Name </button><br>
+                    <button style="margin-bottom: 25px;" onclick="save()"> Save </button>
+                    <button style="margin-bottom: 25px;" onclick="load()"> Load </button><br>
+                    <button style="margin-bottom: 25px;" onclick="dark()"> Dark Mode </button><br>
 
                 </div>
 

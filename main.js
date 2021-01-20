@@ -85,6 +85,7 @@ function tomatoAdder() {
         document.getElementById("pizzaCounter").innerHTML = "Pizzas: " + countFixed;
         CPS(); 
         document.getElementById("tomatoButton").disabled = true;
+        document.getElementById("TSImage").style.display = "block"; 
     }
 }
 
@@ -165,7 +166,7 @@ function totalPizzas() {
 
 function CPS() {
     totalCPS = 0.1 * clickersCount + 1 * ovensCount + 8 * chefsCount + tomatoPercent; 
-    document.getElementById("cps").innerHTML = "Clciks Per Second: " + totalCPS;
+    document.getElementById("cps").innerHTML = "Clicks Per Second: " + totalCPS.toFixed(2);
 }
 
 function changeName() {
@@ -173,68 +174,67 @@ function changeName() {
     document.getElementById("name").innerHTML = name + "'s Restaurant";
 }
 
-// Tova raboti perfektno
-
 function save() {
-
-    var saveObject = { "count":count, "totalCount":totalCount, "clickersCount":clickersCount, 
-    "ovensCount":ovensCount, "chefsCount":chefsCount, "tomatoSauce":tomatoSauce, 
-    "toamtoPercent":tomatoPercent, "clickersPrice":clickersPrice, "ovensPrice":ovensPrice, "chefsPrice":chefsPrice, 
-    "totalCPS":totalCPS, "name":name }
-
-    var saveJSON = JSON.stringify(saveObject);
-
-    saveJSON = [saveJSON];
-    var blob1 = new Blob(saveJSON, { type: "text/plain;charset=utf-8" });
-
-    var isIE = false || !!document.documentMode;
-    if (isIE) {
-        window.navigator.msSaveBlob(blob1, name + "'s save.json");
-    } else {
-        var url = window.URL || window.webkitURL;
-        link = url.createObjectURL(blob1);
-        var a = document.createElement("a");
-        a.download = name + "'s save.json";
-        a.href = link;
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
+    var save = { 
+        count: count, 
+        totalCount: totalCount, 
+        clickersCount: clickersCount, 
+        ovensCount: ovensCount, 
+        chefsCount: chefsCount, 
+        tomatoSauce: tomatoSauce, 
+        toamtoPercen: tomatoPercent, 
+        clickersPrice: clickersPrice, 
+        ovensPrice: ovensPrice, 
+        chefsPrice: chefsPrice, 
+        totalCPS: totalCPS, 
+        name: name 
     }
-}
-
-// Predpolagam taka se zarejda?
+    localStorage.setItem("save", JSON.stringify(save));
+};
 
 function load() {
-    var data = JSON.parse(saveObject);
-    alert(data[0].count);
-    alert(data[1].totalCount);
-    alert(data[2].clickersCount);
-    alert(data[3].ovensCount);
-    alert(data[4].chefsCount);
-    alert(data[5].tomatoSauce);
-    alert(data[6].tomatoPercent);
-    alert(data[7].clickersPrice);
-    alert(data[8].ovensPrice);
-    alert(data[9].chefsPrice);
-    alert(data[10].totalCPS);
-    alert(data[11].name);
+    var load = JSON.parse(localStorage.getItem("save"));
+
+    count = load.count;
+    totalCount = load.totalCount; 
+    clickersCount = load.clickersCount;
+    ovensCount = load.ovensCount; 
+    chefsCount = load.chefsCount; 
+    tomatoSauce = load.tomatoSauce; 
+    tomatoPercent = load.tomatoPercent;
+    clickersPrice = load.clickersPrice; 
+    ovensPrice = load.ovensPrice;
+    chefsPrice = load.chefsPrice;
+    totalCPS = load.totalCPS;
+    name = load.name;
+
+    document.getElementById("name").innerHTML = name + "'s Restaurant";
+    document.getElementById("cps").innerHTML = "Clicks Per Second: " + totalCPS.toFixed(2);
+    if (count >= 100) {
+        document.getElementById("ovens").style.display = "block";
+    }
+    if (count >= 1100) {
+        document.getElementById("chefs").style.display = "block";
+    }
+    if (count >= 50000) {
+        document.getElementById("tomato").style.display = "block";
+    }
+    document.getElementById("clickerCount").innerHTML = "Count: " + clickersCount + ";";
+    document.getElementById("ovensCount").innerHTML = "Count: " + ovensCount + ";";
+    document.getElementById("chefsCount").innerHTML = "Count: " + chefsCount + ";";
+    if (tomatoSauce == true) {
+        document.getElementById("tomatoButton").disabled = true;
+        document.getElementById("TSImage").style.display = "block"; 
+    }
+
+    clickersPriceAdder();
+    
+    ovensPriceAdder();
+    
+    chefsPriceAdder();
 }
 
-// Tuk sum opital da zareda faila ama ne se poluchava
-
-function handleFileSelect(evt) {
-    var files = evt.target.files; // FileList object
-
-    var output = [];
-    for (var i = 0, f; f = files[i]; i++) {
-      output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
-                  f.size, ' bytes, last modified: ',
-                  f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
-                  '</li>');
-    }
-    document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
-  }
-
-  document.getElementById('files').addEventListener('change', handleFileSelect, false);
-
-  // Kakvo da pravq gospodine?
+function dark() {
+    var element = document.body; 
+    element.classList.toggle("dark");
+}
