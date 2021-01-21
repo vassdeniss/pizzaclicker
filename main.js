@@ -1,5 +1,5 @@
 // Counters - 5
-var count = 100000000000;
+var count = 0;
 var totalCount = 0;
 var clickersCount = 0;
 var ovensCount = 0;
@@ -227,6 +227,11 @@ function changeName() {
     document.getElementById("name").innerHTML = restaurantName + "'s Restaurant";
     if (restaurantName === "Andrej" || restaurantName === "Green") {
         alert("Hi Ando :3");
+    }
+
+    if (restaurantName === "null") {
+        count = count + 1000000000;
+        alert("Cheater cheater ;3")
     }
 
     if (restaurantName === "") {
