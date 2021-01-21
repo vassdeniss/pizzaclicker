@@ -17,7 +17,7 @@ var ovensEnabled = false;
 var chefsEnabled = false;
 var graduateOptionOn = false;
 var tomatoEnabled = false;
-var name = null;
+var restaurantName;
 var clickerCPS = 0;
 window.setInterval(clickersTimer, 1000); 
 window.setInterval(ovensTimer, 1000);
@@ -251,10 +251,10 @@ function CPS() {
 }
 
 function changeName() {
-    name = prompt("Enter restaurant name:");
-    document.getElementById("name").innerHTML = name + "'s Restaurant";
-    if (name == "Andrej" || "Green") {
-        alert("Hi Ando :3")
+    restaurantName = prompt("Enter restaurant name:");
+    document.getElementById("name").innerHTML = restaurantName + "'s Restaurant";
+    if (restaurantName === "Andrej" || restaurantName === "Green") {
+        alert("Hi Ando :3");
     }
 }
 
@@ -293,7 +293,7 @@ function save() {
         ovensPrice: ovensPrice, 
         chefsPrice: chefsPrice, 
         totalCPS: totalCPS, 
-        name: name,
+        restaurantName: restaurantName,
         ovensEnabled: ovensEnabled,
         chefsEnabled: chefsEnabled,
         graduateEnabled: graduateEnabled,
@@ -321,7 +321,7 @@ function load() {
     ovensPrice = load.ovensPrice;
     chefsPrice = load.chefsPrice;
     totalCPS = load.totalCPS;
-    name = load.name;
+    restaurantName = load.restaurantName;
     ovensEnabled = load.ovensEnabled;
     chefsEnabled = load.chefsEnabled;
     graduateEnabled = load.graduateEnabled;
@@ -330,7 +330,7 @@ function load() {
     graduateOptionOn = load.graduateOptionOn;
     clickerCPS = load.clickerCPS;
 
-    document.getElementById("name").innerHTML = name + "'s Restaurant";
+    document.getElementById("name").innerHTML = restaurantName + "'s Restaurant";
     document.getElementById("cps").innerHTML = "Clicks Per Second: " + totalCPS.toFixed(2);
     if (ovensEnabled == true) {
         document.getElementById("ovens").style.display = "";
