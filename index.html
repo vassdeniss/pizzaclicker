@@ -8,12 +8,13 @@
         <script src="main.js"></script>
         <link rel="stylesheet" href="main.css">
         <link rel="shortcut icon" type="image/png" href="imgaes/transparentPizza.png">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     </head>
 
     <body> 
 
-        <hr>
+        <hr class="color">
         <h1 style="text-align: center;"> Pizza Clicker </h1>
 
         <div style="display: block; overflow: hidden;">
@@ -25,8 +26,8 @@
 
                 <div class="row">
                     <div class="col-6">
-                        <button onclick="pizzaAdder()" id="pizzaButton" style="outline:none; border:none; background-color:transparent;"> 
-                            <img src="imgaes/transparentPizza.png" width="450px" height="400px"> 
+                        <button onmouseout="resizePizzaNormal()" onmouseover="resizePizzaHover()" onmouseup="resizePizzaHover()" onmousedown="playPizzaSound(); resizePizzaSmall()" onclick="pizzaAdder()" id="pizzaButton" style="outline:none; border:none; background-color:transparent;"> 
+                            <img style="cursor: pointer;" id="pizza" src="imgaes/transparentPizza.png" width="450px" height="400px"> 
                         </button>
                     </div>
                   </div>
@@ -43,36 +44,51 @@
                 <div id="menus"> 
 
                     <p> Menus: </p>
-                    <button style="margin-bottom: 25px;" onclick="showStats()"> Stats </button><br>
-                    <button style="margin-bottom: 25px;" onclick="showPowers()"> Power-Ups </button><br>
-                    <button style="margin-bottom: 25px;" onclick="changeName()" id="pickName"> Change Name </button><br>
-                    <button style="margin-bottom: 25px;" onclick="save()"> Save </button>
-                    <button style="margin-bottom: 25px;" onclick="load()"> Load </button><br>
-                    <button style="margin-bottom: 25px;" onclick="dark()"> Dark Mode </button><br>
+                    <button style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="showBuildings()"> Buildings </button><br>
+                    <button style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="showStats()"> Stats </button><br>
+                    <button style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="showUpgrades()"> Upgrades </button><br>
+                    <button style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="changeName()" id="pickName"> Change Name </button><br>
+                    <button style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="save()"> Save </button>
+                    <button style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="load()"> Load </button><br>
+                    <button style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="showColors()"> Color Picker </button><br>
+                    <button style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="dark()"> Dark Mode </button><br>
 
                 </div>
 
-                <div id="upgradeMenu" class="menuOptions">
+                <div id="upgradeMenu" class="menuOptions" style="display: none;">
                     
-                    <p> Upgrades: </p>
-                    <button onclick="clickersAdder()" id="clickersButton"> Pointer Cookers </button>
-                    <p class="line" id="clickersPrice"> Price: 15; </p>
-                    <p class="line" id="clickerCount"> Count: 0; </p> 
-                    <p class="line"> Increases clicks by 0.1 </p><br>
-                    <div id="ovens" style="display: none;">
-                    <button onclick="ovensAdder()" id="ovensButton"> Ovens </button>
-                    <p class="line" id="ovensPrice"> Price: 100; </p>
-                    <p class="line" id="ovensCount"> Count: 0; </p> 
-                    <p class="line"> Increases clicks by 1 </p><br>
-                    </div>
-                    <div id="chefs" style="display: none;">
-                    <button onclick="chefsAdder()" id="chefsButton"> Chefs </button> 
-                    <p class="line" id="chefsPrice"> Price: 1100; </p>
-                    <p class="line" id="chefsCount"> Count: 0; </p> 
-                    <p class="line"> Increases clicks by 8 </p>
-                    </div>
+                    <p> Buildings: </p>
 
-                </div>
+                    <table id="table"> 
+                        <tr> 
+                            <th class="border"> Upgrade </th>
+                            <th class="border"> Cost </th>
+                            <th class="border"> Count </th>
+                            <th class="border"> Effect </th>
+                        </tr>
+                        <tr>
+                            <td class="border"> Pointer Cookers </td> 
+                            <td class="border"><span id="clickersPrice"> Price: 15 </span></td> 
+                            <td class="border"><span id="clickerCount"> Count: 0 </span></td> 
+                            <td class="border"> Increases clicks by 0.1 </td> 
+                            <td class="border"><button style="cursor: pointer;" onmousedown="playButtonSound()" onclick="clickersAdder()" id="clickersButton"> Buy </button></td>
+                        </tr>
+                        <tr id="ovens" style="display: none;">
+                            <td class="border"> Ovens </td> 
+                            <td class="border"><span id="ovensPrice"> Price: 100 </span></td> 
+                            <td class="border"><span id="ovensCount"> Count: 0 </span></td> 
+                            <td class="border"> Increases clicks by 1 </td>  
+                            <td class="border"><button style="cursor: pointer;" onmousedown="playButtonSound()" onclick="ovensAdder()" id="ovensButton"> Buy </button></td>
+                        </tr>
+                        <tr id="chefs" style="display: none;">
+                            <td class="border"> Chefs </td> 
+                            <td class="border"><span id="chefsPrice"> Price: 1100 </span></td> 
+                            <td class="border"><span id="chefsCount"> Count: 0 </span></td> 
+                            <td class="border"> Increases clicks by 8 </td>  
+                            <td class="border"><button style="cursor: pointer;" onmousedown="playButtonSound()" onclick="chefsAdder()" id="chefsButton"> Buy </button> </td>
+                        </tr>
+                    </table>
+                </div><br>
 
                 <div id="stats" style="display: none;" class="menuOptions"> 
 
@@ -81,18 +97,45 @@
 
                 </div>
 
-                <div id="powers" style="display: none;" class="menuOptions"> 
+                <div id="upgrades" style="display: none;" class="menuOptions"> 
                 
-                    <p> Power-Ups: </p>
-                    <div id="tomato" style="display: none;">
-                        <button id="tomatoButton" onclick="tomatoAdder()"> Tomato Sauce </button> 
-                        <p class="line" id="tomatoPrice"> Price: 1000000; </p>
-                        <p class="line"> Increases production +1% </p>
-                    </div>
+                    <p> Upgrades: </p>
+
+                    <table id="tabl2e"> 
+                        <tr> 
+                            <th class="border"> Upgrade </th>
+                            <th class="border"> Cost </th>
+                            <th class="border"> Effect </th>
+                        </tr>
+                        <tr id="GPC" style="display: none;">
+                            <td class="border"> Graduated Pointer Cookers </td> 
+                            <td class="border"> Price: 100 </td>
+                            <td class="border"> Clicking and the Pointer Cookers are twice as powerful </td>
+                            <td><button style="cursor: pointer;" onmousedown="playButtonSound()" id="graduateButton" onclick="graduateAdder()"> Buy </button></td>
+                        </tr> 
+                        <tr id="tomato" style="display: none;"> 
+                            <td class="border"> Tomato Sauce </td>
+                            <td class="border"> Price: 1000000 </td>
+                            <td class="border"> Increases production +1% </td>
+                            <td><button style="cursor: pointer;" onmousedown="playButtonSound()" id="tomatoButton" onclick="tomatoAdder()"> Buy </button></td>
+                        </tr>
+                    </table>
+
+                </div>
+
+                <div id="colors" style="display: none;" class="menuOptions">
+                
+                    <p> Color Picker: </p> 
+                    
+                    <button style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="orange()"> Orange </button><br>
+                    <button style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="red()"> Red </button><br>
+                    <button style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="green()"> Green </button><br>
+                    <button style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="yellow()"> Yellow </button><br>
+                    <button style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="blue()"> Blue </button><br>
 
                 </div>
             </div>
         </div>
-        <hr>
+        <hr class="color">
     </body>
 </html>

@@ -44,3 +44,19 @@ p {
   background-color: black;
   color: white;
 }
+
+table, th, td {
+  text-align: center;
+}
+
+table {
+  width: 90%;
+}
+
+.border {
+  border: 1px solid black;
+}
+
+.borderWhite {
+  border: 1px solid white;
+}
