@@ -1,5 +1,5 @@
 // Counters - 5
-var count = 0;
+var count = 100000000000;
 var totalCount = 0;
 var clickersCount = 0;
 var ovensCount = 0;
@@ -29,10 +29,8 @@ var tomatoEnabled = false;
 var ovensEnabled = false;
 var chefsEnabled = false;
 
-var restaurantName;
-window.setInterval(clickersTimer, 1000); 
-window.setInterval(ovensTimer, 1000);
-window.setInterval(chefsTimer, 1000);
+var restaurantName = "Your";
+window.setInterval(Timer, 1000); 
 
 function playButtonSound() {
     var sound = new Audio();
@@ -103,9 +101,10 @@ function clickersAdder() {
         document.getElementById("clickerCount").innerHTML = "Count: " + clickersCount;
         count = count - clickersPrice;
         document.getElementById("pizzaCounter").innerHTML = "Pizzas: " + count.toFixed(0);
-        clickersPriceAdder();
-    }
-    else { 
+        var formula = 15 * Math.pow(1.15, clickersCount);
+        clickersPrice = formula;
+        document.getElementById("clickersPrice").innerHTML = "Price: " + clickersPrice.toFixed(0);
+    } else { 
         alert("You don't have enough pizzas for that!");
     }
 }
@@ -118,9 +117,10 @@ function ovensAdder() {
         document.getElementById("ovensCount").innerHTML = "Count: " + ovensCount;
         count = count - ovensPrice;
         document.getElementById("pizzaCounter").innerHTML = "Pizzas: " + count.toFixed(0);
-        ovensPriceAdder();
-    }
-    else {
+        var formula = 100 * Math.pow(1.15, ovensCount);
+        ovensPrice = formula;
+        document.getElementById("ovensPrice").innerHTML = "Price: " + ovensPrice.toFixed(0);
+    } else {
         alert("You don't have enough pizzas for that!");
     }
 }
@@ -134,9 +134,10 @@ function chefsAdder() {
         document.getElementById("chefsCount").innerHTML = "Count: " + chefsCount;
         count = count - chefsPrice;
         document.getElementById("pizzaCounter").innerHTML = "Pizzas: " + countFixed;
-        ovensPriceAdder();
-    }
-    else {
+        var formula = 1100 * Math.pow(1.15, chefsCount);
+        chefsPrice = formula;
+        document.getElementById("chefsPrice").innerHTML = "Price: " + chefsPrice.toFixed(0);
+    } else {
         alert("You don't have enough pizzas for that!");
     }
 }
@@ -165,43 +166,11 @@ function tomatoAdder() {
     }
 }
 
-function clickersTimer() {
-    count += clickerCPS;
-    totalCount += clickerCPS;
+function Timer() {
+    count += clickerCPS + ovensCPS + chefsCPS;
+    totalCount += clickerCPS + ovensCPS + chefsCPS;
     totalPizzas();
     document.getElementById("pizzaCounter").innerHTML = "Pizzas: " + count.toFixed(0);
-}
-
-function ovensTimer() {
-    count += ovensCPS 
-    totalCount += ovensCPS
-    totalPizzas();
-    document.getElementById("pizzaCounter").innerHTML = "Pizzas: " + count.toFixed(0);
-}
-
-function chefsTimer() {
-    count += chefsCount; 
-    totalCount += chefsCount;
-    totalPizzas(); 
-    document.getElementById("pizzaCounter").innerHTML = "Pizzas: " + count.toFixed(0);
-}
-
-function clickersPriceAdder() {
-    var formula = 15 * Math.pow(1.15, clickersCount);
-    clickersPrice = formula;
-    document.getElementById("clickersPrice").innerHTML = "Price: " + clickersPrice.toFixed(0);
-}
-
-function ovensPriceAdder() {
-    var formula = 100 * Math.pow(1.15, ovensCount);
-    ovensPrice = formula;
-    document.getElementById("ovensPrice").innerHTML = "Price: " + ovensPrice.toFixed(0);
-}
-
-function chefsPriceAdder() {
-    var formula = 1100 * Math.pow(1.15, chefsCount);
-    chefsPrice = formula;
-    document.getElementById("chefsPrice").innerHTML = "Price: " + chefsPrice.toFixed(0);
 }
 
 function showStats() {
@@ -209,8 +178,7 @@ function showStats() {
 
     if (x.style.display == "none") {
         x.style.display = "block";
-    }
-    else if (x.style.display == "block") {
+    } else if (x.style.display == "block") {
         x.style.display = "none";
     }
 }
@@ -220,8 +188,7 @@ function showBuildings() {
 
     if (x.style.display == "none") {
         x.style.display = "block";
-    }
-    else if (x.style.display == "block") {
+    } else if (x.style.display == "block") {
         x.style.display = "none";
     }
 }
@@ -231,8 +198,7 @@ function showUpgrades() {
 
     if (x.style.display == "none") {
         x.style.display = "block";
-    }
-    else if (x.style.display == "block") {
+    } else if (x.style.display == "block") {
         x.style.display = "none";
     }
 }
@@ -242,8 +208,7 @@ function showColors() {
 
     if (x.style.display == "none") {
         x.style.display = "block"; 
-    }
-    else if (x.style.display == "block") {
+    } else if (x.style.display == "block") {
         x.style.display = "none";
     }
 }
@@ -253,7 +218,7 @@ function totalPizzas() {
 }
 
 function CPS() {
-    totalCPS = clickerCPS + ovensCPS * chefsCPS + tomatoPercent; 
+    totalCPS = clickerCPS + ovensCPS + chefsCPS + tomatoCPS; 
     document.getElementById("cps").innerHTML = "Clicks Per Second: " + totalCPS.toFixed(2);
 }
 
@@ -262,6 +227,14 @@ function changeName() {
     document.getElementById("name").innerHTML = restaurantName + "'s Restaurant";
     if (restaurantName === "Andrej" || restaurantName === "Green") {
         alert("Hi Ando :3");
+    }
+
+    if (restaurantName === "") {
+        document.getElementById("name").innerHTML = "Your Restaurant";
+    } else if (restaurantName) {
+        document.getElementById("name").innerHTML = restaurantName + "'s Restaurant";
+    } else {
+        document.getElementById("name").innerHTML = "Your Restaurant";
     }
 }
 
@@ -349,7 +322,12 @@ function load() {
 
     restaurantName = load.restaurantName;
 
-    document.getElementById("name").innerHTML = restaurantName + "'s Restaurant";
+    if (restaurantName === Your) {
+        document.getElementById("name").innerHTML = "Your Restaurant";
+    } else {
+        document.getElementById("name").innerHTML = restaurantName + "'s Restaurant";
+    }
+
     document.getElementById("cps").innerHTML = "Clicks Per Second: " + totalCPS.toFixed(2);
 
     if (ovensEnabled == true) {
