@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html> 
+<html lang="en-us"> 
 
     <head>
 
@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="main.css">
         <link rel="shortcut icon" type="image/png" href="imgaes/icon.png">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
 
     </head>
 
@@ -20,7 +21,7 @@
         <div style="display: block; overflow: hidden;">
             <div class="main"> 
 
-                <p id="name"> Your Restaurant </p>
+                <p id="name">  </p>
                 <p id="pizzaCounter"> Pizzas: 0 </p>
                 <p id="cps"> Clicks Per Second: 0.00 </p>
 
@@ -68,21 +69,21 @@
                         </tr>
                         <tr>
                             <td class="border"> Pointer Cookers </td> 
-                            <td class="border"><span id="clickersPrice"> Price: 15 </span></td> 
+                            <td class="border"><img src="imgaes/transparentPizza.png" height="25px" width="25px"><span id="clickersPrice">Price: 15 </span></td> 
                             <td class="border"><span id="clickerCount"> Count: 0 </span></td> 
                             <td class="border"> Increases clicks by 0.1 </td> 
                             <td class="border"><button style="cursor: pointer;" onmousedown="playButtonSound()" onclick="clickersAdder()" id="clickersButton"> Buy </button></td>
                         </tr>
                         <tr id="ovens" style="display: none;">
                             <td class="border"> Ovens </td> 
-                            <td class="border"><span id="ovensPrice"> Price: 100 </span></td> 
+                            <td class="border"><img src="imgaes/transparentPizza.png" height="25px" width="25px"><span id="ovensPrice">Price: 100 </span></td> 
                             <td class="border"><span id="ovensCount"> Count: 0 </span></td> 
                             <td class="border"> Increases clicks by 1 </td>  
                             <td class="border"><button style="cursor: pointer;" onmousedown="playButtonSound()" onclick="ovensAdder()" id="ovensButton"> Buy </button></td>
                         </tr>
                         <tr id="chefs" style="display: none;">
                             <td class="border"> Chefs </td> 
-                            <td class="border"><span id="chefsPrice"> Price: 1100 </span></td> 
+                            <td class="border"><img src="imgaes/transparentPizza.png" height="25px" width="25px"><span id="chefsPrice">Price: 1100 </span></td> 
                             <td class="border"><span id="chefsCount"> Count: 0 </span></td> 
                             <td class="border"> Increases clicks by 8 </td>  
                             <td class="border"><button style="cursor: pointer;" onmousedown="playButtonSound()" onclick="chefsAdder()" id="chefsButton"> Buy </button> </td>
@@ -101,7 +102,7 @@
                 
                     <p> Upgrades: </p>
 
-                    <table id="tabl2e"> 
+                    <table id="table2"> 
                         <tr> 
                             <th class="border"> Upgrade </th>
                             <th class="border"> Cost </th>
@@ -109,14 +110,20 @@
                         </tr>
                         <tr id="GPC" style="display: none;">
                             <td class="border"> Graduated Pointer Cookers </td> 
-                            <td class="border"> Price: 100 </td>
+                            <td class="border"><img src="imgaes/transparentPizza.png" height="25px" width="25px"> Price: 100 </td>
                             <td class="border"> Clicking and the Pointer Cookers are twice as powerful - <i> "They graduated cooking collage to work for you" </i> </td>
                             <td><button style="cursor: pointer;" onmousedown="playButtonSound()" id="graduateButton" onclick="graduateAdder()"> Buy </button></td>
                         </tr> 
+                        <tr id="HPC" style="display: none;"> 
+                            <td class="border"> Heated Pointer Cookers </td>
+                            <td class="border"><img src="imgaes/transparentPizza.png" height="25px" width="25px"> Price: 10000 </td>
+                            <td class="border"> Clicking and the Pointer Cookers are twice as powerful - <i> "Extra heat for faster cooking times" </i> </td>
+                            <td><button style="cursor: pointer;" onmousedown="playButtonSound()" id="hotButton" onclick="hotAdder()"> Buy </button></td>
+                        </tr>
                         <tr id="tomato" style="display: none;"> 
                             <td class="border"> Tomato Sauce </td>
-                            <td class="border"> Price: 1000000 </td>
-                            <td class="border"> Increases production +1% </td>
+                            <td class="border"><img src="imgaes/transparentPizza.png" height="25px" width="25px"> Price: 1000000 </td>
+                            <td class="border"> Increases production +1% - <i> "The essentials" </i> </td>
                             <td><button style="cursor: pointer;" onmousedown="playButtonSound()" id="tomatoButton" onclick="tomatoAdder()"> Buy </button></td>
                         </tr>
                     </table>
@@ -132,6 +139,7 @@
                     <button style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="green()"> Green </button><br>
                     <button style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="yellow()"> Yellow </button><br>
                     <button style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="blue()"> Blue </button><br>
+                    <button style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="purple()"> Purple </button><br>
 
                 </div>
             </div>
