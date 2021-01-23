@@ -58,14 +58,17 @@ function playPizzaSound() {
 
 function resizePizzaSmall() {
     document.getElementById("pizza").style.transform = "scale(0.97)";
+    $("#pizza").css({"filter": "brightness(0.7)"});
 }
 
 function resizePizzaNormal() {
     document.getElementById("pizza").style.transform = "scale(1)";
+    $("#pizza").css({"filter": "brightness(1)"});
 }
 
 function resizePizzaHover() {
     document.getElementById("pizza").style.transform = "scale(1.05)";
+    $("#pizza").css({"filter": "brightness(1.2)"});
 }
 
 function dark() {
@@ -87,6 +90,7 @@ function pizzaAdder() {
         document.getElementById("ovens").style.display = "";
         alert("A new building has been unlocked!");
     }
+
     if (chefsEnabled == true) {
 
     } else if (count >= 1100) {
@@ -114,8 +118,13 @@ function formulas() {
         };
     };
 
-    ovensCPS = 1 * ovensCount;
-    chefsCPS = 8 * chefsCount;
+    if (ovensCount >= 1) {
+        ovensCPS = 1 * ovensCount
+    }
+
+    if (chefsCount >= 1) {
+        chefsCPS = 8 * chefsCount;
+    }
 }
 
 function clickersAdder() {
@@ -129,6 +138,7 @@ function clickersAdder() {
         var formula = 15 * Math.pow(1.15, clickersCount);
         clickersPrice = formula;
         document.getElementById("clickersPrice").innerHTML = "Price: " + clickersPrice.toFixed(0);
+
         if (graduateEnabled == true) {
 
         } else if (clickersCount >= 1) {
@@ -136,9 +146,10 @@ function clickersAdder() {
             document.getElementById("GPC").style.display = "";
             alert("A new upgrade has been unlocked!");
         } 
+
         if (hotEnabled == true) {
 
-        } else if (clickersCount >= 100) {
+        } else if (clickersCount >= 50) {
             hotEnabled = true;
             document.getElementById("HPC").style.display = "";
             alert("A new upgrade has been unlocked!");

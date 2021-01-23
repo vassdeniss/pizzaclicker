@@ -60,3 +60,7 @@ table {
 .borderWhite {
   border: 1px solid white;
 }
+
+#pizza {
+  filter: brightness(1);
+}
