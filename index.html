@@ -21,9 +21,10 @@
         <div style="display: block; overflow: hidden;">
             <div class="main"> 
 
-                <p id="name">  </p>
-                <p id="pizzaCounter"> Pizzas: 0 </p>
-                <p id="cps"> Clicks Per Second: 0.00 </p>
+                <p class="fancyBorder" id="name">  </p>
+                <p class="fancyBorder" id="pizzaCounter"> Pizzas: 0 </p>
+                <p class="fancyBorder" id="pizzaTotal"> Total Pizzas Clicked: 0 </p>
+                <p class="fancyBorder" id="cps"> Clicks Per Second: 0.00 </p>
 
                 <div class="row">
                     <div class="col-6">
@@ -44,21 +45,20 @@
 
                 <div id="menus"> 
 
-                    <p> Menus: </p>
-                    <button style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="showBuildings()"> Buildings </button><br>
-                    <button style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="showStats()"> Stats </button><br>
-                    <button style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="showUpgrades()"> Upgrades </button><br>
-                    <button style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="changeName()" id="pickName"> Change Name </button><br>
-                    <button style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="save()"> Save </button>
-                    <button style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="load()"> Load </button><br>
-                    <button style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="showColors()"> Color Picker </button><br>
-                    <button style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="dark()"> Dark Mode </button><br>
+                    <p class="fancyBorderPlain"> Menus: </p>
+                    <button class="fancybutton" style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="showBuildings()"> Buildings </button><br>
+                    <button class="fancybutton" style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="showUpgrades()"> Upgrades </button><br>
+                    <button class="fancybutton" style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="changeName()" id="pickName"> Change Name </button><br>
+                    <button class="fancybutton" style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="save()"> Save </button>
+                    <button class="fancybutton" style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="load()"> Load </button><br>
+                    <button class="fancybutton" style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="showColors()"> Color Picker </button><br>
+                    <button class="fancybutton" style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="dark()"> Dark Mode </button><br>
 
                 </div>
 
                 <div id="upgradeMenu" class="menuOptions" style="display: none;">
                     
-                    <p> Buildings: </p>
+                    <p style="margin-right: 80px;" class="fancyBorderPlain"> Buildings: </p>
 
                     <table id="table"> 
                         <tr> 
@@ -72,35 +72,28 @@
                             <td class="border"><img src="imgaes/transparentPizza.png" height="25px" width="25px"><span id="clickersPrice">Price: 15 </span></td> 
                             <td class="border"><span id="clickerCount"> Count: 0 </span></td> 
                             <td class="border"> Increases clicks by 0.1 </td> 
-                            <td class="border"><button style="cursor: pointer;" onmousedown="playButtonSound()" onclick="clickersAdder()" id="clickersButton"> Buy </button></td>
+                            <td class="border"><button class="fancybutton" style="cursor: pointer;" onmousedown="playButtonSound()" onclick="clickersAdder()" id="clickersButton"> Buy </button></td>
                         </tr>
                         <tr id="ovens" style="display: none;">
                             <td class="border"> Ovens </td> 
                             <td class="border"><img src="imgaes/transparentPizza.png" height="25px" width="25px"><span id="ovensPrice">Price: 100 </span></td> 
                             <td class="border"><span id="ovensCount"> Count: 0 </span></td> 
                             <td class="border"> Increases clicks by 1 </td>  
-                            <td class="border"><button style="cursor: pointer;" onmousedown="playButtonSound()" onclick="ovensAdder()" id="ovensButton"> Buy </button></td>
+                            <td class="border"><button class="fancybutton" style="cursor: pointer;" onmousedown="playButtonSound()" onclick="ovensAdder()" id="ovensButton"> Buy </button></td>
                         </tr>
                         <tr id="chefs" style="display: none;">
                             <td class="border"> Chefs </td> 
                             <td class="border"><img src="imgaes/transparentPizza.png" height="25px" width="25px"><span id="chefsPrice">Price: 1100 </span></td> 
                             <td class="border"><span id="chefsCount"> Count: 0 </span></td> 
                             <td class="border"> Increases clicks by 8 </td>  
-                            <td class="border"><button style="cursor: pointer;" onmousedown="playButtonSound()" onclick="chefsAdder()" id="chefsButton"> Buy </button> </td>
+                            <td class="border"><button class="fancybutton" style="cursor: pointer;" onmousedown="playButtonSound()" onclick="chefsAdder()" id="chefsButton"> Buy </button> </td>
                         </tr>
                     </table>
                 </div><br>
 
-                <div id="stats" style="display: none;" class="menuOptions"> 
-
-                    <p> Stats: </p>
-                    <p id="pizzaTotal"> Total Pizzas Clicked: 0 </p>
-
-                </div>
-
                 <div id="upgrades" style="display: none;" class="menuOptions"> 
                 
-                    <p> Upgrades: </p>
+                    <p style="margin-right: 80px;" class="fancyBorderPlain"> Upgrades: </p>
 
                     <table id="table2"> 
                         <tr> 
@@ -112,34 +105,33 @@
                             <td class="border"> Graduated Pointer Cookers </td> 
                             <td class="border"><img src="imgaes/transparentPizza.png" height="25px" width="25px"> Price: 100 </td>
                             <td class="border"> Clicking and the Pointer Cookers are twice as powerful - <i> "They graduated cooking collage to work for you" </i> </td>
-                            <td><button style="cursor: pointer;" onmousedown="playButtonSound()" id="graduateButton" onclick="graduateAdder()"> Buy </button></td>
+                            <td><button class="fancybutton" style="cursor: pointer;" onmousedown="playButtonSound()" id="graduateButton" onclick="graduateAdder()"> Buy </button></td>
                         </tr> 
                         <tr id="HPC" style="display: none;"> 
                             <td class="border"> Heated Pointer Cookers </td>
                             <td class="border"><img src="imgaes/transparentPizza.png" height="25px" width="25px"> Price: 10000 </td>
                             <td class="border"> Clicking and the Pointer Cookers are twice as powerful - <i> "Extra heat for faster cooking times" </i> </td>
-                            <td><button style="cursor: pointer;" onmousedown="playButtonSound()" id="hotButton" onclick="hotAdder()"> Buy </button></td>
+                            <td><button class="fancybutton" style="cursor: pointer;" onmousedown="playButtonSound()" id="hotButton" onclick="hotAdder()"> Buy </button></td>
                         </tr>
                         <tr id="tomato" style="display: none;"> 
                             <td class="border"> Tomato Sauce </td>
                             <td class="border"><img src="imgaes/transparentPizza.png" height="25px" width="25px"> Price: 1000000 </td>
                             <td class="border"> Increases production +1% - <i> "The essentials" </i> </td>
-                            <td><button style="cursor: pointer;" onmousedown="playButtonSound()" id="tomatoButton" onclick="tomatoAdder()"> Buy </button></td>
+                            <td><button class="fancybutton" style="cursor: pointer;" onmousedown="playButtonSound()" id="tomatoButton" onclick="tomatoAdder()"> Buy </button></td>
                         </tr>
                     </table>
-
-                </div>
+                </div><br>
 
                 <div id="colors" style="display: none;" class="menuOptions">
                 
-                    <p> Color Picker: </p> 
+                    <p style="margin-right: 80px;" class="fancyBorderPlain"> Color Picker: </p> 
                     
-                    <button style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="orange()"> Orange </button><br>
-                    <button style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="red()"> Red </button><br>
-                    <button style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="green()"> Green </button><br>
-                    <button style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="yellow()"> Yellow </button><br>
-                    <button style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="blue()"> Blue </button><br>
-                    <button style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="purple()"> Purple </button><br>
+                    <button class="fancybutton" style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="orange()"> Orange </button><br>
+                    <button class="fancybutton" style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="red()"> Red </button><br>
+                    <button class="fancybutton" style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="green()"> Green </button><br>
+                    <button class="fancybutton" style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="yellow()"> Yellow </button><br>
+                    <button class="fancybutton" style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="blue()"> Blue </button><br>
+                    <button class="fancybutton" style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="purple()"> Purple </button><br>
 
                 </div>
             </div>

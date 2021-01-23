@@ -24,7 +24,7 @@ body {
 
 hr {
   border: 10px solid orange;
-  border-radius: 5px;
+  transition-duration: 0.4s;
 }
 
 .line { 
@@ -63,4 +63,77 @@ table {
 
 #pizza {
   filter: brightness(1);
+}
+
+.fancyBorder {
+  border-radius: 55px;
+  background: rgba(255, 157, 0, 0.4);
+  padding: 5px;
+  width: 450px;
+  height: 30px;
+  text-align: center;
+  transition-duration: 0.4s;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.fancyBorderWhite {
+  border-radius: 55px;
+  background: rgba(255, 157, 0, 0.4);
+  padding: 5px;
+  width: 450px;
+  height: 30px;
+  text-align: center;
+  transition-duration: 0.4s;
+  box-shadow: 0 8px 16px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
+}
+
+.fancyBorderPlain {
+  border: 2px solid orange;
+  background-color: transparent;
+  padding: 5px 5px;
+  text-align: center;
+  border-radius: 55px;
+  transition-duration: 0.4s;
+  color: black;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.fancyBorderPlainWhite {
+  border: 2px solid orange;
+  background-color: transparent;
+  padding: 5px 5px;
+  text-align: center;
+  border-radius: 55px;
+  transition-duration: 0.4s;
+  color: white;
+  box-shadow: 0 8px 16px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
+}
+
+.fancybutton {
+  border: 2px solid orange;
+  background-color: transparent;
+  padding: 10px 12px;
+  text-align: center;
+  border-radius: 55px;
+  transition-duration: 0.4s;
+  color: black;
+  outline: none;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.fancybuttonWhite {
+  border: 2px solid orange;
+  background-color: transparent;
+  padding: 10px 12px;
+  text-align: center;
+  border-radius: 55px;
+  transition-duration: 0.4s;
+  color: white;
+  outline: none;
+  box-shadow: 0 8px 16px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
+}
+
+.fancybutton:hover {
+  border: 2px solid orange;
+  background-color: orange;
 }

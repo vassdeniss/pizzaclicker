@@ -74,8 +74,10 @@ function resizePizzaHover() {
 function dark() {
     var element = document.body; 
     element.classList.toggle("dark");
-    document.getElementsByClassName("border").classna = "borderWhite";
     $("th, td").toggleClass("borderWhite");
+    $(".fancybutton").toggleClass("fancybuttonWhite");
+    $(".fancyBorder").toggleClass("fancyBorderWhite");
+    $(".fancyBorderPlain").toggleClass("fancyBorderPlainWhite");
 }
 
 function pizzaAdder() {
@@ -235,16 +237,6 @@ function Timer() {
     document.getElementById("pizzaCounter").innerHTML = "Pizzas: " + count.toFixed(0);
 }
 
-function showStats() {
-    var x = document.getElementById("stats");
-
-    if (x.style.display == "none") {
-        x.style.display = "block";
-    } else if (x.style.display == "block") {
-        x.style.display = "none";
-    }
-}
-
 function showBuildings() {
     var x = document.getElementById("upgradeMenu");
 
@@ -308,26 +300,80 @@ function changeName() {
 
 function orange() {
     $("hr").css({"border": "10px solid orange", "border-radius": "5px"});
+    $(".fancyBorder").css({"background": "rgba(255, 157, 0, 0.4)"});
+    $(".fancybutton").css({"border": "2px solid orange"});
+    $(".fancyBorderPlain").css({"border": "2px solid orange"});
+
+    $(".fancybutton").hover(function(){
+        $(this).css({"border": "2px solid orange", "background-color": "orange"});
+        }, function(){
+        $(this).css({"border": "2px solid orange", "background-color": "transparent"});
+    });
 }
 
 function red() {
     $("hr").css({"border": "10px solid red", "border-radius": "5px"});
+    $(".fancyBorder").css({"background": "rgba(255, 0, 0, 0.4)"});
+    $(".fancybutton").css({"border": "2px solid red"});
+    $(".fancyBorderPlain").css({"border": "2px solid red"});
+
+    $(".fancybutton").hover(function(){
+        $(this).css({"border": "2px solid red", "background-color": "red"});
+        }, function(){
+        $(this).css({"border": "2px solid red", "background-color": "transparent"});
+    });
 }
 
 function green() {
     $("hr").css({"border": "10px solid green", "border-radius": "5px"});
+    $(".fancyBorder").css({"background": "rgba(30, 255, 0, 0.4)"});
+    $(".fancybutton").css({"border": "2px solid green"});
+    $(".fancyBorderPlain").css({"border": "2px solid green"});
+
+    $(".fancybutton").hover(function(){
+        $(this).css({"border": "2px solid green", "background-color": "green"});
+        }, function(){
+        $(this).css({"border": "2px solid green", "background-color": "transparent"});
+    });
 }
 
 function yellow() {
     $("hr").css({"border": "10px solid yellow", "border-radius": "5px"});
+    $(".fancyBorder").css({"background": "rgba(217, 255, 0, 0.4)"});
+    $(".fancybutton").css({"border": "2px solid yellow"});
+    $(".fancyBorderPlain").css({"border": "2px solid yellow"});
+
+    $(".fancybutton").hover(function(){
+        $(this).css({"border": "2px solid yellow", "background-color": "yellow"});
+        }, function(){
+        $(this).css({"border": "2px solid yellow", "background-color": "transparent"});
+    });
 }
 
 function blue() {
     $("hr").css({"border": "10px solid blue", "border-radius": "5px"});
+    $(".fancyBorder").css({"background": "rgba(17, 0, 255, 0.4)"});
+    $(".fancybutton").css({"border": "2px solid blue"});
+    $(".fancyBorderPlain").css({"border": "2px solid blue"});
+
+    $(".fancybutton").hover(function(){
+        $(this).css({"border": "2px solid blue", "background-color": "blue"});
+        }, function(){
+        $(this).css({"border": "2px solid blue", "background-color": "transparent"});
+    });
 }
 
 function purple() {
     $("hr").css({"border": "10px solid purple", "border-radius": "5px"});
+    $(".fancyBorder").css({"background": "rgba(183, 0, 255, 0.4)"});
+    $(".fancybutton").css({"border": "2px solid purple"});
+    $(".fancyBorderPlain").css({"border": "2px solid purple"});
+
+    $(".fancybutton").hover(function(){
+        $(this).css({"border": "2px solid purple", "background-color": "purple"});
+        }, function(){
+        $(this).css({"border": "2px solid purple", "background-color": "transparent"});
+    });
 }
 
 function save() {
