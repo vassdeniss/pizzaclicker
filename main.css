@@ -47,6 +47,8 @@ p {
 
 table, th, td {
   text-align: center;
+  padding: 15px;
+  border-radius: 55px;
 }
 
 table {
@@ -54,11 +56,7 @@ table {
 }
 
 .border {
-  border: 1px solid black;
-}
-
-.borderWhite {
-  border: 1px solid white;
+  border: 2px solid orange;
 }
 
 #pizza {
@@ -136,4 +134,26 @@ table {
 .fancybutton:hover {
   border: 2px solid orange;
   background-color: orange;
+}
+
+.fancybutton:disabled {
+  display: none;
+}
+
+.icons {
+  font-size: 50px;
+  color: black;
+  margin: 30px 30px 30px 30px;
+  transition-duration: 0.4s;
+}
+
+.iconsWhite {
+  font-size: 50px;
+  color: white;
+  margin: 30px 30px 30px 30px;
+  transition-duration: 0.4s;
+}
+
+.icons:hover {
+  color:orange;
 }

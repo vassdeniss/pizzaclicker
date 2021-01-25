@@ -8,8 +8,8 @@
         <script src="main.js"></script>
         <link rel="stylesheet" href="main.css">
         <link rel="shortcut icon" type="image/png" href="imgaes/icon.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
 
     </head>
 
@@ -23,7 +23,7 @@
 
                 <p class="fancyBorder" id="name">  </p>
                 <p class="fancyBorder" id="pizzaCounter"> Pizzas: 0 </p>
-                <p class="fancyBorder" id="pizzaTotal"> Total Pizzas Clicked: 0 </p>
+                <p class="fancyBorder"> <span class="fa fa-hand-pointer-o"> Total Pizzas Clicked: </span> <span id="pizzaTotal"> 0 </span> </p>
                 <p class="fancyBorder" id="cps"> Clicks Per Second: 0.00 </p>
 
                 <div class="row">
@@ -46,13 +46,13 @@
                 <div id="menus"> 
 
                     <p class="fancyBorderPlain"> Menus: </p>
-                    <button class="fancybutton" style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="showBuildings()"> Buildings </button><br>
-                    <button class="fancybutton" style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="showUpgrades()"> Upgrades </button><br>
-                    <button class="fancybutton" style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="changeName()" id="pickName"> Change Name </button><br>
-                    <button class="fancybutton" style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="save()"> Save </button>
-                    <button class="fancybutton" style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="load()"> Load </button><br>
-                    <button class="fancybutton" style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="showColors()"> Color Picker </button><br>
-                    <button class="fancybutton" style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="dark()"> Dark Mode </button><br>
+                    <button class="fancybutton" style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="showBuildings()"> <span class="fa fa-building"> Buildings </span> </button><br>
+                    <button class="fancybutton" style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="showUpgrades()"> <span class="fa fa-arrow-circle-up"> Upgrades </span> </button><br>
+                    <button class="fancybutton" style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="changeName()" id="pickName"> <span class="fa fa-pencil"> Change Name </span> </button><br>
+                    <button class="fancybutton" style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="save()"> <span class="fa fa-floppy-o"> Save </span> </button>
+                    <button class="fancybutton" style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="load()"> <span class="fa fa-floppy-o"> Load </span> </button><br>
+                    <button class="fancybutton" style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="showColors()"> <span class="fa fa-cog"> Color Picker </span> </button><br>
+                    <button class="fancybutton" style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="dark()"> <span class="fa fa-moon-o">  Dark Mode  </span> </button><br>
 
                 </div>
 
@@ -137,5 +137,6 @@
             </div>
         </div>
         <hr class="color">
+        <a target="_blank" class="icons" href="https://github.com/vassdeniss"> <span class="fa fa-github icons"> Github </span></a>
     </body>
 </html>

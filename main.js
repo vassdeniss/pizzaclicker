@@ -33,15 +33,14 @@ var chefsEnabled = false;
 
 var restaurantName = "";
 window.setInterval(Timer, 1000); 
-
 window.onload = defaultName;
 
 function defaultName() {
-    document.getElementById("name").innerHTML = "Your Restaurant";
+    document.getElementById("name").textContent = "Your Restaurant";
 }
 
 function customName() {
-    document.getElementById("name").innerHTML = restaurantName + " Restaurant";
+    document.getElementById("name").textContent = restaurantName + "'s Restaurant";
 }
 
 function playButtonSound() {
@@ -78,13 +77,14 @@ function dark() {
     $(".fancybutton").toggleClass("fancybuttonWhite");
     $(".fancyBorder").toggleClass("fancyBorderWhite");
     $(".fancyBorderPlain").toggleClass("fancyBorderPlainWhite");
+    $(".icons").toggleClass("iconsWhite");
 }
 
 function pizzaAdder() {
     count += mouseCPS;
     totalCount += mouseCPS;
     totalPizzas();
-    document.getElementById("pizzaCounter").innerHTML = "Pizzas: " + count.toFixed(0);
+    document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toFixed(0);
     if (ovensEnabled == true) {
 
     } else if (count >= 100) {
@@ -134,12 +134,12 @@ function clickersAdder() {
         clickersCount += 1;
         formulas();
         CPS();
-        document.getElementById("clickerCount").innerHTML = "Count: " + clickersCount;
+        document.getElementById("clickerCount").textContent = "Count: " + clickersCount;
         count = count - clickersPrice;
-        document.getElementById("pizzaCounter").innerHTML = "Pizzas: " + count.toFixed(0);
+        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toFixed(0);
         var formula = 15 * Math.pow(1.15, clickersCount);
         clickersPrice = formula;
-        document.getElementById("clickersPrice").innerHTML = "Price: " + clickersPrice.toFixed(0);
+        document.getElementById("clickersPrice").textContent = "Price: " + clickersPrice.toFixed(0);
 
         if (graduateEnabled == true) {
 
@@ -166,12 +166,12 @@ function ovensAdder() {
         ovensCount += 1;
         formulas();
         CPS();
-        document.getElementById("ovensCount").innerHTML = "Count: " + ovensCount;
+        document.getElementById("ovensCount").textContent = "Count: " + ovensCount;
         count = count - ovensPrice;
-        document.getElementById("pizzaCounter").innerHTML = "Pizzas: " + count.toFixed(0);
+        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toFixed(0);
         var formula = 100 * Math.pow(1.15, ovensCount);
         ovensPrice = formula;
-        document.getElementById("ovensPrice").innerHTML = "Price: " + ovensPrice.toFixed(0);
+        document.getElementById("ovensPrice").textContent = "Price: " + ovensPrice.toFixed(0);
     } else {
         alert("You don't have enough pizzas for that!");
     }
@@ -183,12 +183,12 @@ function chefsAdder() {
         chefsCount += 1;
         formulas();
         CPS();
-        document.getElementById("chefsCount").innerHTML = "Count: " + chefsCount;
+        document.getElementById("chefsCount").textContent = "Count: " + chefsCount;
         count = count - chefsPrice;
-        document.getElementById("pizzaCounter").innerHTML = "Pizzas: " + countFixed;
+        document.getElementById("pizzaCounter").textContent = "Pizzas: " + countFixed;
         var formula = 1100 * Math.pow(1.15, chefsCount);
         chefsPrice = formula;
-        document.getElementById("chefsPrice").innerHTML = "Price: " + chefsPrice.toFixed(0);
+        document.getElementById("chefsPrice").textContent = "Price: " + chefsPrice.toFixed(0);
     } else {
         alert("You don't have enough pizzas for that!");
     }
@@ -199,7 +199,7 @@ function graduateAdder() {
         graduateCookers = true; 
         mouseCPS = mouseCPS * 2;
         count = count - 100; 
-        document.getElementById("pizzaCounter").innerHTML = "Pizzas: " + count.toFixed(0);
+        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toFixed(0);
         formulas();
         CPS(); 
         document.getElementById("graduateButton").disabled = true;
@@ -211,7 +211,7 @@ function hotAdder() {
         hotCookers = true;
         mouseCPS = mouseCPS * 2;
         count = count - 10000;
-        document.getElementById("pizzaCounter").innerHTML = "Pizzas: " + count.toFixed(0);
+        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toFixed(0);
         formulas();
         CPS();
         document.getElementById("hotButton").disabled = true;
@@ -223,7 +223,7 @@ function tomatoAdder() {
         tomatoSauce = true; 
         tomatoCPS = (1 / 100) * totalCPS;
         count = count - 1000000; 
-        document.getElementById("pizzaCounter").innerHTML = "Pizzas: " + count.toFixed(0);
+        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toFixed(0);
         CPS(); 
         document.getElementById("tomatoButton").disabled = true;
         document.getElementById("TSImage").style.display = "block"; 
@@ -231,10 +231,12 @@ function tomatoAdder() {
 }
 
 function Timer() {
-    count += clickerCPS + ovensCPS + chefsCPS;
-    totalCount += clickerCPS + ovensCPS + chefsCPS;
-    totalPizzas();
-    document.getElementById("pizzaCounter").innerHTML = "Pizzas: " + count.toFixed(0);
+    if (clickersCount >= 1) {
+        count += clickerCPS + ovensCPS + chefsCPS;
+        totalCount += clickerCPS + ovensCPS + chefsCPS;
+        totalPizzas();
+        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toFixed(0);
+    }
 }
 
 function showBuildings() {
@@ -268,17 +270,17 @@ function showColors() {
 }
 
 function totalPizzas() {
-    document.getElementById("pizzaTotal").innerHTML = "Total Pizzas Clicked: " + totalCount.toFixed(0);
+    document.getElementById("pizzaTotal").textContent = totalCount.toFixed(0);
 }
 
 function CPS() {
     totalCPS = clickerCPS + ovensCPS + chefsCPS + tomatoCPS; 
-    document.getElementById("cps").innerHTML = "Clicks Per Second: " + totalCPS.toFixed(2);
+    document.getElementById("cps").textContent = "Clicks Per Second: " + totalCPS.toFixed(2);
 }
 
 function changeName() {
     restaurantName = prompt("Enter restaurant name:");
-    document.getElementById("name").innerHTML = restaurantName + "'s Restaurant";
+    document.getElementById("name").textContent = restaurantName + "'s Restaurant";
     if (restaurantName === "Andrej" || restaurantName === "Green" || restaurantName === "GCND" || restaurantName === "Green" || restaurantName === "Ando") {
         alert("Hi Ando :3");
     }
@@ -289,11 +291,11 @@ function changeName() {
     }
 
     if (restaurantName === "") {
-        document.getElementById("name").innerHTML = "Your Restaurant";
+        document.getElementById("name").textContent = "Your Restaurant";
     } else if (restaurantName) {
-        document.getElementById("name").innerHTML = restaurantName + "'s Restaurant";
+        document.getElementById("name").textContent = restaurantName + "'s Restaurant";
     } else {
-        document.getElementById("name").innerHTML = "Your Restaurant";
+        document.getElementById("name").textContent = "Your Restaurant";
     }
 
 }
@@ -303,11 +305,18 @@ function orange() {
     $(".fancyBorder").css({"background": "rgba(255, 157, 0, 0.4)"});
     $(".fancybutton").css({"border": "2px solid orange"});
     $(".fancyBorderPlain").css({"border": "2px solid orange"});
+    $(".border").css({"border": "2px solid orange"});
 
     $(".fancybutton").hover(function(){
         $(this).css({"border": "2px solid orange", "background-color": "orange"});
         }, function(){
         $(this).css({"border": "2px solid orange", "background-color": "transparent"});
+    });
+
+    $(".icons").hover(function(){
+        $(this).css({"color": "orange"});
+        }, function(){
+        $(this).css({"color": "black"});
     });
 }
 
@@ -316,11 +325,18 @@ function red() {
     $(".fancyBorder").css({"background": "rgba(255, 0, 0, 0.4)"});
     $(".fancybutton").css({"border": "2px solid red"});
     $(".fancyBorderPlain").css({"border": "2px solid red"});
+    $(".border").css({"border": "2px solid red"});
 
     $(".fancybutton").hover(function(){
         $(this).css({"border": "2px solid red", "background-color": "red"});
         }, function(){
         $(this).css({"border": "2px solid red", "background-color": "transparent"});
+    });
+
+    $(".icons").hover(function(){
+        $(this).css({"color": "red"});
+        }, function(){
+        $(this).css({"color": "black"});
     });
 }
 
@@ -329,11 +345,18 @@ function green() {
     $(".fancyBorder").css({"background": "rgba(30, 255, 0, 0.4)"});
     $(".fancybutton").css({"border": "2px solid green"});
     $(".fancyBorderPlain").css({"border": "2px solid green"});
+    $(".border").css({"border": "2px solid green"});
 
     $(".fancybutton").hover(function(){
         $(this).css({"border": "2px solid green", "background-color": "green"});
         }, function(){
         $(this).css({"border": "2px solid green", "background-color": "transparent"});
+    });
+
+    $(".icons").hover(function(){
+        $(this).css({"color": "green"});
+        }, function(){
+        $(this).css({"color": "black"});
     });
 }
 
@@ -342,11 +365,18 @@ function yellow() {
     $(".fancyBorder").css({"background": "rgba(217, 255, 0, 0.4)"});
     $(".fancybutton").css({"border": "2px solid yellow"});
     $(".fancyBorderPlain").css({"border": "2px solid yellow"});
+    $(".border").css({"border": "2px solid yellow"});
 
     $(".fancybutton").hover(function(){
         $(this).css({"border": "2px solid yellow", "background-color": "yellow"});
         }, function(){
         $(this).css({"border": "2px solid yellow", "background-color": "transparent"});
+    });
+
+    $(".icons").hover(function(){
+        $(this).css({"color": "yellow"});
+        }, function(){
+        $(this).css({"color": "black"});
     });
 }
 
@@ -355,11 +385,18 @@ function blue() {
     $(".fancyBorder").css({"background": "rgba(17, 0, 255, 0.4)"});
     $(".fancybutton").css({"border": "2px solid blue"});
     $(".fancyBorderPlain").css({"border": "2px solid blue"});
+    $(".border").css({"border": "2px solid blue"});
 
     $(".fancybutton").hover(function(){
         $(this).css({"border": "2px solid blue", "background-color": "blue"});
         }, function(){
         $(this).css({"border": "2px solid blue", "background-color": "transparent"});
+    });
+
+    $(".icons").hover(function(){
+        $(this).css({"color": "blue"});
+        }, function(){
+        $(this).css({"color": "black"});
     });
 }
 
@@ -368,11 +405,18 @@ function purple() {
     $(".fancyBorder").css({"background": "rgba(183, 0, 255, 0.4)"});
     $(".fancybutton").css({"border": "2px solid purple"});
     $(".fancyBorderPlain").css({"border": "2px solid purple"});
+    $(".border").css({"border": "2px solid purple"});
 
     $(".fancybutton").hover(function(){
         $(this).css({"border": "2px solid purple", "background-color": "purple"});
         }, function(){
         $(this).css({"border": "2px solid purple", "background-color": "transparent"});
+    });
+
+    $(".icons").hover(function(){
+        $(this).css({"color": "purple"});
+        }, function(){
+        $(this).css({"color": "black"});
     });
 }
 
@@ -410,6 +454,8 @@ var save = {
 }
 
 localStorage.setItem("save", JSON.stringify(save));
+alert("Your game has been saved " + restaurantName + "!");
+
 };
 
 function load() {
@@ -450,7 +496,7 @@ function load() {
         defaultName();
     }
 
-    document.getElementById("cps").innerHTML = "Clicks Per Second: " + totalCPS.toFixed(2);
+    document.getElementById("cps").textContent = "Clicks Per Second: " + totalCPS.toFixed(2);
 
     if (ovensEnabled == true) {
         document.getElementById("ovens").style.display = "";
@@ -468,13 +514,13 @@ function load() {
         document.getElementById("tomato").style.display = "";
     }
 
-    document.getElementById("clickerCount").innerHTML = "Count: " + clickersCount;
-    document.getElementById("ovensCount").innerHTML = "Count: " + ovensCount;
-    document.getElementById("chefsCount").innerHTML = "Count: " + chefsCount;
+    document.getElementById("clickerCount").textContent = "Count: " + clickersCount;
+    document.getElementById("ovensCount").textContent = "Count: " + ovensCount;
+    document.getElementById("chefsCount").textContent = "Count: " + chefsCount;
 
-    document.getElementById("clickersPrice").innerHTML = "Price: " + clickersPrice.toFixed(0);
-    document.getElementById("ovensPrice").innerHTML = "Price: " + ovensPrice.toFixed(0);
-    document.getElementById("chefsPrice").innerHTML = "Price: " + chefsPrice.toFixed(0);
+    document.getElementById("clickersPrice").textContent = "Price: " + clickersPrice.toFixed(0);
+    document.getElementById("ovensPrice").textContent = "Price: " + ovensPrice.toFixed(0);
+    document.getElementById("chefsPrice").textContent = "Price: " + chefsPrice.toFixed(0);
 
     if (graduateCookers == true) {
         document.getElementById("graduateButton").disabled = true;
@@ -488,4 +534,6 @@ function load() {
         document.getElementById("tomatoButton").disabled = true;
         document.getElementById("TSImage").style.display = "block"; 
     }
+
+    alert("Your game has been loaded " + restaurantName + "!");
 }
