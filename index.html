@@ -5,10 +5,10 @@
 
         <meta charset="UTF-8">
         <title> Pizza Clicker </title> 
-        <script src="main.js"></script>
-        <link rel="stylesheet" href="main.css">
-        <link rel="shortcut icon" type="image/png" href="imgaes/icon.png">
+        <script src="main.min.js"></script>
+        <link rel="shortcut icon" type="image/png" href="images/icon.png">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="main.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     </head>
@@ -16,7 +16,12 @@
     <body> 
 
         <hr class="color">
-        <h1 style="text-align: center;"> Pizza Clicker </h1>
+        <div style="text-align: center;"> 
+        <button onmousedown="playPizzaSound()" style="outline:none; border:none; background-color:transparent;"> 
+            <img style="cursor: pointer;" src="images/transparentPizza.png" width="40px" height="40px"> 
+        </button>
+        <h1 style="text-align: center; margin-top: 0px;"> Pizza Clicker </h1>
+        </div>
 
         <div style="display: block; overflow: hidden;">
             <div class="main"> 
@@ -29,13 +34,13 @@
                 <div class="row">
                     <div class="col-6">
                         <button onmouseout="resizePizzaNormal()" onmouseover="resizePizzaHover()" onmouseup="resizePizzaHover()" onmousedown="playPizzaSound(); resizePizzaSmall()" onclick="pizzaAdder()" id="pizzaButton" style="outline:none; border:none; background-color:transparent;"> 
-                            <img style="cursor: pointer;" id="pizza" src="imgaes/transparentPizza.png" width="450px" height="400px"> 
+                            <img style="cursor: pointer;" id="pizza" src="images/transparentPizza.png" width="450px" height="400px"> 
                         </button>
                     </div>
                   </div>
                   <div style="display: none;" id="TSImage" class="row">
                     <div class="col-6">
-                        <img style="float: left;" src="imgaes/tomatoSauce.png" width="50px" height="100px"> 
+                        <img style="float: left;" src="images/tomatoSauce.png" width="50px" height="100px"> 
                     </div>
                   </div>
 
@@ -58,7 +63,7 @@
 
                 <div id="upgradeMenu" class="menuOptions" style="display: none;">
                     
-                    <p style="margin-right: 80px;" class="fancyBorderPlain"> Buildings: </p>
+                    <p style="margin-right: 80px;" class="fancyBorderPlain"> <span class="fa fa-building"> Buildings: </span> </p>
 
                     <table id="table"> 
                         <tr> 
@@ -69,21 +74,21 @@
                         </tr>
                         <tr>
                             <td class="border"> Pointer Cookers </td> 
-                            <td class="border"><img src="imgaes/transparentPizza.png" height="25px" width="25px"><span id="clickersPrice">Price: 15 </span></td> 
+                            <td class="border"><img src="images/transparentPizza.png" height="25px" width="25px"><span id="clickersPrice">Price: 15 </span></td> 
                             <td class="border"><span id="clickerCount"> Count: 0 </span></td> 
                             <td class="border"> Increases clicks by 0.1 </td> 
                             <td class="border"><button class="fancybutton" style="cursor: pointer;" onmousedown="playButtonSound()" onclick="clickersAdder()" id="clickersButton"> Buy </button></td>
                         </tr>
                         <tr id="ovens" style="display: none;">
                             <td class="border"> Ovens </td> 
-                            <td class="border"><img src="imgaes/transparentPizza.png" height="25px" width="25px"><span id="ovensPrice">Price: 100 </span></td> 
+                            <td class="border"><img src="images/transparentPizza.png" height="25px" width="25px"><span id="ovensPrice">Price: 100 </span></td> 
                             <td class="border"><span id="ovensCount"> Count: 0 </span></td> 
                             <td class="border"> Increases clicks by 1 </td>  
                             <td class="border"><button class="fancybutton" style="cursor: pointer;" onmousedown="playButtonSound()" onclick="ovensAdder()" id="ovensButton"> Buy </button></td>
                         </tr>
                         <tr id="chefs" style="display: none;">
                             <td class="border"> Chefs </td> 
-                            <td class="border"><img src="imgaes/transparentPizza.png" height="25px" width="25px"><span id="chefsPrice">Price: 1100 </span></td> 
+                            <td class="border"><img src="images/transparentPizza.png" height="25px" width="25px"><span id="chefsPrice">Price: 1100 </span></td> 
                             <td class="border"><span id="chefsCount"> Count: 0 </span></td> 
                             <td class="border"> Increases clicks by 8 </td>  
                             <td class="border"><button class="fancybutton" style="cursor: pointer;" onmousedown="playButtonSound()" onclick="chefsAdder()" id="chefsButton"> Buy </button> </td>
@@ -93,7 +98,7 @@
 
                 <div id="upgrades" style="display: none;" class="menuOptions"> 
                 
-                    <p style="margin-right: 80px;" class="fancyBorderPlain"> Upgrades: </p>
+                    <p style="margin-right: 80px;" class="fancyBorderPlain"> <span class="fa fa-arrow-circle-up"> Upgrades: </span> </p>
 
                     <table id="table2"> 
                         <tr> 
@@ -103,19 +108,19 @@
                         </tr>
                         <tr id="GPC" style="display: none;">
                             <td class="border"> Graduated Pointer Cookers </td> 
-                            <td class="border"><img src="imgaes/transparentPizza.png" height="25px" width="25px"> Price: 100 </td>
+                            <td class="border"><img src="images/transparentPizza.png" height="25px" width="25px"> Price: 100 </td>
                             <td class="border"> Clicking and the Pointer Cookers are twice as powerful - <i> "They graduated cooking collage to work for you" </i> </td>
                             <td><button class="fancybutton" style="cursor: pointer;" onmousedown="playButtonSound()" id="graduateButton" onclick="graduateAdder()"> Buy </button></td>
                         </tr> 
                         <tr id="HPC" style="display: none;"> 
                             <td class="border"> Heated Pointer Cookers </td>
-                            <td class="border"><img src="imgaes/transparentPizza.png" height="25px" width="25px"> Price: 10000 </td>
+                            <td class="border"><img src="images/transparentPizza.png" height="25px" width="25px"> Price: 10000 </td>
                             <td class="border"> Clicking and the Pointer Cookers are twice as powerful - <i> "Extra heat for faster cooking times" </i> </td>
                             <td><button class="fancybutton" style="cursor: pointer;" onmousedown="playButtonSound()" id="hotButton" onclick="hotAdder()"> Buy </button></td>
                         </tr>
                         <tr id="tomato" style="display: none;"> 
                             <td class="border"> Tomato Sauce </td>
-                            <td class="border"><img src="imgaes/transparentPizza.png" height="25px" width="25px"> Price: 1000000 </td>
+                            <td class="border"><img src="images/transparentPizza.png" height="25px" width="25px"> Price: 1000000 </td>
                             <td class="border"> Increases production +1% - <i> "The essentials" </i> </td>
                             <td><button class="fancybutton" style="cursor: pointer;" onmousedown="playButtonSound()" id="tomatoButton" onclick="tomatoAdder()"> Buy </button></td>
                         </tr>
@@ -124,7 +129,7 @@
 
                 <div id="colors" style="display: none;" class="menuOptions">
                 
-                    <p style="margin-right: 80px;" class="fancyBorderPlain"> Color Picker: </p> 
+                    <p style="margin-right: 80px;" class="fancyBorderPlain"> <span class="fa fa-cog"> Color Picker: </span> </p> 
                     
                     <button class="fancybutton" style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="orange()"> Orange </button><br>
                     <button class="fancybutton" style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="red()"> Red </button><br>

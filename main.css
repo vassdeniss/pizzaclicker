@@ -142,18 +142,11 @@ table {
 
 .icons {
   font-size: 50px;
-  color: black;
   margin: 30px 30px 30px 30px;
-  transition-duration: 0.4s;
-}
-
-.iconsWhite {
-  font-size: 50px;
-  color: white;
-  margin: 30px 30px 30px 30px;
+  color: black; 
   transition-duration: 0.4s;
 }
 
 .icons:hover {
-  color:orange;
+  color: orange;
 }

@@ -32,6 +32,15 @@ var ovensEnabled = false;
 var chefsEnabled = false;
 
 var restaurantName = "";
+
+var darkOn = false;
+var orangeTrue = true;
+var redTrue = false;
+var greenTrue = false; 
+var yellowTrue = false; 
+var blueTrue = false;
+var purpleTrue = false;
+
 window.setInterval(Timer, 1000); 
 window.onload = defaultName;
 
@@ -71,16 +80,18 @@ function resizePizzaHover() {
 }
 
 function dark() {
+    darkOn = !darkOn;
     var element = document.body; 
     element.classList.toggle("dark");
     $("th, td").toggleClass("borderWhite");
     $(".fancybutton").toggleClass("fancybuttonWhite");
     $(".fancyBorder").toggleClass("fancyBorderWhite");
     $(".fancyBorderPlain").toggleClass("fancyBorderPlainWhite");
-    $(".icons").toggleClass("iconsWhite");
+    colorChecker(); 
 }
 
 function pizzaAdder() {
+    console.log(darkOn, orange);
     count += mouseCPS;
     totalCount += mouseCPS;
     totalPizzas();
@@ -301,6 +312,15 @@ function changeName() {
 }
 
 function orange() {
+    orangeTrue = true;
+    redTrue = false;
+    greenTrue = false; 
+    yellowTrue = false; 
+    blueTrue = false;
+    purpleTrue = false;
+
+    colorChecker();
+
     $("hr").css({"border": "10px solid orange", "border-radius": "5px"});
     $(".fancyBorder").css({"background": "rgba(255, 157, 0, 0.4)"});
     $(".fancybutton").css({"border": "2px solid orange"});
@@ -312,13 +332,18 @@ function orange() {
         }, function(){
         $(this).css({"border": "2px solid orange", "background-color": "transparent"});
     });
-
-    $(".icons").hover(function(){
-        $(this).css({"color": "orange"});
-    });
 }
 
 function red() {
+    orangeTrue = false;
+    redTrue = true;
+    greenTrue = false; 
+    yellowTrue = false; 
+    blueTrue = false;
+    purpleTrue = false;
+
+    colorChecker();
+
     $("hr").css({"border": "10px solid red", "border-radius": "5px"});
     $(".fancyBorder").css({"background": "rgba(255, 0, 0, 0.4)"});
     $(".fancybutton").css({"border": "2px solid red"});
@@ -330,13 +355,18 @@ function red() {
         }, function(){
         $(this).css({"border": "2px solid red", "background-color": "transparent"});
     });
-
-    $(".icons").hover(function(){
-        $(this).css({"color": "red"});
-    });
 }
 
 function green() {
+    orangeTrue = false;
+    redTrue = false;
+    greenTrue = true; 
+    yellowTrue = false; 
+    blueTrue = false;
+    purpleTrue = false;
+
+    colorChecker();
+
     $("hr").css({"border": "10px solid green", "border-radius": "5px"});
     $(".fancyBorder").css({"background": "rgba(30, 255, 0, 0.4)"});
     $(".fancybutton").css({"border": "2px solid green"});
@@ -348,13 +378,18 @@ function green() {
         }, function(){
         $(this).css({"border": "2px solid green", "background-color": "transparent"});
     });
-
-    $(".icons").hover(function(){
-        $(this).css({"color": "green"});
-    });
 }
 
 function yellow() {
+    orangeTrue = false;
+    redTrue = false;
+    greenTrue = false; 
+    yellowTrue = true; 
+    blueTrue = false;
+    purpleTrue = false;
+
+    colorChecker();
+
     $("hr").css({"border": "10px solid yellow", "border-radius": "5px"});
     $(".fancyBorder").css({"background": "rgba(217, 255, 0, 0.4)"});
     $(".fancybutton").css({"border": "2px solid yellow"});
@@ -366,13 +401,18 @@ function yellow() {
         }, function(){
         $(this).css({"border": "2px solid yellow", "background-color": "transparent"});
     });
-
-    $(".icons").hover(function(){
-        $(this).css({"color": "yellow"});
-    });
 }
 
 function blue() {
+    orangeTrue = false;
+    redTrue = false;
+    greenTrue = false; 
+    yellowTrue = false; 
+    blueTrue = true;
+    purpleTrue = false;
+
+    colorChecker();
+
     $("hr").css({"border": "10px solid blue", "border-radius": "5px"});
     $(".fancyBorder").css({"background": "rgba(17, 0, 255, 0.4)"});
     $(".fancybutton").css({"border": "2px solid blue"});
@@ -384,13 +424,18 @@ function blue() {
         }, function(){
         $(this).css({"border": "2px solid blue", "background-color": "transparent"});
     });
-
-    $(".icons").hover(function(){
-        $(this).css({"color": "blue"});
-    });
 }
 
 function purple() {
+    orangeTrue = false;
+    redTrue = false;
+    greenTrue = false; 
+    yellowTrue = false; 
+    blueTrue = false;
+    purpleTrue = true;
+
+    colorChecker();
+
     $("hr").css({"border": "10px solid purple", "border-radius": "5px"});
     $(".fancyBorder").css({"background": "rgba(183, 0, 255, 0.4)"});
     $(".fancybutton").css({"border": "2px solid purple"});
@@ -402,10 +447,88 @@ function purple() {
         }, function(){
         $(this).css({"border": "2px solid purple", "background-color": "transparent"});
     });
+}
 
-    $(".icons").hover(function(){
-        $(this).css({"color": "purple"});
-    });
+function colorChecker() {
+    if (darkOn == true) {
+        $(".icons").css({"color": "white"});
+        if (orangeTrue == true) {
+            $(".icons").hover(function(){
+                $(this).css({"color": "orange"});
+                }, function(){
+                $(this).css({"color": "white"});
+            });
+        } else if (redTrue == true) {
+            $(".icons").hover(function(){
+                $(this).css({"color": "red"});
+                }, function(){
+                $(this).css({"color": "white"});
+            });
+        } else if (greenTrue == true) {
+            $(".icons").hover(function(){
+                $(this).css({"color": "green"});
+                }, function(){
+                $(this).css({"color": "white"});
+            });
+        } else if (yellowTrue == true) {
+            $(".icons").hover(function(){
+                $(this).css({"color": "yellow"});
+                }, function(){
+                $(this).css({"color": "white"});
+            });
+        } else if (blueTrue == true) {
+            $(".icons").hover(function(){
+                $(this).css({"color": "blue"});
+                }, function(){
+                $(this).css({"color": "white"});
+            });
+        } else if (purpleTrue == true) {
+            $(".icons").hover(function(){
+                $(this).css({"color": "purple"});
+                }, function(){
+                $(this).css({"color": "white"});
+            });
+        }
+    } else if (darkOn == false) {
+        $(".icons").css({"color": "black"});
+        if (orangeTrue == true) {
+            $(".icons").hover(function(){
+                $(this).css({"color": "orange"});
+                }, function(){
+                $(this).css({"color": "black"});
+            });
+        } else if (redTrue == true) {
+            $(".icons").hover(function(){
+                $(this).css({"color": "red"});
+                }, function(){
+                $(this).css({"color": "black"});
+            });
+        } else if (greenTrue == true) {
+            $(".icons").hover(function(){
+                $(this).css({"color": "green"});
+                }, function(){
+                $(this).css({"color": "black"});
+            });
+        } else if (yellowTrue == true) {
+            $(".icons").hover(function(){
+                $(this).css({"color": "yellow"});
+                }, function(){
+                $(this).css({"color": "black"});
+            });
+        } else if (blueTrue == true) {
+            $(".icons").hover(function(){
+                $(this).css({"color": "blue"});
+                }, function(){
+                $(this).css({"color": "black"});
+            });
+        } else if (purpleTrue == true) {
+            $(".icons").hover(function(){
+                $(this).css({"color": "purple"});
+                }, function(){
+                $(this).css({"color": "black"});
+            });
+        }
+    }   
 }
 
 function save() {
