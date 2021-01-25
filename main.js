@@ -315,8 +315,6 @@ function orange() {
 
     $(".icons").hover(function(){
         $(this).css({"color": "orange"});
-        }, function(){
-        $(this).css({"color": "black"});
     });
 }
 
@@ -335,8 +333,6 @@ function red() {
 
     $(".icons").hover(function(){
         $(this).css({"color": "red"});
-        }, function(){
-        $(this).css({"color": "black"});
     });
 }
 
@@ -355,8 +351,6 @@ function green() {
 
     $(".icons").hover(function(){
         $(this).css({"color": "green"});
-        }, function(){
-        $(this).css({"color": "black"});
     });
 }
 
@@ -375,8 +369,6 @@ function yellow() {
 
     $(".icons").hover(function(){
         $(this).css({"color": "yellow"});
-        }, function(){
-        $(this).css({"color": "black"});
     });
 }
 
@@ -395,8 +387,6 @@ function blue() {
 
     $(".icons").hover(function(){
         $(this).css({"color": "blue"});
-        }, function(){
-        $(this).css({"color": "black"});
     });
 }
 
@@ -415,8 +405,6 @@ function purple() {
 
     $(".icons").hover(function(){
         $(this).css({"color": "purple"});
-        }, function(){
-        $(this).css({"color": "black"});
     });
 }
 
