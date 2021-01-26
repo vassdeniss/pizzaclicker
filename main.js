@@ -41,8 +41,94 @@ var yellowTrue = false;
 var blueTrue = false;
 var purpleTrue = false;
 
+var modal;
+var modal2;
+var modal3;
+var modal4;
+
 window.setInterval(Timer, 1000); 
 window.onload = defaultName;
+window.setInterval(autoSave, 60000);
+
+
+function openModal() {
+    modal = document.getElementById("poorModal");
+    modal.style.display = "block";
+}
+
+
+function openModalSave() {
+    modal2 = document.getElementById("save");
+    modal2.style.display = "block";
+    autoCLose();
+}
+
+function openModalLoad() {
+    modal3 = document.getElementById("load");
+    modal3.style.display = "block";
+    autoCLose();
+}
+
+function autoSave() {
+    save(); 
+    autoCLose();
+}
+
+function detectAndrej() {
+    modal4 = document.getElementById("ando");
+    modal4.style.display = "block"
+}
+
+window.onclick = function(event) {
+    modal = document.getElementById("poorModal");
+    modal2 = document.getElementById("save");
+    modal3 = document.getElementById("load");
+    modal4 = document.getElementById("ando");
+
+    if (event.target == modal) {
+        modal.classList.add("modal-close");
+        setTimeout(function() {
+            modal.style.display = "none";
+            modal.classList.remove("modal-close");
+        }, 200);
+    } else if (event.target == modal2) {
+        modal2.classList.add("modal-close");
+        setTimeout(function() {
+            modal2.style.display = "none";
+            modal2.classList.remove("modal-close");
+        }, 200);
+    } else if (event.target == modal3) {
+        modal3.classList.add("modal-close");
+        setTimeout(function() {
+            modal3.style.display = "none";
+            modal3.classList.remove("modal-close");
+        }, 200);
+    } else if (event.target == modal4) {
+        modal4.classList.add("modal-close");
+        setTimeout(function() {
+            modal4.style.display = "none";
+            modal4.classList.remove("modal-close");
+        }, 200);
+    }
+}
+
+function autoCLose() {
+    setTimeout(function() {
+        if (modal2.style.display == "block") {
+            modal2.classList.add("modal-close");
+            setTimeout(function() {
+                modal2.style.display = "none";
+                modal2.classList.remove("modal-close");
+            }, 200);
+        } else if (modal3.style.display == "block") {
+            modal3.classList.add("modal-close");
+            setTimeout(function() {
+                modal3.style.display = "none";
+                modal3.classList.remove("modal-close");
+            }, 200);
+        }
+    }, 2000);
+}
 
 function defaultName() {
     document.getElementById("name").textContent = "Your Restaurant";
@@ -168,7 +254,7 @@ function clickersAdder() {
             alert("A new upgrade has been unlocked!");
         }
     } else { 
-        alert("You don't have enough pizzas for that!");
+        openModal();
     }
 }
 
@@ -184,7 +270,7 @@ function ovensAdder() {
         ovensPrice = formula;
         document.getElementById("ovensPrice").textContent = "Price: " + ovensPrice.toFixed(0);
     } else {
-        alert("You don't have enough pizzas for that!");
+        openModal();
     }
 }
 
@@ -201,7 +287,7 @@ function chefsAdder() {
         chefsPrice = formula;
         document.getElementById("chefsPrice").textContent = "Price: " + chefsPrice.toFixed(0);
     } else {
-        alert("You don't have enough pizzas for that!");
+        openModal();
     }
 }
 
@@ -214,6 +300,8 @@ function graduateAdder() {
         formulas();
         CPS(); 
         document.getElementById("graduateButton").disabled = true;
+    } else {
+        openModal();
     }
 }
 
@@ -226,6 +314,8 @@ function hotAdder() {
         formulas();
         CPS();
         document.getElementById("hotButton").disabled = true;
+    } else {
+        openModal();
     }
 }
 
@@ -238,6 +328,8 @@ function tomatoAdder() {
         CPS(); 
         document.getElementById("tomatoButton").disabled = true;
         document.getElementById("TSImage").style.display = "block"; 
+    } else {
+        openModal();
     }
 }
 
@@ -293,7 +385,7 @@ function changeName() {
     restaurantName = prompt("Enter restaurant name:");
     document.getElementById("name").textContent = restaurantName + "'s Restaurant";
     if (restaurantName === "Andrej" || restaurantName === "Green" || restaurantName === "GCND" || restaurantName === "Green" || restaurantName === "Ando") {
-        alert("Hi Ando :3");
+        detectAndrej();
     }
 
     if (restaurantName === "null") {
@@ -332,6 +424,8 @@ function orange() {
         }, function(){
         $(this).css({"border": "2px solid orange", "background-color": "transparent"});
     });
+
+    $(".modal-header").css({"background-color": "orange"});
 }
 
 function red() {
@@ -355,6 +449,8 @@ function red() {
         }, function(){
         $(this).css({"border": "2px solid red", "background-color": "transparent"});
     });
+
+    $(".modal-header").css({"background-color": "red"});
 }
 
 function green() {
@@ -378,6 +474,8 @@ function green() {
         }, function(){
         $(this).css({"border": "2px solid green", "background-color": "transparent"});
     });
+
+    $(".modal-header").css({"background-color": "green"});
 }
 
 function yellow() {
@@ -401,6 +499,8 @@ function yellow() {
         }, function(){
         $(this).css({"border": "2px solid yellow", "background-color": "transparent"});
     });
+
+    $(".modal-header").css({"background-color": "yellow"});
 }
 
 function blue() {
@@ -424,6 +524,8 @@ function blue() {
         }, function(){
         $(this).css({"border": "2px solid blue", "background-color": "transparent"});
     });
+
+    $(".modal-header").css({"background-color": "blue"});
 }
 
 function purple() {
@@ -447,6 +549,8 @@ function purple() {
         }, function(){
         $(this).css({"border": "2px solid purple", "background-color": "transparent"});
     });
+
+    $(".modal-header").css({"background-color": "purple"});
 }
 
 function colorChecker() {
@@ -489,6 +593,8 @@ function colorChecker() {
                 $(this).css({"color": "white"});
             });
         }
+        $(".modal-content").css({"background-color": "black"});
+        $(".modal-content").css({"color": "white"});
     } else if (darkOn == false) {
         $(".icons").css({"color": "black"});
         if (orangeTrue == true) {
@@ -528,46 +634,47 @@ function colorChecker() {
                 $(this).css({"color": "black"});
             });
         }
+        $(".modal-content").css({"background-color": "white"});
+        $(".modal-content").css({"color": "black"});
     }   
 }
 
 function save() {
 
-var save = { 
-    count: count, 
-    totalCount: totalCount, 
-    clickersCount: clickersCount, 
-    ovensCount: ovensCount, 
-    chefsCount: chefsCount,
+    var save = { 
+        count: count, 
+        totalCount: totalCount, 
+        clickersCount: clickersCount, 
+        ovensCount: ovensCount, 
+        chefsCount: chefsCount,
 
-    mouseCPS: mouseCPS,
-    clickerCPS: clickerCPS,
-    ovensCPS: ovensCPS,
-    chefsCPS: chefsCPS,
-    totalCPS: totalCPS,
-    tomatoCPS: tomatoCPS,
+        mouseCPS: mouseCPS,
+        clickerCPS: clickerCPS,
+        ovensCPS: ovensCPS,
+        chefsCPS: chefsCPS,
+        totalCPS: totalCPS,
+        tomatoCPS: tomatoCPS,
 
-    tomatoSauce: tomatoSauce, 
-    graduateCookers: graduateCookers,
-    hotCookers: hotCookers,
+        tomatoSauce: tomatoSauce, 
+        graduateCookers: graduateCookers,
+        hotCookers: hotCookers,
 
-    clickersPrice: clickersPrice, 
-    ovensPrice: ovensPrice, 
-    chefsPrice: chefsPrice, 
+        clickersPrice: clickersPrice, 
+        ovensPrice: ovensPrice, 
+        chefsPrice: chefsPrice, 
 
-    graduateEnabled: graduateEnabled,
-    hotEnabled: hotEnabled,
-    tomatoEnabled: tomatoEnabled,
-    ovensEnabled: ovensEnabled,
-    chefsEnabled: chefsEnabled,
+        graduateEnabled: graduateEnabled,
+        hotEnabled: hotEnabled,
+        tomatoEnabled: tomatoEnabled,
+        ovensEnabled: ovensEnabled,
+        chefsEnabled: chefsEnabled,
 
-    restaurantName: restaurantName
+        restaurantName: restaurantName
+    }
+
+    localStorage.setItem("save", JSON.stringify(save));
+    openModalSave();
 }
-
-localStorage.setItem("save", JSON.stringify(save));
-alert("Your game has been saved " + restaurantName + "!");
-
-};
 
 function load() {
     var load = JSON.parse(localStorage.getItem("save"));
@@ -646,5 +753,5 @@ function load() {
         document.getElementById("TSImage").style.display = "block"; 
     }
 
-    alert("Your game has been loaded " + restaurantName + "!");
+    openModalLoad();
 }

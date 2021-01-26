@@ -2,19 +2,16 @@
 <html lang="en-us"> 
 
     <head>
-
         <meta charset="UTF-8">
         <title> Pizza Clicker </title> 
-        <script src="main.min.js"></script>
         <link rel="shortcut icon" type="image/png" href="images/icon.png">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="main.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+        <script src="main.min.js"></script>
+        <link rel="stylesheet" href="main.min.css">
     </head>
 
     <body> 
-
         <hr class="color">
         <div style="text-align: center;"> 
         <button onmousedown="playPizzaSound()" style="outline:none; border:none; background-color:transparent;"> 
@@ -137,11 +134,60 @@
                     <button class="fancybutton" style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="yellow()"> Yellow </button><br>
                     <button class="fancybutton" style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="blue()"> Blue </button><br>
                     <button class="fancybutton" style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="purple()"> Purple </button><br>
-
                 </div>
             </div>
         </div>
         <hr class="color">
         <a target="_blank" class="icons" href="https://github.com/vassdeniss"> <span class="fa fa-github icons"> Github </span></a>
+        <a target="_blank" class="icons" href="https://steamcommunity.com/id/tmmthegamer"> <span class="fa fa-steam-square"> Steam </span></a>
+        <a target="_blank" class="icons" href="https://twitter.com/vassdeniss"> <span class="fa fa-twitter"> Twitter </span></a>
+
+      <div id="poorModal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2>Not Enough Pizzas!</h2>
+          </div>
+          <div class="modal-body">
+            <br>
+            <h2>You do not have enough pizzas to buy that!</h2>
+          </div>
+        </div>
+      </div>
+
+      <div id="save" class="modal"> 
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2>Game Save!</h2>
+          </div>
+          <div class="modal-body">
+            <br>
+            <h2>Game has been saved!</h2>
+          </div>
+        </div>
+      </div>
+
+      <div id="load" class="modal"> 
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2>Game Load!</h2>
+          </div>
+          <div class="modal-body">
+            <br>
+            <h2>Game has been loaded!</h2>
+          </div>
+        </div>
+      </div>
+
+      <div id="ando" class="modal"> 
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2>Andrej Detected!</h2>
+          </div>
+          <div class="modal-body">
+            <br>
+            <h2>Hi Ando :3</h2>
+          </div>
+        </div>
+      </div>
     </body>
 </html>
