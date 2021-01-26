@@ -1,5 +1,6 @@
 // Counters - 5
 var count = 0;
+var selfCount = 0;
 var totalCount = 0;
 var clickersCount = 0;
 var ovensCount = 0;
@@ -13,9 +14,10 @@ var chefsCPS = 0;
 var totalCPS = 0;
 var tomatoCPS = 0;
 
-// Upgrades Enabled - 3
+// Upgrades Enabled - 4
 var tomatoSauce = false;
 var graduateCookers = false;
+var overCookers = false; 
 var hotCookers = false; 
 
 // Building Prices - 3
@@ -24,9 +26,10 @@ var ovensPrice = 100;
 var chefsPrice = 1100;
 
 
-// Unlock Checkers - 5
+// Unlock Checkers - 6
 var graduateEnabled = false;
 var hotEnabled = false; 
+var overEnabled = false; 
 var tomatoEnabled = false;
 var ovensEnabled = false;
 var chefsEnabled = false;
@@ -45,6 +48,9 @@ var modal;
 var modal2;
 var modal3;
 var modal4;
+var modal5;
+var modal6;
+var modal7;
 
 window.setInterval(Timer, 1000); 
 window.onload = defaultName;
@@ -76,7 +82,22 @@ function autoSave() {
 
 function detectAndrej() {
     modal4 = document.getElementById("ando");
-    modal4.style.display = "block"
+    modal4.style.display = "block";
+}
+
+function newUpgrade() {
+    modal5 = document.getElementById("newUpgrade");
+    modal5.style.display = "block";
+}
+
+function newBuilding() {
+    modal6 = document.getElementById("mewBuilding");
+    modal6.style.display = "block";
+}
+
+function cheater() {
+    modal7 = document.getElementById("cheater");
+    modal7.style.display = "block";
 }
 
 window.onclick = function(event) {
@@ -84,6 +105,9 @@ window.onclick = function(event) {
     modal2 = document.getElementById("save");
     modal3 = document.getElementById("load");
     modal4 = document.getElementById("ando");
+    modal5 = document.getElementById("newUpgrade");
+    modal6 = document.getElementById("mewBuilding");
+    modal7 = document.getElementById("cheater");
 
     if (event.target == modal) {
         modal.classList.add("modal-close");
@@ -108,6 +132,24 @@ window.onclick = function(event) {
         setTimeout(function() {
             modal4.style.display = "none";
             modal4.classList.remove("modal-close");
+        }, 200);
+    } else if (event.target == modal5) {
+        modal5.classList.add("modal-close");
+        setTimeout(function() {
+            modal5.style.display = "none";
+            modal5.classList.remove("modal-close");
+        }, 200);
+    } else if (event.target == modal6) {
+        modal6.classList.add("modal-close");
+        setTimeout(function() {
+            modal6.style.display = "none";
+            modal6.classList.remove("modal-close");
+        }, 200);
+    } else if (event.target == modal7) {
+        modal7.classList.add("modal-close");
+        setTimeout(function() {
+            modal7.style.display = "none";
+            modal7.classList.remove("modal-close");
         }, 200);
     }
 }
@@ -150,6 +192,12 @@ function playPizzaSound() {
     sound.play();
 }
 
+function playModalSound() {
+    var sound = new Audio(); 
+    sound.src = "sounds/popup.mp3";
+    sound.play(); 
+}
+
 function resizePizzaSmall() {
     document.getElementById("pizza").style.transform = "scale(0.97)";
     $("#pizza").css({"filter": "brightness(0.7)"});
@@ -177,7 +225,6 @@ function dark() {
 }
 
 function pizzaAdder() {
-    console.log(darkOn, orange);
     count += mouseCPS;
     totalCount += mouseCPS;
     totalPizzas();
@@ -187,7 +234,8 @@ function pizzaAdder() {
     } else if (count >= 100) {
         ovensEnabled = true;
         document.getElementById("ovens").style.display = "";
-        alert("A new building has been unlocked!");
+        playModalSound()
+        newBuilding();
     }
 
     if (chefsEnabled == true) {
@@ -195,15 +243,20 @@ function pizzaAdder() {
     } else if (count >= 1100) {
         chefsEnabled = true;
         document.getElementById("chefs").style.display = "";
-        alert("A new building has been unlocked!");
+        playModalSound()
+        newBuilding();
     }
+
     if (tomatoEnabled == true) {
 
     } else if (count >= 1000000) {
         tomatoEnabled = true;
         document.getElementById("tomato").style.display = "";
-        alert("A new upgrade has been unlocked!");
+        playModalSound()
+        newUpgrade();
     }
+
+    selfCount += 1;
 }
 
 function formulas() {
@@ -213,9 +266,12 @@ function formulas() {
             clickerCPS = clickerCPS * 2;
             if (hotCookers == true) {
                 clickerCPS = clickerCPS * 2;
-            };
-        };
-    };
+                if (overCookers == true) {
+                    clickerCPS = clickerCPS * 2;
+                }
+            }
+        }
+    }
 
     if (ovensCount >= 1) {
         ovensCPS = 1 * ovensCount
@@ -243,7 +299,8 @@ function clickersAdder() {
         } else if (clickersCount >= 1) {
             graduateEnabled = true;
             document.getElementById("GPC").style.display = "";
-            alert("A new upgrade has been unlocked!");
+            playModalSound();
+            newUpgrade();
         } 
 
         if (hotEnabled == true) {
@@ -251,9 +308,21 @@ function clickersAdder() {
         } else if (clickersCount >= 50) {
             hotEnabled = true;
             document.getElementById("HPC").style.display = "";
-            alert("A new upgrade has been unlocked!");
+            playModalSound();
+            newUpgrade();
         }
+
+        if (overEnabled == true) {
+
+        } else if (clickersCount >= 100) {
+            overEnabled = true;
+            document.getElementById("OPC").style.display = "";
+            playModalSound();
+            newUpgrade();
+        }
+
     } else { 
+        playModalSound()
         openModal();
     }
 }
@@ -270,6 +339,7 @@ function ovensAdder() {
         ovensPrice = formula;
         document.getElementById("ovensPrice").textContent = "Price: " + ovensPrice.toFixed(0);
     } else {
+        playModalSound()
         openModal();
     }
 }
@@ -287,6 +357,7 @@ function chefsAdder() {
         chefsPrice = formula;
         document.getElementById("chefsPrice").textContent = "Price: " + chefsPrice.toFixed(0);
     } else {
+        playModalSound()
         openModal();
     }
 }
@@ -294,27 +365,41 @@ function chefsAdder() {
 function graduateAdder() { 
     if (count >= 100) {
         graduateCookers = true; 
-        mouseCPS = mouseCPS * 2;
         count = count - 100; 
         document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toFixed(0);
         formulas();
         CPS(); 
         document.getElementById("graduateButton").disabled = true;
     } else {
+        playModalSound()
         openModal();
     }
 }
 
 function hotAdder() {
-    if (count >= 10000) {
+    if (count >= 1000) {
         hotCookers = true;
-        mouseCPS = mouseCPS * 2;
-        count = count - 10000;
+        count = count - 1000;
         document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toFixed(0);
         formulas();
         CPS();
         document.getElementById("hotButton").disabled = true;
     } else {
+        playModalSound()
+        openModal();
+    }
+}
+
+function overAdder() {
+    if (count >= 10000) {
+        overCookers = true;
+        count = count - 10000;
+        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toFixed(0);
+        formulas();
+        CPS();
+        document.getElementById("overButton").disabled = true;
+    } else {
+        playModalSound()
         openModal();
     }
 }
@@ -329,6 +414,7 @@ function tomatoAdder() {
         document.getElementById("tomatoButton").disabled = true;
         document.getElementById("TSImage").style.display = "block"; 
     } else {
+        playModalSound()
         openModal();
     }
 }
@@ -378,19 +464,22 @@ function totalPizzas() {
 
 function CPS() {
     totalCPS = clickerCPS + ovensCPS + chefsCPS + tomatoCPS; 
-    document.getElementById("cps").textContent = "Clicks Per Second: " + totalCPS.toFixed(2);
+    document.getElementById("cps").textContent = totalCPS.toFixed(2);
 }
 
 function changeName() {
     restaurantName = prompt("Enter restaurant name:");
     document.getElementById("name").textContent = restaurantName + "'s Restaurant";
     if (restaurantName === "Andrej" || restaurantName === "Green" || restaurantName === "GCND" || restaurantName === "Green" || restaurantName === "Ando") {
+        playModalSound()
         detectAndrej();
     }
 
     if (restaurantName === "null") {
         count = count + 1000000000;
-        alert("Cheater cheater ;3")
+        clickersCount = 99;
+        playModalSound()
+        cheater();
     }
 
     if (restaurantName === "") {
@@ -643,6 +732,7 @@ function save() {
 
     var save = { 
         count: count, 
+        selfCount: selfCount,
         totalCount: totalCount, 
         clickersCount: clickersCount, 
         ovensCount: ovensCount, 
@@ -658,6 +748,7 @@ function save() {
         tomatoSauce: tomatoSauce, 
         graduateCookers: graduateCookers,
         hotCookers: hotCookers,
+        overCookers: overCookers,
 
         clickersPrice: clickersPrice, 
         ovensPrice: ovensPrice, 
@@ -665,6 +756,7 @@ function save() {
 
         graduateEnabled: graduateEnabled,
         hotEnabled: hotEnabled,
+        overEnabled: overEnabled,
         tomatoEnabled: tomatoEnabled,
         ovensEnabled: ovensEnabled,
         chefsEnabled: chefsEnabled,
@@ -673,6 +765,7 @@ function save() {
     }
 
     localStorage.setItem("save", JSON.stringify(save));
+    playModalSound()
     openModalSave();
 }
 
@@ -680,6 +773,7 @@ function load() {
     var load = JSON.parse(localStorage.getItem("save"));
 
     count = load.count;
+    selfCount = load.selfCount;
     totalCount = load.totalCount; 
     clickersCount = load.clickersCount;
     ovensCount = load.ovensCount; 
@@ -695,6 +789,7 @@ function load() {
     tomatoSauce = load.tomatoSauce; 
     graduateCookers = load.graduateCookers;
     hotCookers = load.hotCookers;
+    overCookers = load.overCookers;
 
     clickersPrice = load.clickersPrice; 
     ovensPrice = load.ovensPrice;
@@ -702,6 +797,7 @@ function load() {
 
     graduateEnabled = load.graduateEnabled;
     hotEnabled = load.hotEnabled;
+    overEnabled = load.overEnabled;
     tomatoEnabled = load.tomatoEnabled;
     ovensEnabled = load.ovensEnabled;
     chefsEnabled = load.chefsEnabled;
@@ -714,7 +810,9 @@ function load() {
         defaultName();
     }
 
-    document.getElementById("cps").textContent = "Clicks Per Second: " + totalCPS.toFixed(2);
+    document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toFixed(0);
+    document.getElementById("pizzaTotal").textContent = totalCount.toFixed(0);
+    document.getElementById("cps").textContent = totalCPS.toFixed(2);
 
     if (ovensEnabled == true) {
         document.getElementById("ovens").style.display = "";
@@ -727,6 +825,9 @@ function load() {
     }
     if (hotEnabled == true) {
         document.getElementById("HPC").style.display = "";
+    }
+    if (overEnabled == true) {
+        document.getElementById("OPC").style.display = "";
     }
     if (tomatoEnabled == true) {
         document.getElementById("tomato").style.display = "";
@@ -748,10 +849,15 @@ function load() {
         document.getElementById("hotButton").disabled = true;
     }
 
+    if (overCookers == true) {
+        document.getElementById("overButton").disabled = true;
+    }
+
     if (tomatoSauce == true) {
         document.getElementById("tomatoButton").disabled = true;
         document.getElementById("TSImage").style.display = "block"; 
     }
 
+    playModalSound()
     openModalLoad();
 }

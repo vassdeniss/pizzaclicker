@@ -26,7 +26,7 @@
                 <p class="fancyBorder" id="name">  </p>
                 <p class="fancyBorder" id="pizzaCounter"> Pizzas: 0 </p>
                 <p class="fancyBorder"> <span class="fa fa-hand-pointer-o"> Total Pizzas Clicked: </span> <span id="pizzaTotal"> 0 </span> </p>
-                <p class="fancyBorder" id="cps"> Clicks Per Second: 0.00 </p>
+                <p class="fancyBorder"> Clicks Per Second: <span id="cps"> 0.00 </span></p>
 
                 <div class="row">
                     <div class="col-6">
@@ -106,14 +106,20 @@
                         <tr id="GPC" style="display: none;">
                             <td class="border"> Graduated Pointer Cookers </td> 
                             <td class="border"><img src="images/transparentPizza.png" height="25px" width="25px"> Price: 100 </td>
-                            <td class="border"> Clicking and the Pointer Cookers are twice as powerful - <i> "They graduated cooking collage to work for you" </i> </td>
+                            <td class="border"> Pointer Cookers are twice as powerful - <i> "They graduated cooking collage to work for you" </i> </td>
                             <td><button class="fancybutton" style="cursor: pointer;" onmousedown="playButtonSound()" id="graduateButton" onclick="graduateAdder()"> Buy </button></td>
                         </tr> 
                         <tr id="HPC" style="display: none;"> 
                             <td class="border"> Heated Pointer Cookers </td>
-                            <td class="border"><img src="images/transparentPizza.png" height="25px" width="25px"> Price: 10000 </td>
-                            <td class="border"> Clicking and the Pointer Cookers are twice as powerful - <i> "Extra heat for faster cooking times" </i> </td>
+                            <td class="border"><img src="images/transparentPizza.png" height="25px" width="25px"> Price: 1000 </td>
+                            <td class="border"> Pointer Cookers are twice as powerful - <i> "Extra heat for faster cooking times" </i></td>
                             <td><button class="fancybutton" style="cursor: pointer;" onmousedown="playButtonSound()" id="hotButton" onclick="hotAdder()"> Buy </button></td>
+                        </tr>
+                        <tr id="OPC" style="display: none;">
+                            <td class="border"> Overseer Pointer Cookers </td>
+                            <td class="border"><img src="images/transparentPizza.png" height="25px" width="25px"> Price: 10000 </td>
+                            <td class="border"> Pointer Cookers are twice as powerful - <i> "The one pointer to rule them all" </i></td>
+                            <td><button class="fancybutton" style="cursor: pointer;" onmousedown="playButtonSound()" id="overButton" onclick="overAdder()"> Buy </button></td>
                         </tr>
                         <tr id="tomato" style="display: none;"> 
                             <td class="border"> Tomato Sauce </td>
@@ -186,6 +192,42 @@
           <div class="modal-body">
             <br>
             <h2>Hi Ando :3</h2>
+          </div>
+        </div>
+      </div>
+
+      <div id="newUpgrade" class="modal"> 
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2>New Upgrade!</h2>
+          </div>
+          <div class="modal-body">
+            <br>
+            <h2>A new upgrade has been unlocked!</h2>
+          </div>
+        </div>
+      </div>
+
+      <div id="newBuilding" class="modal"> 
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2>New Building!</h2>
+          </div>
+          <div class="modal-body">
+            <br>
+            <h2>A new building has been unlocked!</h2>
+          </div>
+        </div>
+      </div>
+
+      <div id="cheater" class="modal"> 
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2>Cheater Cheater!</h2>
+          </div>
+          <div class="modal-body">
+            <br>
+            <h2>Cheater cheater cheater cheater cheater cheater cheater :3</h2>
           </div>
         </div>
       </div>
