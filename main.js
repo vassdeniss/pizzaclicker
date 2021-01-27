@@ -65,19 +65,16 @@ window.onload = defaultName;
 window.setInterval(autoSave, 60000);
 
 function openModal() {
-    modal = document.getElementById("poorModal");
-    modal.style.display = "block";
+    document.getElementById("poorModal").style.display = "block";
 }
 
 function openModalSave() {
-    modal2 = document.getElementById("save");
-    modal2.style.display = "block";
+    document.getElementById("save").style.display = "block";
     autoCLose();
 }
 
 function openModalLoad() {
-    modal3 = document.getElementById("load");
-    modal3.style.display = "block";
+    document.getElementById("load").style.display = "block";
     autoCLose();
 }
 
@@ -87,28 +84,23 @@ function autoSave() {
 }
 
 function detectAndrej() {
-    modal4 = document.getElementById("ando");
-    modal4.style.display = "block";
+    document.getElementById("ando").style.display = "block";
 }
 
 function newUpgrade() {
-    modal5 = document.getElementById("newUpgrade");
-    modal5.style.display = "block";
+    document.getElementById("newUpgrade").style.display = "block";
 }
 
 function newBuilding() {
-    modal6 = document.getElementById("newBuilding");
-    modal6.style.display = "block";
+    document.getElementById("newBuilding").style.display = "block";
 }
 
 function cheater() {
-    modal7 = document.getElementById("cheater");
-    modal7.style.display = "block";
+    document.getElementById("cheater").style.display = "block"
 }
 
-function starOneShow() {
-    modal8 = document.getElementById("star"); 
-    modal8.style.display = "block";
+function starOneShow() { 
+    document.getElementById("star").style.display = "block";
 }
 
 window.onclick = function(event) {
@@ -122,52 +114,52 @@ window.onclick = function(event) {
     modal8 = document.getElementById("star"); 
 
     if (event.target == modal) {
-        modal.classList.add("modal-close");
+        modal.classList.add("themodal-close");
         setTimeout(function() {
             modal.style.display = "none";
-            modal.classList.remove("modal-close");
+            modal.classList.remove("themodal-close");
         }, 200);
     } else if (event.target == modal2) {
-        modal2.classList.add("modal-close");
+        modal2.classList.add("themodal-close");
         setTimeout(function() {
             modal2.style.display = "none";
-            modal2.classList.remove("modal-close");
+            modal2.classList.remove("themodal-close");
         }, 200);
     } else if (event.target == modal3) {
-        modal3.classList.add("modal-close");
+        modal3.classList.add("themodal-close");
         setTimeout(function() {
             modal3.style.display = "none";
-            modal3.classList.remove("modal-close");
+            modal3.classList.remove("themodal-close");
         }, 200);
     } else if (event.target == modal4) {
-        modal4.classList.add("modal-close");
+        modal4.classList.add("themodal-close");
         setTimeout(function() {
             modal4.style.display = "none";
-            modal4.classList.remove("modal-close");
+            modal4.classList.remove("themodal-close");
         }, 200);
     } else if (event.target == modal5) {
-        modal5.classList.add("modal-close");
+        modal5.classList.add("themodal-close");
         setTimeout(function() {
             modal5.style.display = "none";
-            modal5.classList.remove("modal-close");
+            modal5.classList.remove("themodal-close");
         }, 200);
     } else if (event.target == modal6) {
-        modal6.classList.add("modal-close");
+        modal6.classList.add("themodal-close");
         setTimeout(function() {
             modal6.style.display = "none";
-            modal6.classList.remove("modal-close");
+            modal6.classList.remove("themodal-close");
         }, 200);
     } else if (event.target == modal7) {
-        modal7.classList.add("modal-close");
+        modal7.classList.add("themodal-close");
         setTimeout(function() {
             modal7.style.display = "none";
-            modal7.classList.remove("modal-close");
+            modal7.classList.remove("themodal-close");
         }, 200);
     } else if (event.target == modal8) {
-        modal8.classList.add("modal-close");
+        modal8.classList.add("themodal-close");
         setTimeout(function() {
             modal8.style.display = "none";
-            modal8.classList.remove("modal-close");
+            modal8.classList.remove("themodal-close");
         }, 200);
     }
 }
@@ -175,16 +167,16 @@ window.onclick = function(event) {
 function autoCLose() {
     setTimeout(function() {
         if (modal2.style.display == "block") {
-            modal2.classList.add("modal-close");
+            modal2.classList.add("themodal-close");
             setTimeout(function() {
                 modal2.style.display = "none";
-                modal2.classList.remove("modal-close");
+                modal2.classList.remove("themodal-close");
             }, 200);
         } else if (modal3.style.display == "block") {
-            modal3.classList.add("modal-close");
+            modal3.classList.add("themodal-close");
             setTimeout(function() {
                 modal3.style.display = "none";
-                modal3.classList.remove("modal-close");
+                modal3.classList.remove("themodal-close");
             }, 200);
         }
     }, 2000);
@@ -235,7 +227,6 @@ function dark() {
     darkOn = !darkOn;
     var element = document.body; 
     element.classList.toggle("dark");
-    $("th, td").toggleClass("borderWhite");
     $(".fancybutton").toggleClass("fancybuttonWhite");
     $(".fancyBorder").toggleClass("fancyBorderWhite");
     $(".fancyBorderPlain").toggleClass("fancyBorderPlainWhite");
@@ -601,7 +592,7 @@ function orange() {
     $(".fancyBorder").css({"background": "rgba(255, 157, 0, 0.4)"});
     $(".fancybutton").css({"border": "2px solid orange"});
     $(".fancyBorderPlain").css({"border": "2px solid orange"});
-    $(".border").css({"border": "2px solid orange"});
+    $("td, th").css({"border": "2px solid orange"});
 
     $(".fancybutton").hover(function(){
         $(this).css({"border": "2px solid orange", "background-color": "orange"});
@@ -609,7 +600,7 @@ function orange() {
         $(this).css({"border": "2px solid orange", "background-color": "transparent"});
     });
 
-    $(".modal-header").css({"background-color": "orange"});
+    $(".themodal-header").css({"background-color": "orange"});
 }
 
 function red() {
@@ -626,7 +617,7 @@ function red() {
     $(".fancyBorder").css({"background": "rgba(255, 0, 0, 0.4)"});
     $(".fancybutton").css({"border": "2px solid red"});
     $(".fancyBorderPlain").css({"border": "2px solid red"});
-    $(".border").css({"border": "2px solid red"});
+    $("td, th").css({"border": "2px solid red"});
 
     $(".fancybutton").hover(function(){
         $(this).css({"border": "2px solid red", "background-color": "red"});
@@ -634,7 +625,7 @@ function red() {
         $(this).css({"border": "2px solid red", "background-color": "transparent"});
     });
 
-    $(".modal-header").css({"background-color": "red"});
+    $(".themodal-header").css({"background-color": "red"});
 }
 
 function green() {
@@ -651,7 +642,7 @@ function green() {
     $(".fancyBorder").css({"background": "rgba(30, 255, 0, 0.4)"});
     $(".fancybutton").css({"border": "2px solid green"});
     $(".fancyBorderPlain").css({"border": "2px solid green"});
-    $(".border").css({"border": "2px solid green"});
+    $("td, th").css({"border": "2px solid green"});
 
     $(".fancybutton").hover(function(){
         $(this).css({"border": "2px solid green", "background-color": "green"});
@@ -659,7 +650,7 @@ function green() {
         $(this).css({"border": "2px solid green", "background-color": "transparent"});
     });
 
-    $(".modal-header").css({"background-color": "green"});
+    $(".themodal-header").css({"background-color": "green"});
 }
 
 function yellow() {
@@ -676,7 +667,7 @@ function yellow() {
     $(".fancyBorder").css({"background": "rgba(217, 255, 0, 0.4)"});
     $(".fancybutton").css({"border": "2px solid yellow"});
     $(".fancyBorderPlain").css({"border": "2px solid yellow"});
-    $(".border").css({"border": "2px solid yellow"});
+    $("td, th").css({"border": "2px solid yellow"});
 
     $(".fancybutton").hover(function(){
         $(this).css({"border": "2px solid yellow", "background-color": "yellow"});
@@ -684,7 +675,7 @@ function yellow() {
         $(this).css({"border": "2px solid yellow", "background-color": "transparent"});
     });
 
-    $(".modal-header").css({"background-color": "yellow"});
+    $(".themodal-header").css({"background-color": "yellow"});
 }
 
 function blue() {
@@ -701,7 +692,7 @@ function blue() {
     $(".fancyBorder").css({"background": "rgba(17, 0, 255, 0.4)"});
     $(".fancybutton").css({"border": "2px solid blue"});
     $(".fancyBorderPlain").css({"border": "2px solid blue"});
-    $(".border").css({"border": "2px solid blue"});
+    $("td, th").css({"border": "2px solid blue"});
 
     $(".fancybutton").hover(function(){
         $(this).css({"border": "2px solid blue", "background-color": "blue"});
@@ -709,7 +700,7 @@ function blue() {
         $(this).css({"border": "2px solid blue", "background-color": "transparent"});
     });
 
-    $(".modal-header").css({"background-color": "blue"});
+    $(".themodal-header").css({"background-color": "blue"});
 }
 
 function purple() {
@@ -726,7 +717,7 @@ function purple() {
     $(".fancyBorder").css({"background": "rgba(183, 0, 255, 0.4)"});
     $(".fancybutton").css({"border": "2px solid purple"});
     $(".fancyBorderPlain").css({"border": "2px solid purple"});
-    $(".border").css({"border": "2px solid purple"});
+    $("td, th").css({"border": "2px solid purple"});
 
     $(".fancybutton").hover(function(){
         $(this).css({"border": "2px solid purple", "background-color": "purple"});
@@ -734,7 +725,7 @@ function purple() {
         $(this).css({"border": "2px solid purple", "background-color": "transparent"});
     });
 
-    $(".modal-header").css({"background-color": "purple"});
+    $(".themodal-header").css({"background-color": "purple"});
 }
 
 function colorChecker() {
@@ -777,8 +768,8 @@ function colorChecker() {
                 $(this).css({"color": "white"});
             });
         }
-        $(".modal-content").css({"background-color": "black"});
-        $(".modal-content").css({"color": "white"});
+        $(".themodal-content").css({"background-color": "black"});
+        $(".themodal-content").css({"color": "white"});
     } else if (darkOn == false) {
         $(".icons").css({"color": "black"});
         if (orangeTrue == true) {
@@ -818,8 +809,8 @@ function colorChecker() {
                 $(this).css({"color": "black"});
             });
         }
-        $(".modal-content").css({"background-color": "white"});
-        $(".modal-content").css({"color": "black"});
+        $(".themodal-content").css({"background-color": "white"});
+        $(".themodal-content").css({"color": "black"});
     }   
 }
 

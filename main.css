@@ -45,18 +45,21 @@ p {
   color: white;
 }
 
+
 table, th, td {
   text-align: center;
   padding: 15px;
   border-radius: 55px;
+  border-collapse: separate;
 }
 
-table {
-  width: 90%;
+button:focus {
+  outline: none;
 }
 
-.border {
+th, td {
   border: 2px solid orange;
+  transition: 0.4s;
 }
 
 #pizza {
@@ -68,7 +71,7 @@ table {
   background: rgba(255, 157, 0, 0.4);
   padding: 5px;
   width: 450px;
-  height: 30px;
+  height: 45px;
   text-align: center;
   transition-duration: 0.4s;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
@@ -79,7 +82,7 @@ table {
   background: rgba(255, 157, 0, 0.4);
   padding: 5px;
   width: 450px;
-  height: 30px;
+  height: 45px;
   text-align: center;
   transition-duration: 0.4s;
   box-shadow: 0 8px 16px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
@@ -153,7 +156,7 @@ table {
 
 body {font-family: Arial, Helvetica, sans-serif;}
             
-.modal {
+.themodal {
   display: none; 
   position: fixed; 
   z-index: 1;
@@ -170,27 +173,27 @@ body {font-family: Arial, Helvetica, sans-serif;}
   animation-duration: 0.4s
 }
 
-.modal-content {
-  position: fixed;
-  bottom: 0;
+.themodal-content {
+  position: sticky;
+  top: 0;
   background-color: #fefefe;
   color: black;
   width: 100%;
   -webkit-animation-name: slideIn;
   -webkit-animation-duration: 0.4s;
   animation-name: slideIn;
-  animation-duration: 0.4s
+  animation-duration: 0.4s;
 }
 
-.modal-header {
-  padding: 2px 16px;
+.themodal-header {
+  padding: 30px 15px 20px 25px;
   background-color: orange;
   color: black;
 }
 
-.modal-body {padding: 2px 16px;}
+.themodal-body {padding: 0px 15px 20px 25px;}
 
-.modal-close {
+.themodal-close {
   -webkit-animation-name: fadeOut;
   -webkit-animation-duration: 0.4s;
   animation-name: fadeOut;
@@ -198,13 +201,13 @@ body {font-family: Arial, Helvetica, sans-serif;}
 }
 
 @-webkit-keyframes slideIn {
-  from {bottom: -300px; opacity: 0} 
-  to {bottom: 0; opacity: 1}
+  from {top: -300px; opacity: 0} 
+  to {top: 0; opacity: 1}
 }
 
 @keyframes slideIn {
-  from {bottom: -300px; opacity: 0}
-  to {bottom: 0; opacity: 1}
+  from {top: -300px; opacity: 0}
+  to {top: 0; opacity: 1}
 }
 
 @-webkit-keyframes fadeIn {
