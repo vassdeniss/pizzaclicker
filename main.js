@@ -14,8 +14,11 @@ var chefsCPS = 0;
 var totalCPS = 0;
 var tomatoCPS = 0;
 
-// Upgrades Enabled - 4
+// Upgrades Enabled - 7
 var tomatoSauce = false;
+var ironMouse = false;
+var goldMouse = false;
+var diamondMouse = false;
 var graduateCookers = false;
 var overCookers = false; 
 var hotCookers = false; 
@@ -25,8 +28,10 @@ var clickersPrice = 15;
 var ovensPrice = 100;
 var chefsPrice = 1100;
 
-
-// Unlock Checkers - 6
+// Unlock Checkers - 9
+var ironEnabled = false;
+var goldEnabled = false;
+var diamondEnabled = false;
 var graduateEnabled = false;
 var hotEnabled = false; 
 var overEnabled = false; 
@@ -51,17 +56,18 @@ var modal4;
 var modal5;
 var modal6;
 var modal7;
+var modal8;
+
+var starOne = false;
 
 window.setInterval(Timer, 1000); 
 window.onload = defaultName;
 window.setInterval(autoSave, 60000);
 
-
 function openModal() {
     modal = document.getElementById("poorModal");
     modal.style.display = "block";
 }
-
 
 function openModalSave() {
     modal2 = document.getElementById("save");
@@ -91,7 +97,7 @@ function newUpgrade() {
 }
 
 function newBuilding() {
-    modal6 = document.getElementById("mewBuilding");
+    modal6 = document.getElementById("newBuilding");
     modal6.style.display = "block";
 }
 
@@ -100,14 +106,20 @@ function cheater() {
     modal7.style.display = "block";
 }
 
+function starOneShow() {
+    modal8 = document.getElementById("star"); 
+    modal8.style.display = "block";
+}
+
 window.onclick = function(event) {
     modal = document.getElementById("poorModal");
     modal2 = document.getElementById("save");
     modal3 = document.getElementById("load");
     modal4 = document.getElementById("ando");
     modal5 = document.getElementById("newUpgrade");
-    modal6 = document.getElementById("mewBuilding");
+    modal6 = document.getElementById("newBuilding");
     modal7 = document.getElementById("cheater");
+    modal8 = document.getElementById("star"); 
 
     if (event.target == modal) {
         modal.classList.add("modal-close");
@@ -150,6 +162,12 @@ window.onclick = function(event) {
         setTimeout(function() {
             modal7.style.display = "none";
             modal7.classList.remove("modal-close");
+        }, 200);
+    } else if (event.target == modal8) {
+        modal8.classList.add("modal-close");
+        setTimeout(function() {
+            modal8.style.display = "none";
+            modal8.classList.remove("modal-close");
         }, 200);
     }
 }
@@ -227,6 +245,7 @@ function dark() {
 function pizzaAdder() {
     count += mouseCPS;
     totalCount += mouseCPS;
+    selfCount += 1;
     totalPizzas();
     document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toFixed(0);
     if (ovensEnabled == true) {
@@ -234,7 +253,7 @@ function pizzaAdder() {
     } else if (count >= 100) {
         ovensEnabled = true;
         document.getElementById("ovens").style.display = "";
-        playModalSound()
+        playModalSound();
         newBuilding();
     }
 
@@ -243,7 +262,7 @@ function pizzaAdder() {
     } else if (count >= 1100) {
         chefsEnabled = true;
         document.getElementById("chefs").style.display = "";
-        playModalSound()
+        playModalSound();
         newBuilding();
     }
 
@@ -252,11 +271,47 @@ function pizzaAdder() {
     } else if (count >= 1000000) {
         tomatoEnabled = true;
         document.getElementById("tomato").style.display = "";
-        playModalSound()
+        playModalSound();
         newUpgrade();
     }
 
-    selfCount += 1;
+    if (ironEnabled == true) {
+
+    } else if (selfCount >= 100) { 
+        ironEnabled = true; 
+        document.getElementById("ironMouse").style.display = "";
+        playModalSound();
+        newUpgrade();
+    }
+
+    if (goldEnabled == true) {
+
+    } else if (selfCount >= 1000) {
+        goldEnabled = true;
+        document.getElementById("goldMouse").style.display = "";
+        playModalSound();
+        newUpgrade();
+    }
+
+    if (diamondEnabled == true) {
+
+    } else if (selfCount >= 10000) {
+        diamondEnabled = true;
+        document.getElementById("diamondMouse").style.display = "";
+        playModalSound();
+        newUpgrade();
+    }
+
+    /*
+    if (starOne == true) {
+
+    } else if (count >= 10000) {
+        starOne = true;
+        document.getElementById("starOne").style.display = "";
+        playModalSound()
+        starOneShow();
+    }
+    */
 }
 
 function formulas() {
@@ -356,6 +411,45 @@ function chefsAdder() {
         var formula = 1100 * Math.pow(1.15, chefsCount);
         chefsPrice = formula;
         document.getElementById("chefsPrice").textContent = "Price: " + chefsPrice.toFixed(0);
+    } else {
+        playModalSound()
+        openModal();
+    }
+}
+
+function ironAdder() {
+    if (count >= 500) {
+        ironMouse = true; 
+        count = count - 500; 
+        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toFixed(0);
+        mouseCPS = mouseCPS * 2;
+        document.getElementById("ironButton").disabled = true;
+    } else {
+        playModalSound()
+        openModal();
+    }
+}
+
+function goldAdder() {
+    if (count >= 5000) {
+        goldMouse = true; 
+        count = count - 5000; 
+        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toFixed(0);
+        mouseCPS = mouseCPS * 2;
+        document.getElementById("goldButton").disabled = true;
+    } else {
+        playModalSound()
+        openModal();
+    }
+}
+
+function diamondAdder() {
+    if (count >= 50000) {
+        diamondMouse = true;
+        count = count - 50000; 
+        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toFixed(0);
+        mouseCPS = mouseCPS * 2;
+        document.getElementById("diamondButton").disabled = true;
     } else {
         playModalSound()
         openModal();
@@ -477,7 +571,8 @@ function changeName() {
 
     if (restaurantName === "null") {
         count = count + 1000000000;
-        clickersCount = 99;
+        clickersCount = 100;
+        selfCount = 1000000;
         playModalSound()
         cheater();
     }
@@ -745,6 +840,9 @@ function save() {
         totalCPS: totalCPS,
         tomatoCPS: tomatoCPS,
 
+        ironMouse: ironMouse,
+        goldMouse: goldMouse,
+        diamondMouse: diamondMouse,
         tomatoSauce: tomatoSauce, 
         graduateCookers: graduateCookers,
         hotCookers: hotCookers,
@@ -754,6 +852,9 @@ function save() {
         ovensPrice: ovensPrice, 
         chefsPrice: chefsPrice, 
 
+        ironEnabled: ironEnabled,
+        goldEnabled: goldEnabled,
+        diamondEnabled: diamondEnabled,
         graduateEnabled: graduateEnabled,
         hotEnabled: hotEnabled,
         overEnabled: overEnabled,
@@ -761,7 +862,9 @@ function save() {
         ovensEnabled: ovensEnabled,
         chefsEnabled: chefsEnabled,
 
-        restaurantName: restaurantName
+        restaurantName: restaurantName,
+
+        starOne: starOne
     }
 
     localStorage.setItem("save", JSON.stringify(save));
@@ -786,6 +889,9 @@ function load() {
     totalCPS = load.totalCPS;
     tomatoCPS = load.tomatoCPS;
 
+    ironMouse = load.ironMouse;
+    goldMouse = load.goldMouse;
+    diamondMouse = load.diamondMouse;
     tomatoSauce = load.tomatoSauce; 
     graduateCookers = load.graduateCookers;
     hotCookers = load.hotCookers;
@@ -795,6 +901,9 @@ function load() {
     ovensPrice = load.ovensPrice;
     chefsPrice = load.chefsPrice;
 
+    ironEnabled = load.ironEnabled;
+    goldEnabled = load.goldEnabled;
+    diamondEnabled = load.diamondEnabled;
     graduateEnabled = load.graduateEnabled;
     hotEnabled = load.hotEnabled;
     overEnabled = load.overEnabled;
@@ -803,6 +912,8 @@ function load() {
     chefsEnabled = load.chefsEnabled;
 
     restaurantName = load.restaurantName;
+
+    starOne = load.starOne;
 
     if (restaurantName) {
         customName();
@@ -820,6 +931,15 @@ function load() {
     if (chefsEnabled == true) {
         document.getElementById("chefs").style.display = "";
     }
+    if (ironEnabled == true) {
+        document.getElementById("ironMouse").style.display = "";
+    }
+    if (goldEnabled == true) {
+        document.getElementById("goldMouse").style.display = "";
+    }
+    if (diamondEnabled == true) {
+        document.getElementById("diamondMouse").style.display = "";
+    }
     if (graduateEnabled == true) {
         document.getElementById("GPC").style.display = "";
     }
@@ -833,6 +953,10 @@ function load() {
         document.getElementById("tomato").style.display = "";
     }
 
+    if (starOne == true) {
+        document.getElementById("starOne").style.display = "";
+    }
+
     document.getElementById("clickerCount").textContent = "Count: " + clickersCount;
     document.getElementById("ovensCount").textContent = "Count: " + ovensCount;
     document.getElementById("chefsCount").textContent = "Count: " + chefsCount;
@@ -844,19 +968,27 @@ function load() {
     if (graduateCookers == true) {
         document.getElementById("graduateButton").disabled = true;
     }
-
+    if (ironMouse == true) {
+        document.getElementById("ironButton").disabled = true;
+    }
+    if (goldMouse == true) {
+        document.getElementById("goldButton").disabled = true;
+    }
+    if (diamondMouse == true) {
+        document.getElementById("diamondButton").disabled = true;
+    }
     if (hotCookers == true) {
         document.getElementById("hotButton").disabled = true;
     }
-
     if (overCookers == true) {
         document.getElementById("overButton").disabled = true;
     }
-
     if (tomatoSauce == true) {
         document.getElementById("tomatoButton").disabled = true;
         document.getElementById("TSImage").style.display = "block"; 
     }
+
+    console.log(diamondMouse);
 
     playModalSound()
     openModalLoad();

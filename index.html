@@ -15,9 +15,26 @@
         <hr class="color">
         <div style="text-align: center;"> 
         <button onmousedown="playPizzaSound()" style="outline:none; border:none; background-color:transparent;"> 
-            <img style="cursor: pointer;" src="images/transparentPizza.png" width="40px" height="40px"> 
+            <img style="cursor: pointer;" src="images/transparentPizza.png" width="40px" height="40px" alt="star.png"> 
         </button>
         <h1 style="text-align: center; margin-top: 0px;"> Pizza Clicker </h1>
+        </div>
+        <div style="float: left; margin-left: 20px;"> 
+            <div id="starOne" style="display: none;">
+            <img style="margin-bottom: 4px;" src="images/star.png" width="40px" height="40px" alt="star.png">
+            </div>
+            <div id="starTwo" style="display: none;">
+            <img style="margin-bottom: 4px;" src="images/star.png" width="40px" height="40px" alt="star.png">
+            </div>
+            <div id="starThree" style="display: none;">
+            <img style="margin-bottom: 4px;" src="images/star.png" width="40px" height="40px" alt="star.png">
+            </div>
+            <div id="starFour" style="display: none;">
+            <img style="margin-bottom: 4px;" src="images/star.png" width="40px" height="40px" alt="star.png">
+            </div>
+            <div id="starFive" style="display: none;">
+            <img src="images/star.png" width="40px" height="40px" alt="star.png">
+            </div>
         </div>
 
         <div style="display: block; overflow: hidden;">
@@ -25,8 +42,8 @@
 
                 <p class="fancyBorder" id="name">  </p>
                 <p class="fancyBorder" id="pizzaCounter"> Pizzas: 0 </p>
-                <p class="fancyBorder"> <span class="fa fa-hand-pointer-o"> Total Pizzas Clicked: </span> <span id="pizzaTotal"> 0 </span> </p>
-                <p class="fancyBorder"> Clicks Per Second: <span id="cps"> 0.00 </span></p>
+                <p class="fancyBorder"> <span class="fa fa-hand-pointer-o"> Total Pizzas Baked: </span> <span id="pizzaTotal"> 0 </span> </p>
+                <p class="fancyBorder"> Pizzas Per Second: <span id="cps"> 0.00 </span></p>
 
                 <div class="row">
                     <div class="col-6">
@@ -103,35 +120,52 @@
                             <th class="border"> Cost </th>
                             <th class="border"> Effect </th>
                         </tr>
+                        <tr id="ironMouse" style="display: none;">
+                          <td class="border"> Iron Mouse </td> 
+                          <td class="border"><img src="images/transparentPizza.png" height="25px" width="25px"> Price: 500 </td>
+                          <td class="border"> Mouse clicks are twice as powerful - <i> "Clicks harder" </i> </td>
+                          <td class="border"><button class="fancybutton" style="cursor: pointer;" onmousedown="playButtonSound()" id="ironButton" onclick="ironAdder()"> Buy </button></td>
+                        </tr> 
+                        <tr id="goldMouse" style="display: none;">
+                          <td class="border"> Gold Mouse </td> 
+                          <td class="border"><img src="images/transparentPizza.png" height="25px" width="25px"> Price: 5000 </td>
+                          <td class="border"> Mouse clicks are twice as powerful - <i> "Clicks EVEN harder" </i> </td>
+                          <td class="border"><button class="fancybutton" style="cursor: pointer;" onmousedown="playButtonSound()" id="goldButton" onclick="goldAdder()"> Buy </button></td>
+                        </tr> 
+                        <tr id="diamondMouse" style="display: none;">
+                          <td class="border"> Diamond Mouse </td> 
+                          <td class="border"><img src="images/transparentPizza.png" height="25px" width="25px"> Price: 50000 </td>
+                          <td class="border"> Mouse clicks are twice as powerful - <i> "I broke my fingers" </i> </td>
+                          <td class="border"><button class="fancybutton" style="cursor: pointer;" onmousedown="playButtonSound()" id="diamondButton" onclick="diamondAdder()"> Buy </button></td>
+                        </tr> 
                         <tr id="GPC" style="display: none;">
                             <td class="border"> Graduated Pointer Cookers </td> 
                             <td class="border"><img src="images/transparentPizza.png" height="25px" width="25px"> Price: 100 </td>
                             <td class="border"> Pointer Cookers are twice as powerful - <i> "They graduated cooking collage to work for you" </i> </td>
-                            <td><button class="fancybutton" style="cursor: pointer;" onmousedown="playButtonSound()" id="graduateButton" onclick="graduateAdder()"> Buy </button></td>
+                            <td class="border"><button class="fancybutton" style="cursor: pointer;" onmousedown="playButtonSound()" id="graduateButton" onclick="graduateAdder()"> Buy </button></td>
                         </tr> 
                         <tr id="HPC" style="display: none;"> 
                             <td class="border"> Heated Pointer Cookers </td>
                             <td class="border"><img src="images/transparentPizza.png" height="25px" width="25px"> Price: 1000 </td>
                             <td class="border"> Pointer Cookers are twice as powerful - <i> "Extra heat for faster cooking times" </i></td>
-                            <td><button class="fancybutton" style="cursor: pointer;" onmousedown="playButtonSound()" id="hotButton" onclick="hotAdder()"> Buy </button></td>
+                            <td class="border"><button class="fancybutton" style="cursor: pointer;" onmousedown="playButtonSound()" id="hotButton" onclick="hotAdder()"> Buy </button></td>
                         </tr>
                         <tr id="OPC" style="display: none;">
                             <td class="border"> Overseer Pointer Cookers </td>
                             <td class="border"><img src="images/transparentPizza.png" height="25px" width="25px"> Price: 10000 </td>
                             <td class="border"> Pointer Cookers are twice as powerful - <i> "The one pointer to rule them all" </i></td>
-                            <td><button class="fancybutton" style="cursor: pointer;" onmousedown="playButtonSound()" id="overButton" onclick="overAdder()"> Buy </button></td>
+                            <td class="border"><button class="fancybutton" style="cursor: pointer;" onmousedown="playButtonSound()" id="overButton" onclick="overAdder()"> Buy </button></td>
                         </tr>
                         <tr id="tomato" style="display: none;"> 
                             <td class="border"> Tomato Sauce </td>
                             <td class="border"><img src="images/transparentPizza.png" height="25px" width="25px"> Price: 1000000 </td>
                             <td class="border"> Increases production +1% - <i> "The essentials" </i> </td>
-                            <td><button class="fancybutton" style="cursor: pointer;" onmousedown="playButtonSound()" id="tomatoButton" onclick="tomatoAdder()"> Buy </button></td>
+                            <td class="border"><button class="fancybutton" style="cursor: pointer;" onmousedown="playButtonSound()" id="tomatoButton" onclick="tomatoAdder()"> Buy </button></td>
                         </tr>
                     </table>
                 </div><br>
 
                 <div id="colors" style="display: none;" class="menuOptions">
-                
                     <p style="margin-right: 80px;" class="fancyBorderPlain"> <span class="fa fa-cog"> Color Picker: </span> </p> 
                     
                     <button class="fancybutton" style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="orange()"> Orange </button><br>
@@ -228,6 +262,18 @@
           <div class="modal-body">
             <br>
             <h2>Cheater cheater cheater cheater cheater cheater cheater :3</h2>
+          </div>
+        </div>
+      </div>
+
+      <div id="star" class="modal"> 
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2>New Star</h2>
+          </div>
+          <div class="modal-body">
+            <br>
+            <h2>A new star has been gained</h2>
           </div>
         </div>
       </div>
