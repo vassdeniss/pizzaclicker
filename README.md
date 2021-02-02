@@ -13,3 +13,6 @@ If any questions are had please contact be personally via email at: vassdeniss@g
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+## License 
+Licensed Under [GNU General Public License v3.0](https://choosealicense.com/licenses/gpl-3.0/)
