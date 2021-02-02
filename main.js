@@ -7,7 +7,7 @@ var ovensCount = 0;
 var chefsCount = 0;
 var restaurantCount = 0;
 
-// CPS - 7
+// CPS - 8
 var mouseCPS = 1;
 var clickerCPS = 0;
 var ovensCPS = 0;
@@ -15,9 +15,11 @@ var chefsCPS = 0;
 var restaurantCPS = 0;
 var totalCPS = 0;
 var tomatoCPS = 0;
+var cheeseCPS = 0;
 
-// Upgrades Enabled - 7
+// Upgrades Enabled - 8
 var tomatoSauce = false;
+var cheese = false;
 var ironMouse = false;
 var goldMouse = false;
 var diamondMouse = false;
@@ -31,7 +33,7 @@ var ovensPrice = 100;
 var chefsPrice = 1100;
 var restaurantPrice = 12000;
 
-// Unlock Checkers - 10
+// Unlock Checkers - 11
 var ironEnabled = false;
 var goldEnabled = false;
 var diamondEnabled = false;
@@ -39,6 +41,7 @@ var graduateEnabled = false;
 var hotEnabled = false; 
 var overEnabled = false; 
 var tomatoEnabled = false;
+var cheeseEnabled = false;
 var ovensEnabled = false;
 var chefsEnabled = false;
 var restaurantEnabled = false;
@@ -67,6 +70,10 @@ var starOne = false;
 window.setInterval(Timer, 1000); 
 window.onload = defaultName;
 window.setInterval(autoSave, 60000);
+
+function numberWithCommas(count) {
+    return count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 
 function openModal() {
     document.getElementById("poorModal").style.display = "block";
@@ -242,7 +249,7 @@ function pizzaAdder() {
     totalCount += mouseCPS;
     selfCount += 1;
     totalPizzas();
-    document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toFixed(0);
+    document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toLocaleString(undefined, {maximumFractionDigits: 0});
     if (ovensEnabled == true) {
 
     } else if (count >= 100) {
@@ -277,6 +284,15 @@ function pizzaAdder() {
         document.getElementById("tomato").style.display = "";
         playModalSound();
         newUpgrade();
+    }
+
+    if (cheeseEnabled == true) {
+
+    } else if (count >= 10000000) {
+        cheeseEnabled = true; 
+        document.getElementById("cheese").style.display = ""; 
+        playModalSound(); 
+        newUpgrade(); 
     }
 
     if (ironEnabled == true) {
@@ -352,10 +368,10 @@ function clickersAdder() {
         CPS();
         document.getElementById("clickerCount").textContent = "Count: " + clickersCount;
         count = count - clickersPrice;
-        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toFixed(0);
+        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toLocaleString(undefined, {maximumFractionDigits: 0});
         var formula = 15 * Math.pow(1.15, clickersCount);
         clickersPrice = formula;
-        document.getElementById("clickersPrice").textContent = "Price: " + clickersPrice.toFixed(0);
+        document.getElementById("clickersPrice").textContent = "Price: " + clickersPrice.toLocaleString(undefined, {maximumFractionDigits: 0});
 
         if (graduateEnabled == true) {
 
@@ -397,10 +413,10 @@ function ovensAdder() {
         CPS();
         document.getElementById("ovensCount").textContent = "Count: " + ovensCount;
         count = count - ovensPrice;
-        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toFixed(0);
+        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toLocaleString(undefined, {maximumFractionDigits: 0});
         var formula = 100 * Math.pow(1.15, ovensCount);
         ovensPrice = formula;
-        document.getElementById("ovensPrice").textContent = "Price: " + ovensPrice.toFixed(0);
+        document.getElementById("ovensPrice").textContent = "Price: " + ovensPrice.toLocaleString(undefined, {maximumFractionDigits: 0});
     } else {
         playModalSound();
         openModal();
@@ -414,10 +430,10 @@ function chefsAdder() {
         CPS();
         document.getElementById("chefsCount").textContent = "Count: " + chefsCount;
         count = count - chefsPrice;
-        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toFixed(0);
+        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toLocaleString(undefined, {maximumFractionDigits: 0});
         var formula = 1100 * Math.pow(1.15, chefsCount);
         chefsPrice = formula;
-        document.getElementById("chefsPrice").textContent = "Price: " + chefsPrice.toFixed(0);
+        document.getElementById("chefsPrice").textContent = "Price: " + chefsPrice.toLocaleString(undefined, {maximumFractionDigits: 0});
     } else {
         playModalSound();
         openModal();
@@ -431,10 +447,10 @@ function restaurantAdder() {
         CPS(); 
         document.getElementById("restaurantsCount").textContent = "Count: " + restaurantCount;
         count = count - restaurantPrice; 
-        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toFixed(0);
+        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toLocaleString(undefined, {maximumFractionDigits: 0});
         var formula = 12000 * Math.pow(1.15, restaurantCount);
         restaurantPrice = formula;
-        document.getElementById("restaurantsPrice").textContent = "Price: " + restaurantPrice.toFixed(0);
+        document.getElementById("restaurantsPrice").textContent = "Price: " + restaurantPrice.toLocaleString(undefined, {maximumFractionDigits: 0});
     } else {
         playModalSound(); 
         openModal(); 
@@ -445,7 +461,7 @@ function ironAdder() {
     if (count >= 500) {
         ironMouse = true; 
         count = count - 500; 
-        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toFixed(0);
+        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toLocaleString(undefined, {maximumFractionDigits: 0});
         mouseCPS = mouseCPS * 2;
         document.getElementById("ironButton").disabled = true;
     } else {
@@ -458,7 +474,7 @@ function goldAdder() {
     if (count >= 5000) {
         goldMouse = true; 
         count = count - 5000; 
-        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toFixed(0);
+        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toLocaleString(undefined, {maximumFractionDigits: 0});
         mouseCPS = mouseCPS * 2;
         document.getElementById("goldButton").disabled = true;
     } else {
@@ -471,7 +487,7 @@ function diamondAdder() {
     if (count >= 50000) {
         diamondMouse = true;
         count = count - 50000; 
-        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toFixed(0);
+        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toLocaleString(undefined, {maximumFractionDigits: 0});
         mouseCPS = mouseCPS * 2;
         document.getElementById("diamondButton").disabled = true;
     } else {
@@ -484,7 +500,7 @@ function graduateAdder() {
     if (count >= 100) {
         graduateCookers = true; 
         count = count - 100; 
-        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toFixed(0);
+        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toLocaleString(undefined, {maximumFractionDigits: 0});
         formulas();
         CPS(); 
         document.getElementById("graduateButton").disabled = true;
@@ -498,7 +514,7 @@ function hotAdder() {
     if (count >= 1000) {
         hotCookers = true;
         count = count - 1000;
-        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toFixed(0);
+        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toLocaleString(undefined, {maximumFractionDigits: 0});
         formulas();
         CPS();
         document.getElementById("hotButton").disabled = true;
@@ -512,7 +528,7 @@ function overAdder() {
     if (count >= 10000) {
         overCookers = true;
         count = count - 10000;
-        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toFixed(0);
+        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toLocaleString(undefined, {maximumFractionDigits: 0});
         formulas();
         CPS();
         document.getElementById("overButton").disabled = true;
@@ -524,10 +540,11 @@ function overAdder() {
 
 function tomatoAdder() { 
     if (count >= 1000000) {
+        document.getElementById("top").style.display = ""; 
         tomatoSauce = true; 
         tomatoCPS = (1 / 100) * totalCPS;
         count = count - 1000000; 
-        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toFixed(0);
+        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toLocaleString(undefined, {maximumFractionDigits: 0});
         CPS(); 
         document.getElementById("tomatoButton").disabled = true;
         document.getElementById("TSImage").style.display = "block"; 
@@ -537,12 +554,24 @@ function tomatoAdder() {
     }
 }
 
+function cheeseAdder() {
+    if (count >= 10000000) {
+        cheese = true; 
+        cheeseCPS = (1 / 100) * totalCPS; 
+        count = count - 10000000; 
+        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toLocaleString(undefined, {maximumFractionDigits: 0});
+        CPS(); 
+        document.getElementById("cheeseButton").disabled = true; 
+        document.getElementById("CImage").style.display = "block"; 
+    }
+}
+
 function Timer() {
     if (clickersCount >= 1) {
         count += clickerCPS + ovensCPS + chefsCPS + restaurantCPS;
         totalCount += clickerCPS + ovensCPS + chefsCPS + restaurantCPS;
         totalPizzas();
-        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toFixed(0);
+        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toLocaleString(undefined, {maximumFractionDigits: 0});
     }
 }
 
@@ -577,12 +606,12 @@ function showColors() {
 }
 
 function totalPizzas() {
-    document.getElementById("pizzaTotal").textContent = totalCount.toFixed(0);
+    document.getElementById("pizzaTotal").textContent = totalCount.toLocaleString(undefined, {maximumFractionDigits: 0});
 }
 
 function CPS() {
-    totalCPS = clickerCPS + ovensCPS + chefsCPS + restaurantCPS + tomatoCPS; 
-    document.getElementById("cps").textContent = totalCPS.toFixed(2);
+    totalCPS = clickerCPS + ovensCPS + chefsCPS + restaurantCPS + tomatoCPS + cheeseCPS; 
+    document.getElementById("cps").textContent = totalCPS.toLocaleString(undefined, {maximumFractionDigits: 2});
 }
 
 function changeName() {
@@ -865,11 +894,13 @@ function save() {
         restaurantCPS: restaurantCPS,
         totalCPS: totalCPS,
         tomatoCPS: tomatoCPS,
+        cheeseCPS: cheeseCPS,
 
         ironMouse: ironMouse,
         goldMouse: goldMouse,
         diamondMouse: diamondMouse,
         tomatoSauce: tomatoSauce, 
+        cheese: cheese,
         graduateCookers: graduateCookers,
         hotCookers: hotCookers,
         overCookers: overCookers,
@@ -886,6 +917,7 @@ function save() {
         hotEnabled: hotEnabled,
         overEnabled: overEnabled,
         tomatoEnabled: tomatoEnabled,
+        cheeseEnabled: cheeseEnabled,
         ovensEnabled: ovensEnabled,
         chefsEnabled: chefsEnabled,
         restaurantEnabled: restaurantEnabled,
@@ -918,11 +950,13 @@ function load() {
     restaurantCPS = load.restaurantCPS; 
     totalCPS = load.totalCPS;
     tomatoCPS = load.tomatoCPS;
+    cheeseCPS = load.cheeseCPS;
 
     ironMouse = load.ironMouse;
     goldMouse = load.goldMouse;
     diamondMouse = load.diamondMouse;
     tomatoSauce = load.tomatoSauce; 
+    cheese = load.cheese; 
     graduateCookers = load.graduateCookers;
     hotCookers = load.hotCookers;
     overCookers = load.overCookers;
@@ -939,6 +973,7 @@ function load() {
     hotEnabled = load.hotEnabled;
     overEnabled = load.overEnabled;
     tomatoEnabled = load.tomatoEnabled;
+    cheeseEnabled = load.cheeseEnabled;
     ovensEnabled = load.ovensEnabled;
     chefsEnabled = load.chefsEnabled;
     restaurantEnabled = load.restaurantEnabled;
@@ -947,17 +982,15 @@ function load() {
 
     starOne = load.starOne;
 
-    
-
     if (restaurantName) {
         customName();
     } else {
         defaultName();
     }
 
-    document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toFixed(0);
-    document.getElementById("pizzaTotal").textContent = totalCount.toFixed(0);
-    document.getElementById("cps").textContent = totalCPS.toFixed(2);
+    document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toLocaleString(undefined, {maximumFractionDigits: 0});
+    document.getElementById("pizzaTotal").textContent = totalCount.toLocaleString(undefined, {maximumFractionDigits: 0});
+    document.getElementById("cps").textContent = totalCPS.toLocaleString(undefined, {maximumFractionDigits: 2});
 
     if (ovensEnabled == true) {
         document.getElementById("ovens").style.display = "";
@@ -989,6 +1022,9 @@ function load() {
     if (tomatoEnabled == true) {
         document.getElementById("tomato").style.display = "";
     }
+    if (cheeseEnabled == true) {
+        document.getElementById("cheese").style.display = "";
+    }
 
     if (starOne == true) {
         document.getElementById("starOne").style.display = "";
@@ -999,10 +1035,10 @@ function load() {
     document.getElementById("chefsCount").textContent = "Count: " + chefsCount;
     document.getElementById("restaurantsCount").textContent = "Count: " + restaurantCount;
 
-    document.getElementById("clickersPrice").textContent = "Price: " + clickersPrice.toFixed(0);
-    document.getElementById("ovensPrice").textContent = "Price: " + ovensPrice.toFixed(0);
-    document.getElementById("chefsPrice").textContent = "Price: " + chefsPrice.toFixed(0);
-    document.getElementById("restaurantsPrice").textContent = "Price: " + restaurantPrice.toFixed(0);
+    document.getElementById("clickersPrice").textContent = "Price: " + clickersPrice.toLocaleString(undefined, {maximumFractionDigits: 0});
+    document.getElementById("ovensPrice").textContent = "Price: " + ovensPrice.toLocaleString(undefined, {maximumFractionDigits: 0});
+    document.getElementById("chefsPrice").textContent = "Price: " + chefsPrice.toLocaleString(undefined, {maximumFractionDigits: 0});
+    document.getElementById("restaurantsPrice").textContent = "Price: " + restaurantPrice.toLocaleString(undefined, {maximumFractionDigits: 0});
 
     if (graduateCookers == true) {
         document.getElementById("graduateButton").disabled = true;
@@ -1023,8 +1059,13 @@ function load() {
         document.getElementById("overButton").disabled = true;
     }
     if (tomatoSauce == true) {
+        document.getElementById("top").style.display = ""; 
         document.getElementById("tomatoButton").disabled = true;
         document.getElementById("TSImage").style.display = "block"; 
+    }
+    if (cheese == true) {
+        document.getElementById("cheeseButton").disabled = true;
+        document.getElementById("CImage").style.display = "block"; 
     }
 
     playModalSound()

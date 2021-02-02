@@ -50,8 +50,10 @@
                     <img style="cursor: pointer;" id="pizza" src="images/transparentPizza.png" width="450px" height="400px"> 
                   </button>
                 </div>
-                <div style="display: none;" id="TSImage">
-                    <img style="float: left;" src="images/tomatoSauce.png" width="50px" height="100px"> 
+                <div>
+                    <p id="top" style="text-align: center; margin-top: 25px; display: none;"><b> Toppings: </b></p>
+                    <img style="display: none; float: left; margin-right: 20px;" id="TSImage" src="images/tomatoSauce.png" width="50px" height="100px"> 
+                    <img style="display: none; float: left; margin-top: 10px;" id="CImage" src="images/cheese.png" width="130px" height="100px"> 
                 </div>
 
             </div>
@@ -138,13 +140,13 @@
                         </tr> 
                         <tr id="goldMouse" style="display: none;">
                           <td> Gold Mouse </td> 
-                          <td><img src="images/transparentPizza.png" height="25px" width="25px"> Price: 5000 </td>
+                          <td><img src="images/transparentPizza.png" height="25px" width="25px"> Price: 5,000 </td>
                           <td> Mouse clicks are twice as powerful - <i> "Clicks EVEN harder" </i> </td>
                           <td><button class="fancybutton" style="cursor: pointer;" onmousedown="playButtonSound()" id="goldButton" onclick="goldAdder()"> Buy </button></td>
                         </tr> 
                         <tr id="diamondMouse" style="display: none;">
                           <td> Diamond Mouse </td> 
-                          <td><img src="images/transparentPizza.png" height="25px" width="25px"> Price: 50000 </td>
+                          <td><img src="images/transparentPizza.png" height="25px" width="25px"> Price: 50,000 </td>
                           <td> Mouse clicks are twice as powerful - <i> "I broke my fingers" </i> </td>
                           <td><button class="fancybutton" style="cursor: pointer;" onmousedown="playButtonSound()" id="diamondButton" onclick="diamondAdder()"> Buy </button></td>
                         </tr> 
@@ -156,22 +158,28 @@
                         </tr> 
                         <tr id="HPC" style="display: none;"> 
                             <td> Heated Pointer Cookers </td>
-                            <td><img src="images/transparentPizza.png" height="25px" width="25px"> Price: 1000 </td>
+                            <td><img src="images/transparentPizza.png" height="25px" width="25px"> Price: 1,000 </td>
                             <td> Pointer Cookers are twice as powerful - <i> "Extra heat for faster cooking times" </i></td>
                             <td><button class="fancybutton" style="cursor: pointer;" onmousedown="playButtonSound()" id="hotButton" onclick="hotAdder()"> Buy </button></td>
                         </tr>
                         <tr id="OPC" style="display: none;">
                             <td> Overseer Pointer Cookers </td>
-                            <td><img src="images/transparentPizza.png" height="25px" width="25px"> Price: 10000 </td>
+                            <td><img src="images/transparentPizza.png" height="25px" width="25px"> Price: 10,000 </td>
                             <td> Pointer Cookers are twice as powerful - <i> "The one pointer to rule them all" </i></td>
                             <td><button class="fancybutton" style="cursor: pointer;" onmousedown="playButtonSound()" id="overButton" onclick="overAdder()"> Buy </button></td>
                         </tr>
                         <tr id="tomato" style="display: none;"> 
                             <td> Tomato Sauce </td>
-                            <td><img src="images/transparentPizza.png" height="25px" width="25px"> Price: 1000000 </td>
-                            <td> Increases production +1% - <i> "The essentials" </i> </td>
+                            <td><img src="images/transparentPizza.png" height="25px" width="25px"> Price: 1,000,000 </td>
+                            <td> Increases production +1% - <i> "The essentials" </i></td>
                             <td><button class="fancybutton" style="cursor: pointer;" onmousedown="playButtonSound()" id="tomatoButton" onclick="tomatoAdder()"> Buy </button></td>
                         </tr>
+                        <tr id="cheese" style="display: none;">
+                            <td> Cheese </td>
+                            <td><img src="images/transparentPizza.png" height="25px" width="25px"> Price: 10,000,000 </td>
+                            <td> Increases production +2% - <i> "Basic cheesiness" </i></td>
+                            <td><button class="fancybutton" style="cursor: pointer;" onmousedown="playButtonSound()" id="cheeseButton" onclick="cheeseAdder()"> Buy </button></td>
+                        </tr> 
                       </tbody> 
                     </table> 
                 </div><br>
