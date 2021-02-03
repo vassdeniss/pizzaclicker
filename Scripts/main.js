@@ -16,12 +16,12 @@ var restaurantCPS = 0;
 var totalCPS = 0;
 var tomatoCPS = 0;
 var cheeseCPS = 0;
-var pepperCPS = 0; // 1
+var pepperCPS = 0;
 
 // Upgrades Enabled - 10
 var tomatoSauce = false;
 var cheese = false;
-var peppers = false; // 2
+var peppers = false; 
 var ironMouse = false;
 var goldMouse = false;
 var diamondMouse = false;
@@ -50,7 +50,7 @@ var pizzaEnabled = false;
 var powerEnabled = false;
 var tomatoEnabled = false;
 var cheeseEnabled = false;
-var peppersEnabled = false; // 3
+var peppersEnabled = false; 
 var ovensEnabled = false;
 var chefsEnabled = false;
 var restaurantEnabled = false;
@@ -63,6 +63,7 @@ var redTrue = false;
 var greenTrue = false; 
 var yellowTrue = false; 
 var blueTrue = false;
+var cyanTrue = false;
 var purpleTrue = false;
 
 var modal;
@@ -750,6 +751,7 @@ function orange() {
     greenTrue = false; 
     yellowTrue = false; 
     blueTrue = false;
+    cyanTrue = false;
     purpleTrue = false;
 
     colorChecker();
@@ -775,6 +777,7 @@ function red() {
     greenTrue = false; 
     yellowTrue = false; 
     blueTrue = false;
+    cyanTrue = false;
     purpleTrue = false;
 
     colorChecker();
@@ -800,6 +803,7 @@ function green() {
     greenTrue = true; 
     yellowTrue = false; 
     blueTrue = false;
+    cyanTrue = false;
     purpleTrue = false;
 
     colorChecker();
@@ -825,6 +829,7 @@ function yellow() {
     greenTrue = false; 
     yellowTrue = true; 
     blueTrue = false;
+    cyanTrue = false;
     purpleTrue = false;
 
     colorChecker();
@@ -850,6 +855,7 @@ function blue() {
     greenTrue = false; 
     yellowTrue = false; 
     blueTrue = true;
+    cyanTrue = false;
     purpleTrue = false;
 
     colorChecker();
@@ -869,12 +875,39 @@ function blue() {
     $(".themodal-header").css({"background-color": "blue"});
 }
 
+function cyan() {
+    orangeTrue = false;
+    redTrue = false;
+    greenTrue = false; 
+    yellowTrue = false; 
+    blueTrue = false;
+    cyanTrue = true;
+    purpleTrue = false;
+
+    colorChecker(); 
+
+    $("hr").css({"border": "10px solid cyan", "border-radius": "5px"});
+    $(".fancyBorder").css({"background": "rgba(0, 247, 255, 0.4)"});
+    $(".fancybutton").css({"border": "2px solid cyan"});
+    $(".fancyBorderPlain").css({"border": "2px solid cyan"});
+    $("td, th").css({"border": "2px solid cyan"});
+
+    $(".fancybutton").hover(function(){
+        $(this).css({"border": "2px solid cyan", "background-color": "cyan"});
+        }, function(){
+        $(this).css({"border": "2px solid cyan", "background-color": "transparent"});
+    });
+
+    $(".themodal-header").css({"background-color": "cyan"});
+}
+
 function purple() {
     orangeTrue = false;
     redTrue = false;
     greenTrue = false; 
     yellowTrue = false; 
     blueTrue = false;
+    cyanTrue = false;
     purpleTrue = true;
 
     colorChecker();
@@ -927,6 +960,12 @@ function colorChecker() {
                 }, function(){
                 $(this).css({"color": "white"});
             });
+        } else if (cyanTrue == true) {
+            $(".icons").hover(function(){
+                $(this).css({"color": "cyan"});
+                }, function(){
+                $(this).css({"color": "white"});
+            });
         } else if (purpleTrue == true) {
             $(".icons").hover(function(){
                 $(this).css({"color": "purple"});
@@ -965,6 +1004,12 @@ function colorChecker() {
         } else if (blueTrue == true) {
             $(".icons").hover(function(){
                 $(this).css({"color": "blue"});
+                }, function(){
+                $(this).css({"color": "black"});
+            });
+        } else if (cyanTrue == true) {
+            $(".icons").hover(function(){
+                $(this).css({"color": "cyan"});
                 }, function(){
                 $(this).css({"color": "black"});
             });
