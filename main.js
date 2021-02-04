@@ -259,7 +259,8 @@ function dark() {
     $(".yellow").toggleClass("yellowWhite"); 
     $(".blue").toggleClass("blueWhite"); 
     $(".cyan").toggleClass("cyanWhite"); 
-    $(".purple").toggleClass("purpleWhite"); 
+    $(".purple").toggleClass("purpleWhite");
+    $(".whiteMode").toggleClass("darkMode");  
 
     colorChecker(); 
 }

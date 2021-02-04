@@ -201,6 +201,30 @@ th, td {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
+.whiteMode {
+  border: 2px solid black;
+  background-color: transparent;
+  padding: 10px 12px;
+  text-align: center;
+  border-radius: 55px;
+  transition-duration: 0.4s;
+  color: black;
+  outline: none;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.darkMode {
+  border: 2px solid white;
+  background-color: transparent;
+  padding: 10px 12px;
+  text-align: center;
+  border-radius: 55px;
+  transition-duration: 0.4s;
+  color: white;
+  outline: none;
+  box-shadow: 0 8px 16px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
+}
+
 .orangeWhite {
   border: 2px solid orange;
   background-color: transparent;
@@ -210,7 +234,7 @@ th, td {
   transition-duration: 0.4s;
   color: white;
   outline: none;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 8px 16px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
 }
 
 .redWhite {
@@ -222,7 +246,7 @@ th, td {
   transition-duration: 0.4s;
   color: white;
   outline: none;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 8px 16px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
 }
 
 .greenWhite {
@@ -234,7 +258,7 @@ th, td {
   transition-duration: 0.4s;
   color: white;
   outline: none;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 8px 16px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
 }
 
 .yellowWhite {
@@ -246,7 +270,7 @@ th, td {
   transition-duration: 0.4s;
   color: white;
   outline: none;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 8px 16px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
 }
 
 .blueWhite {
@@ -258,7 +282,7 @@ th, td {
   transition-duration: 0.4s;
   color: white;
   outline: none;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 8px 16px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
 }
 
 .cyanWhite {
@@ -270,7 +294,7 @@ th, td {
   transition-duration: 0.4s;
   color: white;
   outline: none;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 8px 16px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
 }
 
 .purpleWhite {
@@ -282,7 +306,7 @@ th, td {
   transition-duration: 0.4s;
   color: white;
   outline: none;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 8px 16px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
 }
 
 .orange:hover {
@@ -318,6 +342,18 @@ th, td {
 .purple:hover {
   border: 2px solid purple;
   background-color: purple;
+}
+
+.whiteMode:hover {
+  border: 2px solid black; 
+  background-color: black;
+  color:white;
+}
+
+.darkMode:hover {
+  border: 2px solid white; 
+  background-color: white;
+  color:black;
 }
 
 .fancybuttonWhite {
@@ -426,4 +462,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
 @keyframes fadeOut {
   from {opacity: 1} 
   to {opacity: 0}
+}
+
+.borderDark {
+  border: 2px solid white;
 }
