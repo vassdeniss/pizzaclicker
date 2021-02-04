@@ -27,11 +27,6 @@ hr {
   transition-duration: 0.4s;
 }
 
-.line { 
-  display: inline-block;
-  font-size: 25px;
-}
-
 button {
   font-size: 20px;
 }
@@ -120,6 +115,209 @@ th, td {
   color: black;
   outline: none;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.orange {
+  border: 2px solid orange;
+  background-color: transparent;
+  padding: 10px 12px;
+  text-align: center;
+  border-radius: 55px;
+  transition-duration: 0.4s;
+  color: black;
+  outline: none;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.red {
+  border: 2px solid red;
+  background-color: transparent;
+  padding: 10px 12px;
+  text-align: center;
+  border-radius: 55px;
+  transition-duration: 0.4s;
+  color: black;
+  outline: none;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.green {
+  border: 2px solid green;
+  background-color: transparent;
+  padding: 10px 12px;
+  text-align: center;
+  border-radius: 55px;
+  transition-duration: 0.4s;
+  color: black;
+  outline: none;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.yellow {
+  border: 2px solid yellow;
+  background-color: transparent;
+  padding: 10px 12px;
+  text-align: center;
+  border-radius: 55px;
+  transition-duration: 0.4s;
+  color: black;
+  outline: none;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.blue {
+  border: 2px solid blue;
+  background-color: transparent;
+  padding: 10px 12px;
+  text-align: center;
+  border-radius: 55px;
+  transition-duration: 0.4s;
+  color: black;
+  outline: none;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.cyan {
+  border: 2px solid cyan;
+  background-color: transparent;
+  padding: 10px 12px;
+  text-align: center;
+  border-radius: 55px;
+  transition-duration: 0.4s;
+  color: black;
+  outline: none;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.purple {
+  border: 2px solid purple;
+  background-color: transparent;
+  padding: 10px 12px;
+  text-align: center;
+  border-radius: 55px;
+  transition-duration: 0.4s;
+  color: black;
+  outline: none;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.orangeWhite {
+  border: 2px solid orange;
+  background-color: transparent;
+  padding: 10px 12px;
+  text-align: center;
+  border-radius: 55px;
+  transition-duration: 0.4s;
+  color: white;
+  outline: none;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.redWhite {
+  border: 2px solid red;
+  background-color: transparent;
+  padding: 10px 12px;
+  text-align: center;
+  border-radius: 55px;
+  transition-duration: 0.4s;
+  color: white;
+  outline: none;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.greenWhite {
+  border: 2px solid green;
+  background-color: transparent;
+  padding: 10px 12px;
+  text-align: center;
+  border-radius: 55px;
+  transition-duration: 0.4s;
+  color: white;
+  outline: none;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.yellowWhite {
+  border: 2px solid yellow;
+  background-color: transparent;
+  padding: 10px 12px;
+  text-align: center;
+  border-radius: 55px;
+  transition-duration: 0.4s;
+  color: white;
+  outline: none;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.blueWhite {
+  border: 2px solid blue;
+  background-color: transparent;
+  padding: 10px 12px;
+  text-align: center;
+  border-radius: 55px;
+  transition-duration: 0.4s;
+  color: white;
+  outline: none;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.cyanWhite {
+  border: 2px solid cyan;
+  background-color: transparent;
+  padding: 10px 12px;
+  text-align: center;
+  border-radius: 55px;
+  transition-duration: 0.4s;
+  color: white;
+  outline: none;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.purpleWhite {
+  border: 2px solid purple;
+  background-color: transparent;
+  padding: 10px 12px;
+  text-align: center;
+  border-radius: 55px;
+  transition-duration: 0.4s;
+  color: white;
+  outline: none;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.orange:hover {
+  border: 2px solid orange;
+  background-color: orange;
+}
+
+.red:hover {
+  border: 2px solid red;
+  background-color: red;
+}
+
+.green:hover {
+  border: 2px solid green;
+  background-color: green;
+}
+
+.yellow:hover {
+  border: 2px solid yellow;
+  background-color: yellow;
+}
+
+.blue:hover {
+  border: 2px solid blue;
+  background-color: blue;
+}
+
+.cyan:hover {
+  border: 2px solid cyan;
+  background-color: cyan;
+}
+
+.purple:hover {
+  border: 2px solid purple;
+  background-color: purple;
 }
 
 .fancybuttonWhite {

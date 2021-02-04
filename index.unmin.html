@@ -6,8 +6,8 @@
         <title> Pizza Clicker </title> 
         <link rel="shortcut icon" type="image/png" href="images/icon.png">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="StyleSheets/bootstrap.min.css">
-        <link rel="stylesheet" href="StyleSheets/main.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="styleSheets/main.min.css">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     </head>
 
@@ -69,8 +69,7 @@
                     <button class="fancybutton" style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="changeName()" id="pickName"> <span class="fa fa-pencil"> Change Name </span> </button><br>
                     <button class="fancybutton" style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="save()"> <span class="fa fa-floppy-o"> Save </span> </button>
                     <button class="fancybutton" style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="load()"> <span class="fa fa-floppy-o"> Load </span> </button><br>
-                    <button class="fancybutton" style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="showColors()"> <span class="fa fa-cog"> Color Picker </span> </button><br>
-                    <button class="fancybutton" style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="dark()"> <span class="fa fa-moon-o">  Dark Mode  </span> </button><br>
+                    <button class="fancybutton" style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="showColors()"> <span class="fa fa-eyedropper"> Themes </span> </button><br>
 
                 </div>
 
@@ -104,14 +103,14 @@
                         </tr>
                         <tr id="chefs" style="display: none;">
                           <td> Chefs </td> 
-                          <td><img src="images/transparentPizza.png" height="25px" width="25px"><span id="chefsPrice">Price: 1100 </span></td> 
+                          <td><img src="images/transparentPizza.png" height="25px" width="25px"><span id="chefsPrice">Price: 1,100 </span></td> 
                           <td><span id="chefsCount"> Count: 0 </span></td> 
                           <td> Increases clicks by 8 </td>  
                           <td><button class="fancybutton" style="cursor: pointer;" onmousedown="playButtonSound()" onclick="chefsAdder()" id="chefsButton"> Buy </button></td>
                         </tr>
                         <tr id="restaurants" style="display: none;"> 
                           <td> Restaurants </td> 
-                          <td><img src="images/transparentPizza.png" height="25px" width="25px"><span id="restaurantsPrice">Price: 12000 </span></td>
+                          <td><img src="images/transparentPizza.png" height="25px" width="25px"><span id="restaurantsPrice">Price: 12,000 </span></td>
                           <td><span id="restaurantsCount"> Count: 0 </span></td>
                           <td> Increases clicks by 47 </td>
                           <td><button class="fancybutton" style="cursor: pointer;" onmousedown="playButtonSound()" onclick="restaurantAdder()" id="restaurantButton"> Buy </button></td>
@@ -152,28 +151,28 @@
                           <td><button class="fancybutton" style="cursor: pointer;" onmousedown="playButtonSound()" id="diamondButton" onclick="diamondAdder()"> Buy </button></td>
                         </tr> 
                         <tr id="GPC" style="display: none;">
-                            <td> Graduated Pointer Cookers </td> 
-                            <td><img src="images/transparentPizza.png" height="25px" width="25px"> Price: 100 </td>
-                            <td> Pointer Cookers are twice as powerful - <i> "They graduated cooking collage to work for you" </i> </td>
-                            <td><button class="fancybutton" style="cursor: pointer;" onmousedown="playButtonSound()" id="graduateButton" onclick="graduateAdder()"> Buy </button></td>
+                          <td> Graduated Pointer Cookers </td> 
+                          <td><img src="images/transparentPizza.png" height="25px" width="25px"> Price: 100 </td>
+                          <td> Pointer Cookers are twice as powerful - <i> "They graduated cooking collage to work for you" </i> </td>
+                          <td><button class="fancybutton" style="cursor: pointer;" onmousedown="playButtonSound()" id="graduateButton" onclick="graduateAdder()"> Buy </button></td>
                         </tr> 
                         <tr id="HPC" style="display: none;"> 
-                            <td> Heated Pointer Cookers </td>
-                            <td><img src="images/transparentPizza.png" height="25px" width="25px"> Price: 1,000 </td>
-                            <td> Pointer Cookers are twice as powerful - <i> "Extra heat for faster cooking times" </i></td>
-                            <td><button class="fancybutton" style="cursor: pointer;" onmousedown="playButtonSound()" id="hotButton" onclick="hotAdder()"> Buy </button></td>
+                          <td> Heated Pointer Cookers </td>
+                          <td><img src="images/transparentPizza.png" height="25px" width="25px"> Price: 1,000 </td>
+                          <td> Pointer Cookers are twice as powerful - <i> "Extra heat for extra cooking" </i></td>
+                          <td><button class="fancybutton" style="cursor: pointer;" onmousedown="playButtonSound()" id="hotButton" onclick="hotAdder()"> Buy </button></td>
                         </tr>
                         <tr id="OPC" style="display: none;">
-                            <td> Overseer Pointer Cookers </td>
-                            <td><img src="images/transparentPizza.png" height="25px" width="25px"> Price: 10,000 </td>
-                            <td> Pointer Cookers are twice as powerful - <i> "The one pointer to rule them all" </i></td>
-                            <td><button class="fancybutton" style="cursor: pointer;" onmousedown="playButtonSound()" id="overButton" onclick="overAdder()"> Buy </button></td>
+                          <td> Overseer Pointer Cookers </td>
+                          <td><img src="images/transparentPizza.png" height="25px" width="25px"> Price: 10,000 </td>
+                          <td> Pointer Cookers are twice as powerful - <i> "The one pointer to rule them all" </i></td>
+                          <td><button class="fancybutton" style="cursor: pointer;" onmousedown="playButtonSound()" id="overButton" onclick="overAdder()"> Buy </button></td>
                         </tr>
                         <tr id="BO" style="display: none;"> 
-                            <td> Big Ovens </td>
-                            <td><img src="images/transparentPizza.png" height="25px" width="25px"> Price: 500 </td>
-                            <td> Ovens are twice as powerful - <i> "Made for big pizzas" </i></td>
-                            <td><button class="fancybutton" style="cursor: pointer;" onmousedown="playButtonSound()" id="bigButton" onclick="bigAdder()"> Buy </button></td>
+                          <td> Big Ovens </td>
+                          <td><img src="images/transparentPizza.png" height="25px" width="25px"> Price: 500 </td>
+                          <td> Ovens are twice as powerful - <i> "Made for big pizzas" </i></td>
+                          <td><button class="fancybutton" style="cursor: pointer;" onmousedown="playButtonSound()" id="bigButton" onclick="bigAdder()"> Buy </button></td>
                         </tr>
                         <tr id="PO" style="display: none;"> 
                           <td> Pizza Ovens </td>
@@ -187,17 +186,35 @@
                           <td> Ovens are twice as powerful - <i> "Now you're baking with power!" </i></td>
                           <td><button class="fancybutton" style="cursor: pointer;" onmousedown="playButtonSound()" id="powerButton" onclick="powerAdder()"> Buy </button></td>
                         </tr>
+                        <tr id="commis" style="display: none;"> 
+                          <td> Commis Chefs </td>
+                          <td><img src="images/transparentPizza.png" height="25px" width="25px"> Price: 1,000 </td>
+                          <td> Chefs are twice as powerful - <i> "Hire professional junior chefs" </i></td>
+                          <td><button class="fancybutton" style="cursor: pointer;" onmousedown="playButtonSound()" id="commisButton" onclick="commisAdder()"> Buy </button></td>
+                        </tr>
+                        <tr id="partie" style="display: none;"> 
+                          <td> Chefs de Partie </td>
+                          <td><img src="images/transparentPizza.png" height="25px" width="25px"> Price: 10,000 </td>
+                          <td> Chefs are twice as powerful - <i> "Hire professional station chefs" </i></td>
+                          <td><button class="fancybutton" style="cursor: pointer;" onmousedown="playButtonSound()" id="partieButton" onclick="partieAdder()"> Buy </button></td>
+                        </tr>
+                        <tr id="master" style="display: none;"> 
+                          <td> Master Chefs </td>
+                          <td><img src="images/transparentPizza.png" height="25px" width="25px"> Price: 100,000 </td>
+                          <td> Chefs are twice as powerful - <i> "Hire professional master chefs" </i></td>
+                          <td><button class="fancybutton" style="cursor: pointer;" onmousedown="playButtonSound()" id="masterButton" onclick="masterAdder()"> Buy </button></td>
+                        </tr>
                         <tr id="tomato" style="display: none;"> 
-                            <td> Tomato Sauce </td>
-                            <td><img src="images/transparentPizza.png" height="25px" width="25px"> Price: 1,000,000 </td>
-                            <td> Increases production +1% - <i> "The essentials" </i></td>
-                            <td><button class="fancybutton" style="cursor: pointer;" onmousedown="playButtonSound()" id="tomatoButton" onclick="tomatoAdder()"> Buy </button></td>
+                          <td> Tomato Sauce </td>
+                          <td><img src="images/transparentPizza.png" height="25px" width="25px"> Price: 1,000,000 </td>
+                          <td> Increases production +1% - <i> "The essentials" </i></td>
+                          <td><button class="fancybutton" style="cursor: pointer;" onmousedown="playButtonSound()" id="tomatoButton" onclick="tomatoAdder()"> Buy </button></td>
                         </tr>
                         <tr id="cheese" style="display: none;">
-                            <td> Cheese </td>
-                            <td><img src="images/transparentPizza.png" height="25px" width="25px"> Price: 10,000,000 </td>
-                            <td> Increases production +2% - <i> "Basic cheesiness" </i></td>
-                            <td><button class="fancybutton" style="cursor: pointer;" onmousedown="playButtonSound()" id="cheeseButton" onclick="cheeseAdder()"> Buy </button></td>
+                          <td> Cheese </td>
+                          <td><img src="images/transparentPizza.png" height="25px" width="25px"> Price: 10,000,000 </td>
+                          <td> Increases production +2% - <i> "Basic cheesiness" </i></td>
+                          <td><button class="fancybutton" style="cursor: pointer;" onmousedown="playButtonSound()" id="cheeseButton" onclick="cheeseAdder()"> Buy </button></td>
                         </tr> 
                         <tr id="peppers" style="display: none;">
                           <td> Peppers </td>
@@ -210,14 +227,17 @@
                 </div><br>
 
                 <div id="colors" style="display: none;" class="menuOptions">
-                    <p style="margin-right: 80px;" class="fancyBorderPlain"> <span class="fa fa-cog"> Color Picker: </span> </p> 
-                    <button class="fancybutton" style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="orange()"> Orange </button><br>
-                    <button class="fancybutton" style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="red()"> Red </button><br>
-                    <button class="fancybutton" style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="green()"> Green </button><br>
-                    <button class="fancybutton" style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="yellow()"> Yellow </button><br>
-                    <button class="fancybutton" style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="blue()"> Blue </button><br>
-                    <button class="fancybutton" style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="cyan()"> Cyan </button><br>
-                    <button class="fancybutton" style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="purple()"> Purple </button><br>
+                    <p style="margin-right: 80px;" class="fancyBorderPlain"> <span class="fa fa-eyedropper"> Themes: </span> </p> 
+                    <div class="card-columns" style="margin-left: 50px;">
+                    <button class="orange" style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="orange()"> Orange </button><br>
+                    <button class="red" style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="red()"> Red </button><br>
+                    <button class="green" style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="green()"> Green </button><br>
+                    <button class="yellow" style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="yellow()"> Yellow </button><br>
+                    <button class="blue" style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="blue()"> Blue </button><br>
+                    <button class="cyan" style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="cyan()"> Cyan </button><br>
+                    <button class="purple" style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="purple()"> Purple </button><br>
+                    <button class="fancybutton" style="margin-bottom: 25px; cursor: pointer;" onmousedown="playButtonSound()" onclick="dark()"> <span class="fa fa-moon-o">  Dark Mode  </span> </button><br>
+                    </div>
                 </div>
             </div>
         </div>
@@ -326,6 +346,6 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-      <script src="Scripts/main.min.js"></script>
+      <script src="scripts/main.min.js"></script>
     </body>
 </html>
