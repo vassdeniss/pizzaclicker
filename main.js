@@ -18,7 +18,7 @@ var tomatoCPS = 0;
 var cheeseCPS = 0;
 var pepperCPS = 0;
 
-// Upgrades Enabled - 13
+// Upgrades Enabled - 16
 var tomatoSauce = false;
 var cheese = false;
 var peppers = false; 
@@ -34,6 +34,9 @@ var powerOvens = false;
 var commisChefs = false;
 var partieChefs = false; 
 var masterChefs = false;
+var chainRestaurants = false; 
+var familyRestaurants = false; 
+var franchiseRestaurants = false; 
 
 // Building Prices - 4
 var clickersPrice = 15;
@@ -54,6 +57,9 @@ var powerEnabled = false;
 var commisEnabled = false;
 var partieEnabled = false;
 var masterEnabled = false; 
+var chainEnabled = false; 
+var familyEnabled = false; 
+var franchiseEnabled = false;
 var tomatoEnabled = false;
 var cheeseEnabled = false;
 var peppersEnabled = false; 
@@ -62,6 +68,18 @@ var chefsEnabled = false;
 var restaurantEnabled = false;
 
 var restaurantName = "";
+
+var modal;
+var modal2;
+var modal3;
+var modal4;
+var modal5;
+var modal6;
+var modal7;
+var modal8;
+var modal9;
+var modal10;
+var modal11; 
 
 var darkOn = false;
 var orangeTrue = true;
@@ -72,20 +90,106 @@ var blueTrue = false;
 var cyanTrue = false;
 var purpleTrue = false;
 
-var modal;
-var modal2;
-var modal3;
-var modal4;
-var modal5;
-var modal6;
-var modal7;
-var modal8;
-
 var starOne = false;
 
 window.setInterval(Timer, 1000); 
 window.onload = defaultName;
 window.setInterval(autoSave, 60000);
+
+function randRange(data) {
+    var newTime = data[Math.floor(data.length * Math.random())]; 
+    return newTime; 
+}
+
+function randomEvents() {
+    var timeArray = new Array(300000, 480000, 600000, 780000, 900000, 1080000, 1200000, 1500000, 1800000);
+
+    var xPos = Math.floor(Math.random() * window.outerHeight);
+    var yPos = Math.floor(Math.random() * window.outerWidth);
+    var show = document.getElementById("pizzaBonus");
+
+    playGoldenSound(); 
+    $("#pizzaBonus").css({"top": xPos + "px", "left": yPos + "px"});
+    show.classList.add("fade-in");
+    show.style.display = "block"; 
+
+    clearInterval(timer); 
+    timer = setInterval(randomEvents, randRange(timeArray)); 
+
+    setTimeout(function() {
+        show.classList.remove("fade-in");
+        show.classList.add("fade-out");
+        setTimeout(function()  {
+            show.style.display = "none";
+        }, 1999);
+    }, 7000);
+}
+
+function bonusActivate() {
+    var chance;
+    var show = document.getElementById("pizzaBonus");
+
+    function calculateChance() {
+        chance = Math.random(); 
+    }
+
+    function bonusPizzas() {
+        var RND = Math.floor(Math.random() * (1000 - 500 + 1)) + 500; 
+        count = count + RND; 
+        totalCount = totalCount + RND; 
+        document.getElementById("bonusPizzasText").textContent = "You got " + RND + " bonus pizzas!"; 
+        playModalSound(); 
+        bonus(); 
+    }
+
+    function x7() {
+        clickerCPS = clickerCPS * 7;
+        ovensCPS = ovensCPS * 7;
+        chefsCPS = chefsCPS * 7;
+        restaurantCPS = restaurantCPS * 7;
+        CPS(); 
+        playModalSound(); 
+        x7Modal();
+        setTimeout(function() {
+            clickerCPS = clickerCPS / 7;
+            ovensCPS = ovensCPS / 7;
+            chefsCPS = chefsCPS / 7;
+            restaurantCPS = restaurantCPS / 7;
+            CPS(); 
+        }, 77000);
+    }
+
+    function x777() {
+        mouseCPS = mouseCPS * 777; 
+        playModalSound(); 
+        x777Modal(); 
+        setTimeout(function()  {
+            mouseCPS = mouseCPS / 777;
+        }, 13000);
+    }
+
+    function chanceCheck() {
+        if (chance < 0.60) {
+            bonusPizzas(); 
+        } else if (chance < 0.95) {
+            x7(); 
+        } else if (chance < 1) {
+            x777();
+        } else if (chance = 0.00) {
+            calculateChance(); 
+            chanceCheck(); 
+        }
+    }
+
+    calculateChance(); 
+    chanceCheck(); 
+
+    show.style.display = "none";
+}
+
+var start = new Array(300000, 600000, 900000, 1200000);
+var timer = setInterval(randomEvents, randRange(start));   
+//var timer = setInterval(randomEvents, 1000); 
 
 function openModal() {
     document.getElementById("poorModal").style.display = "block";
@@ -126,6 +230,21 @@ function starOneShow() {
     document.getElementById("star").style.display = "block";
 }
 
+function bonus() {
+    document.getElementById("bonusPizzas").style.display = "block";
+    autoCLose(); 
+}
+
+function x7Modal() {
+    document.getElementById("x7").style.display = "block";
+    autoCLose(); 
+}
+
+function x777Modal() {
+    document.getElementById("x777").style.display = "block";
+    autoCLose();
+}
+
 window.onclick = function(event) {
     modal = document.getElementById("poorModal");
     modal2 = document.getElementById("save");
@@ -135,6 +254,9 @@ window.onclick = function(event) {
     modal6 = document.getElementById("newBuilding");
     modal7 = document.getElementById("cheater");
     modal8 = document.getElementById("star"); 
+    modal9 = document.getElementById("bonusPizzas"); 
+    modal10 = document.getElementById("x7"); 
+    modal11 = document.getElementById("x777"); 
 
     if (event.target == modal) {
         modal.classList.add("themodal-close");
@@ -184,6 +306,24 @@ window.onclick = function(event) {
             modal8.style.display = "none";
             modal8.classList.remove("themodal-close");
         }, 200);
+    } else if (event.target == modal9) {
+        modal9.classList.add("themodal-close");
+        setTimeout(function() {
+            modal9.style.display = "none";
+            modal9.classList.remove("themodal-close");
+        }, 200);
+    } else if (event.target == modal10) {
+        modal10.classList.add("themodal-close");
+        setTimeout(function() {
+            modal10.style.display = "none";
+            modal10.classList.remove("themodal-close");
+        }, 200);
+    } else if (event.target == modal11) {
+        modal11.classList.add("themodal-close");
+        setTimeout(function() {
+            modal11.style.display = "none";
+            modal11.classList.remove("themodal-close");
+        }, 200);
     }
 }
 
@@ -200,6 +340,24 @@ function autoCLose() {
             setTimeout(function() {
                 modal3.style.display = "none";
                 modal3.classList.remove("themodal-close");
+            }, 200);
+        } else if (modal9.style.display == "block") {
+            modal9.classList.add("themodal-close");
+            setTimeout(function() {
+                modal9.style.display = "none";
+                modal9.classList.remove("themodal-close");
+            }, 200);
+        } else if (modal10.style.display == "block") {
+            modal10.classList.add("themodal-close");
+            setTimeout(function() {
+                modal10.style.display = "none";
+                modal10.classList.remove("themodal-close");
+            }, 200);
+        } else if (modal11.style.display == "block") {
+            modal11.classList.add("themodal-close");
+            setTimeout(function() {
+                modal11.style.display = "none";
+                modal11.classList.remove("themodal-close");
             }, 200);
         }
     }, 2000);
@@ -228,6 +386,12 @@ function playPizzaSound() {
 function playModalSound() {
     var sound = new Audio(); 
     sound.src = "sounds/popup.mp3";
+    sound.play(); 
+}
+
+function playGoldenSound() {
+    var sound = new Audio(); 
+    sound.src = "sounds/goldenPizza.mp3";
     sound.play(); 
 }
 
@@ -406,6 +570,15 @@ function formulas() {
 
     if (restaurantCount >= 1) {
         restaurantCPS = 47 * restaurantCount;
+        if (chainRestaurants == true) {
+            restaurantCPS = restaurantCPS * 2;
+            if (familyRestaurants == true) {
+                restaurantCPS = restaurantCPS * 2;
+                if (franchiseRestaurants == true) {
+                    restaurantCPS = restaurantCPS * 2;
+                }
+            }
+        }
     }
 }
 
@@ -552,6 +725,33 @@ function restaurantAdder() {
         var formula = 12000 * Math.pow(1.15, restaurantCount);
         restaurantPrice = formula;
         document.getElementById("restaurantsPrice").textContent = "Price: " + restaurantPrice.toLocaleString(undefined, {maximumFractionDigits: 0});
+
+        if (chainEnabled == true) {
+
+        } else if (restaurantCount >= 1) {
+            chainEnabled  = true;
+            document.getElementById("chain").style.display = "";
+            playModalSound();
+            newUpgrade();
+        }
+
+        if (familyEnabled == true) {
+
+        } else if (restaurantCount >= 50) {
+            familyEnabled  = true;
+            document.getElementById("family").style.display = "";
+            playModalSound();
+            newUpgrade();
+        }
+
+        if (franchiseEnabled == true) {
+
+        } else if (restaurantCount >= 100) {
+            franchiseEnabled = true;
+            document.getElementById("franchise").style.display = "";
+            playModalSound();
+            newUpgrade();
+        }
     } else {
         playModalSound(); 
         openModal(); 
@@ -717,6 +917,48 @@ function masterAdder() {
         formulas();
         CPS();
         document.getElementById("masterButton").disabled = true;
+    } else {
+        playModalSound();
+        openModal();
+    }
+}
+
+function chainAdder() {
+    if (count >= 5000) {
+        chainRestaurants = true;
+        count = count - 5000;
+        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toLocaleString(undefined, {maximumFractionDigits: 0});
+        formulas();
+        CPS();
+        document.getElementById("chainButton").disabled = true;
+    } else {
+        playModalSound();
+        openModal();
+    }
+}
+
+function familyAdder() {
+    if (count >= 50000) {
+        familyRestaurants = true;
+        count = count - 50000;
+        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toLocaleString(undefined, {maximumFractionDigits: 0});
+        formulas();
+        CPS();
+        document.getElementById("familyButton").disabled = true;
+    } else {
+        playModalSound();
+        openModal();
+    }
+}
+
+function franchiseAdder() {
+    if (count >= 500000) {
+        franchiseRestaurants = true;
+        count = count - 500000;
+        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toLocaleString(undefined, {maximumFractionDigits: 0});
+        formulas();
+        CPS();
+        document.getElementById("franchiseButton").disabled = true;
     } else {
         playModalSound();
         openModal();
@@ -1159,6 +1401,9 @@ function save() {
         commisChefs: commisChefs,
         partieChefs: partieChefs, 
         masterChefs: masterChefs,
+        chainRestaurants: chainRestaurants, 
+        familyRestaurants: familyRestaurants, 
+        franchiseRestaurants: franchiseRestaurants,
 
         clickersPrice: clickersPrice, 
         ovensPrice: ovensPrice, 
@@ -1177,6 +1422,9 @@ function save() {
         commisEnabled: commisEnabled, 
         partieEnabled: partieEnabled, 
         masterEnabled: masterEnabled,
+        chainEnabled: chainEnabled, 
+        familyEnabled: familyEnabled, 
+        franchiseEnabled: franchiseEnabled,
         tomatoEnabled: tomatoEnabled,
         cheeseEnabled: cheeseEnabled,
         peppersEnabled: peppersEnabled,
@@ -1231,6 +1479,9 @@ function load() {
     commisChefs = load.commisChefs; 
     partieChefs = load.partieChefs; 
     masterChefs = load.masterChefs;
+    chainRestaurants = load.chainRestaurants; 
+    familyRestaurants = load.familyRestaurants;
+    franchiseRestaurants = load.franchiseRestaurants;
 
     clickersPrice = load.clickersPrice; 
     ovensPrice = load.ovensPrice;
@@ -1249,6 +1500,9 @@ function load() {
     commisEnabled = load.commisEnabled; 
     partieEnabled = load.partieEnabled; 
     masterEnabled = load.masterEnabled;
+    chainEnabled = load.chainEnabled; 
+    familyEnabled = load.familyEnabled;  
+    franchiseEnabled = load.franchiseEnabled;
     tomatoEnabled = load.tomatoEnabled;
     cheeseEnabled = load.cheeseEnabled;
     peppersEnabled = load.peppersEnabled;
@@ -1315,6 +1569,15 @@ function load() {
     if (masterEnabled == true) {
         document.getElementById("master").style.display = "";
     }
+    if (chainEnabled == true) {
+        document.getElementById("chain").style.display = "";
+    }
+    if (familyEnabled == true) {
+        document.getElementById("family").style.display = "";
+    }
+    if (franchiseEnabled == true) {
+        document.getElementById("franchise").style.display = "";
+    }
     if (tomatoEnabled == true) {
         document.getElementById("tomato").style.display = "";
     }
@@ -1374,6 +1637,15 @@ function load() {
     }
     if (masterChefs == true) {
         document.getElementById("masterButton").disabled = true;
+    }
+    if (chainRestaurants == true) {
+        document.getElementById("chainButton").disabled = true;
+    }
+    if (familyRestaurants == true) {
+        document.getElementById("familyButton").disabled = true;
+    }
+    if (franchiseRestaurants == true) {
+        document.getElementById("franchiseButton").disabled = true;
     }
     if (tomatoSauce == true) {
         document.getElementById("top").style.display = ""; 
