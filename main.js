@@ -424,7 +424,7 @@ function dark() {
     $(".blue").toggleClass("blueWhite"); 
     $(".cyan").toggleClass("cyanWhite"); 
     $(".purple").toggleClass("purpleWhite");
-    $(".whiteMode").toggleClass("darkMode");  
+    $(".whiteMode").toggleClass("darkMode"); 
 
     colorChecker(); 
 }
@@ -434,7 +434,7 @@ function pizzaAdder() {
     totalCount += mouseCPS;
     selfCount += 1;
     totalPizzas();
-    document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toLocaleString(undefined, {maximumFractionDigits: 0});
+    document.getElementById("pizzaCounter").textContent = count.toLocaleString(undefined, {maximumFractionDigits: 0});
     if (ovensEnabled == true) {
 
     } else if (count >= 100) {
@@ -589,7 +589,7 @@ function clickersAdder() {
         CPS();
         document.getElementById("clickerCount").textContent = "Count: " + clickersCount;
         count = count - clickersPrice;
-        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toLocaleString(undefined, {maximumFractionDigits: 0});
+        document.getElementById("pizzaCounter").textContent = count.toLocaleString(undefined, {maximumFractionDigits: 0});
         var formula = 15 * Math.pow(1.15, clickersCount);
         clickersPrice = formula;
         document.getElementById("clickersPrice").textContent = "Price: " + clickersPrice.toLocaleString(undefined, {maximumFractionDigits: 0});
@@ -633,7 +633,7 @@ function ovensAdder() {
         CPS();
         document.getElementById("ovensCount").textContent = "Count: " + ovensCount;
         count = count - ovensPrice;
-        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toLocaleString(undefined, {maximumFractionDigits: 0});
+        document.getElementById("pizzaCounter").textContent = count.toLocaleString(undefined, {maximumFractionDigits: 0});
         var formula = 100 * Math.pow(1.15, ovensCount);
         ovensPrice = formula;
         document.getElementById("ovensPrice").textContent = "Price: " + ovensPrice.toLocaleString(undefined, {maximumFractionDigits: 0});
@@ -677,7 +677,7 @@ function chefsAdder() {
         CPS();
         document.getElementById("chefsCount").textContent = "Count: " + chefsCount;
         count = count - chefsPrice;
-        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toLocaleString(undefined, {maximumFractionDigits: 0});
+        document.getElementById("pizzaCounter").textContent = count.toLocaleString(undefined, {maximumFractionDigits: 0});
         var formula = 1100 * Math.pow(1.15, chefsCount);
         chefsPrice = formula;
         document.getElementById("chefsPrice").textContent = "Price: " + chefsPrice.toLocaleString(undefined, {maximumFractionDigits: 0});
@@ -721,7 +721,7 @@ function restaurantAdder() {
         CPS(); 
         document.getElementById("restaurantsCount").textContent = "Count: " + restaurantCount;
         count = count - restaurantPrice; 
-        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toLocaleString(undefined, {maximumFractionDigits: 0});
+        document.getElementById("pizzaCounter").textContent = count.toLocaleString(undefined, {maximumFractionDigits: 0});
         var formula = 12000 * Math.pow(1.15, restaurantCount);
         restaurantPrice = formula;
         document.getElementById("restaurantsPrice").textContent = "Price: " + restaurantPrice.toLocaleString(undefined, {maximumFractionDigits: 0});
@@ -762,7 +762,7 @@ function ironAdder() {
     if (count >= 500) {
         ironMouse = true; 
         count = count - 500; 
-        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toLocaleString(undefined, {maximumFractionDigits: 0});
+        document.getElementById("pizzaCounter").textContent = count.toLocaleString(undefined, {maximumFractionDigits: 0});
         mouseCPS = mouseCPS * 2;
         document.getElementById("ironButton").disabled = true;
     } else {
@@ -775,7 +775,7 @@ function goldAdder() {
     if (count >= 5000) {
         goldMouse = true; 
         count = count - 5000; 
-        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toLocaleString(undefined, {maximumFractionDigits: 0});
+        document.getElementById("pizzaCounter").textContent = count.toLocaleString(undefined, {maximumFractionDigits: 0});
         mouseCPS = mouseCPS * 2;
         document.getElementById("goldButton").disabled = true;
     } else {
@@ -788,7 +788,7 @@ function diamondAdder() {
     if (count >= 50000) {
         diamondMouse = true;
         count = count - 50000; 
-        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toLocaleString(undefined, {maximumFractionDigits: 0});
+        document.getElementById("pizzaCounter").textContent = count.toLocaleString(undefined, {maximumFractionDigits: 0});
         mouseCPS = mouseCPS * 2;
         document.getElementById("diamondButton").disabled = true;
     } else {
@@ -801,7 +801,7 @@ function graduateAdder() {
     if (count >= 100) {
         graduateCookers = true; 
         count = count - 100; 
-        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toLocaleString(undefined, {maximumFractionDigits: 0});
+        document.getElementById("pizzaCounter").textContent = count.toLocaleString(undefined, {maximumFractionDigits: 0});
         formulas();
         CPS(); 
         document.getElementById("graduateButton").disabled = true;
@@ -815,7 +815,7 @@ function hotAdder() {
     if (count >= 1000) {
         hotCookers = true;
         count = count - 1000;
-        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toLocaleString(undefined, {maximumFractionDigits: 0});
+        document.getElementById("pizzaCounter").textContent = count.toLocaleString(undefined, {maximumFractionDigits: 0});
         formulas();
         CPS();
         document.getElementById("hotButton").disabled = true;
@@ -829,7 +829,7 @@ function overAdder() {
     if (count >= 10000) {
         overCookers = true;
         count = count - 10000;
-        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toLocaleString(undefined, {maximumFractionDigits: 0});
+        document.getElementById("pizzaCounter").textContent = count.toLocaleString(undefined, {maximumFractionDigits: 0});
         formulas();
         CPS();
         document.getElementById("overButton").disabled = true;
@@ -843,7 +843,7 @@ function bigAdder() {
     if (count >= 500) {
         bigOvens = true;
         count = count - 500;
-        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toLocaleString(undefined, {maximumFractionDigits: 0});
+        document.getElementById("pizzaCounter").textContent = count.toLocaleString(undefined, {maximumFractionDigits: 0});
         formulas();
         CPS();
         document.getElementById("bigButton").disabled = true;
@@ -857,7 +857,7 @@ function povenAdder() {
     if (count >= 5000) {
         pizzaOvens = true;
         count = count - 5000;
-        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toLocaleString(undefined, {maximumFractionDigits: 0});
+        document.getElementById("pizzaCounter").textContent = count.toLocaleString(undefined, {maximumFractionDigits: 0});
         formulas();
         CPS();
         document.getElementById("povenButton").disabled = true;
@@ -871,7 +871,7 @@ function powerAdder() {
     if (count >= 50000) {
         powerOvens = true;
         count = count - 50000;
-        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toLocaleString(undefined, {maximumFractionDigits: 0});
+        document.getElementById("pizzaCounter").textContent = count.toLocaleString(undefined, {maximumFractionDigits: 0});
         formulas();
         CPS();
         document.getElementById("powerButton").disabled = true;
@@ -885,7 +885,7 @@ function commisAdder() {
     if (count >= 1000) {
         commisChefs = true;
         count = count - 1000;
-        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toLocaleString(undefined, {maximumFractionDigits: 0});
+        document.getElementById("pizzaCounter").textContent = count.toLocaleString(undefined, {maximumFractionDigits: 0});
         formulas();
         CPS();
         document.getElementById("commisButton").disabled = true;
@@ -899,7 +899,7 @@ function partieAdder() {
     if (count >= 10000) {
         partieChefs = true;
         count = count - 10000;
-        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toLocaleString(undefined, {maximumFractionDigits: 0});
+        document.getElementById("pizzaCounter").textContent = count.toLocaleString(undefined, {maximumFractionDigits: 0});
         formulas();
         CPS();
         document.getElementById("partieButton").disabled = true;
@@ -913,7 +913,7 @@ function masterAdder() {
     if (count >= 100000) {
         masterChefs = true;
         count = count - 100000;
-        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toLocaleString(undefined, {maximumFractionDigits: 0});
+        document.getElementById("pizzaCounter").textContent = count.toLocaleString(undefined, {maximumFractionDigits: 0});
         formulas();
         CPS();
         document.getElementById("masterButton").disabled = true;
@@ -927,7 +927,7 @@ function chainAdder() {
     if (count >= 5000) {
         chainRestaurants = true;
         count = count - 5000;
-        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toLocaleString(undefined, {maximumFractionDigits: 0});
+        document.getElementById("pizzaCounter").textContent = count.toLocaleString(undefined, {maximumFractionDigits: 0});
         formulas();
         CPS();
         document.getElementById("chainButton").disabled = true;
@@ -941,7 +941,7 @@ function familyAdder() {
     if (count >= 50000) {
         familyRestaurants = true;
         count = count - 50000;
-        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toLocaleString(undefined, {maximumFractionDigits: 0});
+        document.getElementById("pizzaCounter").textContent = count.toLocaleString(undefined, {maximumFractionDigits: 0});
         formulas();
         CPS();
         document.getElementById("familyButton").disabled = true;
@@ -955,7 +955,7 @@ function franchiseAdder() {
     if (count >= 500000) {
         franchiseRestaurants = true;
         count = count - 500000;
-        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toLocaleString(undefined, {maximumFractionDigits: 0});
+        document.getElementById("pizzaCounter").textContent = count.toLocaleString(undefined, {maximumFractionDigits: 0});
         formulas();
         CPS();
         document.getElementById("franchiseButton").disabled = true;
@@ -971,7 +971,7 @@ function tomatoAdder() {
         tomatoSauce = true; 
         tomatoCPS = (1 / 100) * totalCPS;
         count = count - 1000000; 
-        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toLocaleString(undefined, {maximumFractionDigits: 0});
+        document.getElementById("pizzaCounter").textContent = count.toLocaleString(undefined, {maximumFractionDigits: 0});
         CPS(); 
         document.getElementById("tomatoButton").disabled = true;
         document.getElementById("TSImage").style.display = "block"; 
@@ -986,7 +986,7 @@ function cheeseAdder() {
         cheese = true; 
         cheeseCPS = (2 / 100) * totalCPS; 
         count = count - 10000000; 
-        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toLocaleString(undefined, {maximumFractionDigits: 0});
+        document.getElementById("pizzaCounter").textContent = count.toLocaleString(undefined, {maximumFractionDigits: 0});
         CPS(); 
         document.getElementById("cheeseButton").disabled = true; 
         document.getElementById("CImage").style.display = "block"; 
@@ -1001,7 +1001,7 @@ function peppersAdder() {
         peppers = true; 
         pepperCPS = (3 / 100) * totalCPS; 
         count = count - 100000000; 
-        document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toLocaleString(undefined, {maximumFractionDigits: 0});
+        document.getElementById("pizzaCounter").textContent = count.toLocaleString(undefined, {maximumFractionDigits: 0});
         CPS(); 
         document.getElementById("peppersButton").disabled = true; 
         document.getElementById("PImage").style.display = "block"; 
@@ -1015,7 +1015,7 @@ function Timer() {
     count += clickerCPS + ovensCPS + chefsCPS + restaurantCPS;
     totalCount += clickerCPS + ovensCPS + chefsCPS + restaurantCPS;
     totalPizzas();
-    document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toLocaleString(undefined, {maximumFractionDigits: 0});
+    document.getElementById("pizzaCounter").textContent = count.toLocaleString(undefined, {maximumFractionDigits: 0});
 }
 
 function showBuildings() {
@@ -1049,7 +1049,7 @@ function showColors() {
 }
 
 function totalPizzas() {
-    document.getElementById("pizzaTotal").textContent = totalCount.toLocaleString(undefined, {maximumFractionDigits: 0});
+    document.getElementById("pizzaTotal").textContent = " " + totalCount.toLocaleString(undefined, {maximumFractionDigits: 0});
 }
 
 function CPS() {
@@ -1520,8 +1520,8 @@ function load() {
         defaultName();
     }
 
-    document.getElementById("pizzaCounter").textContent = "Pizzas: " + count.toLocaleString(undefined, {maximumFractionDigits: 0});
-    document.getElementById("pizzaTotal").textContent = totalCount.toLocaleString(undefined, {maximumFractionDigits: 0});
+    document.getElementById("pizzaCounter").textContent = count.toLocaleString(undefined, {maximumFractionDigits: 0});
+    document.getElementById("pizzaTotal").textContent = " " + totalCount.toLocaleString(undefined, {maximumFractionDigits: 0});
     document.getElementById("cps").textContent = totalCPS.toLocaleString(undefined, {maximumFractionDigits: 2});
 
     if (ovensEnabled == true) {
